@@ -4,13 +4,13 @@ package App::CharmKit::Role::Generate;
 
 use Moo::Role;
 
-=method create(str name)
+=method create_hook(str hook)
 
-Creates the project directory and any template files.
+Generator for tasks.
 
 =cut
-sub create {
-    my ($self, $name) = @_;
+sub create_hook {
+    my ($self, $hook) = @_;
 }
 
 1;
