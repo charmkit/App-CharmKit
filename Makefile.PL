@@ -10,16 +10,22 @@ use ExtUtils::MakeMaker ;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "App::CharmKit is ...",
+  "ABSTRACT" => "Perl Framework for authoring Juju charms",
   "AUTHOR" => "Adam Stokes <adamjs\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
   },
   "DISTNAME" => "App-CharmKit",
-  "EXE_FILES" => [],
+  "EXE_FILES" => [
+    "bin/charmkit"
+  ],
   "LICENSE" => "perl",
   "NAME" => "App::CharmKit",
   "PREREQ_PM" => {
+    "App::Cmd::Setup" => 0,
+    "Moo" => 0,
+    "Moo::Role" => 0,
+    "namespace::clean" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -37,10 +43,14 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "App::Cmd::Setup" => 0,
   "Mojolicious" => 0,
+  "Moo" => 0,
+  "Moo::Role" => 0,
   "Test::Mojo" => 0,
   "Test::More" => 0,
   "Test::NoTabs" => 0,
+  "namespace::clean" => 0,
   "strict" => 0,
   "warnings" => 0
 );

@@ -1,5 +1,5 @@
 ---
-abstract: 'App::CharmKit is ...'
+abstract: 'Perl Framework for authoring Juju charms'
 author:
   - 'Adam Stokes <adamjs@cpan.org>'
 build_requires:
@@ -17,6 +17,10 @@ meta-spec:
   version: '1.4'
 name: App-CharmKit
 requires:
+  App::Cmd::Setup: '0'
+  Moo: '0'
+  Moo::Role: '0'
+  namespace::clean: '0'
   strict: '0'
   warnings: '0'
 version: '0.001'

@@ -1,0 +1,10 @@
+#!/usr/bin/env perl
+
+# PODNAME: charmkit
+# ABSTRACT: entry point for charmkit
+
+use strict;
+use warnings;
+use App::CharmKit;
+
+App::CharmKit->run;

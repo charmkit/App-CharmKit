@@ -1,6 +1,6 @@
 # NAME
 
-App::CharmKit - App::CharmKit is ...
+App::CharmKit - Perl Framework for authoring Juju charms
 
 # VERSION
 
