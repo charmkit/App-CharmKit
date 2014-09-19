@@ -3,8 +3,16 @@ Changes from 2013-09-19 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.001 at 2014-09-19 17:28:01 +0000
+version 0.001 at 2014-09-19 17:57:55 +0000
 ------------------------------------------
+
+  Change: 7850da40c3937440f0c17bc9795ad501097af4e7
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 13:39:45 +0000
+
+    No options necessary for hook pack
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 437d684c34bf033a651be1c2f1ed1961f9c48a3b
   Author: Adam Stokes <adam.stokes@ubuntu.com>
