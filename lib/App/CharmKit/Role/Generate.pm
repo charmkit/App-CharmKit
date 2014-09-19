@@ -18,6 +18,19 @@ has src => (
     }
 );
 
+=attr default_hooks
+
+List of default hooks
+
+=cut
+has default_hooks => (
+    is      => 'ro',
+    lazy    => 1,
+    default => sub {
+        ['install', 'config-changed', 'upgrade-charm', 'start', 'stop'];
+    }
+);
+
 
 =method create_hook(STR hook)
 
@@ -27,7 +40,8 @@ Creates a charm hook based on `hook` name
 sub create_hook {
     my ($self, $hook) = @_;
 
-    (my $hook_heading = qq{#!/usr/bin/env perl
+    (   my $hook_heading =
+          qq{#!/usr/bin/env perl
 
 # PODNAME: $hook
 
@@ -52,8 +66,21 @@ Description of hook
 Any usage here
 
 =cut
-});
+}
+    );
     $self->src->child($hook)->spew_utf8($hook_heading);
+}
+
+=method create_all_hooks()
+
+Create all default hooks
+
+=cut
+sub create_all_hooks {
+    my ($self) = @_;
+    foreach (@{$self->default_hooks}) {
+        $self->create_hook($_);
+    }
 }
 
 1;

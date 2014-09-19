@@ -3,8 +3,24 @@ Changes from 2013-09-19 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.001 at 2014-09-19 17:57:55 +0000
+version 0.001 at 2014-09-19 19:24:42 +0000
 ------------------------------------------
+
+  Change: f126674e71ee7e8f2ccb3655af2542983e13521b
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 15:07:51 +0000
+
+    add cleaner
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: ec3de098528cfc7c0d1f826e3414f31a01447d3d
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 14:47:54 +0000
+
+    hook generate task
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 7850da40c3937440f0c17bc9795ad501097af4e7
   Author: Adam Stokes <adam.stokes@ubuntu.com>
