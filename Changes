@@ -3,8 +3,16 @@ Changes from 2013-09-19 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.001 at 2014-09-19 00:12:44 +0000
+version 0.001 at 2014-09-19 02:49:41 +0000
 ------------------------------------------
+
+  Change: 8aec5bb3ebbce7475bb1b7c9260ed1744c87b100
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 20:13:03 +0000
+
+    add init command
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 544a8f03762c31dc3da2a5fe050bcbae105989ac
   Author: Adam Stokes <adam.stokes@ubuntu.com>

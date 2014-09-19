@@ -3,24 +3,53 @@ package App::CharmKit::Role::Init;
 # ABSTRACT: Initialization of new charms
 
 use Carp;
+use YAML::Tiny;
 use Moo::Role;
 
-=method init(Path::Tiny path, HASHREF project)
+=method init(Path::Tiny path, HASH project)
 
 Creates new charm project using `path` basename as toplevel directory.
 `project` contains information to populate the requirements for a charm
 as described at https://juju.ubuntu.com/docs/authors-charm-writing.html
 
+A project hash consists of:
+
+    name => "my-charm",
+    summary => "A simple summary",
+    description => "An extended description",
+    maintainer => "Joe Hacker",
+    categories => "applications"
 =cut
 sub init {
     my ($self, $path, $project) = @_;
-    if ($path->exists) {
-        croak "$path exists and/or is not empty, please choose a different",
-          "charm name or remove the existing directory.";
-    }
     $path->child('hooks')->mkpath or die $!;
     $path->child('src')->mkpath   or die $!;
-    print "Your project is now ready.\n";
+
+    my $yaml = YAML::Tiny->new($project);
+    $yaml->write($path->child('metadata.yaml'));
+
+    $yaml = YAML::Tiny->new({options => ""});
+    $yaml->write($path->child('config.yaml'));
+
+    (   my $readme = qq{
+# $project->{name} - $project->{summary}
+
+$project->{description}
+
+# AUTHOR
+
+$project->{maintainer}
+
+# COPYRIGHT
+
+<year> $project->{maintainer}
+
+# LICENSE
+
+<insert license here>
+}
+    );
+    $path->child('README.md')->spew_utf8($readme);
 }
 
 1;
