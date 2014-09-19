@@ -7,20 +7,6 @@ use YAML::Tiny;
 use Software::License;
 use Moo::Role;
 
-=method init(Path::Tiny path, HASH project)
-
-Creates new charm project using `path` basename as toplevel directory.
-`project` contains information to populate the requirements for a charm
-as described at https://juju.ubuntu.com/docs/authors-charm-writing.html
-
-A project hash consists of:
-
-    name => "my-charm",
-    summary => "A simple summary",
-    description => "An extended description",
-    maintainer => "Joe Hacker",
-    categories => "applications"
-=cut
 sub init {
     my ($self, $path, $project) = @_;
     $path->child('hooks')->mkpath     or die $!;

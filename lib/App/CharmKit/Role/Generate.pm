@@ -5,11 +5,6 @@ package App::CharmKit::Role::Generate;
 use Path::Tiny;
 use Moo::Role;
 
-=attr src
-
-Source directory for hooks
-
-=cut
 has src => (
     is      => 'ro',
     lazy    => 1,
@@ -18,11 +13,6 @@ has src => (
     }
 );
 
-=attr default_hooks
-
-List of default hooks
-
-=cut
 has default_hooks => (
     is      => 'ro',
     lazy    => 1,
@@ -31,51 +21,18 @@ has default_hooks => (
     }
 );
 
-
-=method create_hook(STR hook)
-
-Creates a charm hook based on `hook` name
-
-=cut
 sub create_hook {
     my ($self, $hook) = @_;
 
     (   my $hook_heading =
           qq{#!/usr/bin/env perl
 
-# PODNAME: $hook
-
-use App::CharmKit::Helpers;
-
-# begin your $hook below
-
-
-
-# end hook code
-
-__END__
-
-=begin
-
-=head1 $hook
-
-Description of hook
-
-=head1 SYNOPSIS
-
-Any usage here
-
-=cut
+# Work starts here
 }
     );
     $self->src->child($hook)->spew_utf8($hook_heading);
 }
 
-=method create_all_hooks()
-
-Create all default hooks
-
-=cut
 sub create_all_hooks {
     my ($self) = @_;
     foreach (@{$self->default_hooks}) {

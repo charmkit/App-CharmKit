@@ -7,8 +7,8 @@ use Moo::Role;
 
 =attr src
 
-Source directory for hooks
-
+Path::Tiny object for pristine hooks. Primarily used during development
+of non fatpacked hooks.
 =cut
 has src => (
     is      => 'ro',
@@ -20,8 +20,8 @@ has src => (
 
 =method build()
 
-Packs hooks with required dependencies
-
+Uses fatpack to build the hooks and pulls in any necessary
+perl dependencies for use
 =cut
 sub build {
     my ($self) = @_;

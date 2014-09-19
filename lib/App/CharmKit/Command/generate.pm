@@ -7,22 +7,15 @@ use Moo;
 with('App::CharmKit::Role::Generate');
 use namespace::clean;
 
-=method opt_spec
+=func opt_spec()
 
---relation|-r
+--relation
 
-Generates a relation based hook defined by the charms access to
-interfaces.  For example, to generate a relation hook that requires a
-database interface, run:
+Generates hook based on its relation
 
-    $ charmkit generate -r database-relation-joined
+--all
 
---all|-a
-
-Generates all known default hooks
-
-    $ charmkit generate --all
-
+Generates all known hooks
 =cut
 sub opt_spec {
     return (
@@ -44,11 +37,6 @@ sub validate_args {
     }
 }
 
-=method execute
-
-Executes the associated Role passing in any hook argument
-
-=cut
 sub execute {
     my ($self, $opt, $args) = @_;
     if ($opt->{all}) {
