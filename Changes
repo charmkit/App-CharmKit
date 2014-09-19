@@ -1,14 +1,22 @@
 ==================================================
-Changes from 2013-09-18 00:00:00 +0000 to present.
+Changes from 2013-09-19 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.001 at 2014-09-18 15:24:00 +0000
+version 0.001 at 2014-09-19 00:12:44 +0000
 ------------------------------------------
 
-  Change: 2e677a0e787456fc4ade699b5cef7ee32d5661e5
+  Change: 544a8f03762c31dc3da2a5fe050bcbae105989ac
   Author: Adam Stokes <adam.stokes@ubuntu.com>
-  Date : 2014-09-18 11:23:37 +0000
+  Date : 2014-09-18 16:51:31 +0000
+
+    new roles
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 7ff0e6295dfc6a21b48be3c1278d4ec5cc1c8b76
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 11:24:41 +0000
 
     start roles
 

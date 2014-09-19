@@ -23,6 +23,7 @@ my %WriteMakefileArgs = (
   "NAME" => "App::CharmKit",
   "PREREQ_PM" => {
     "App::Cmd::Setup" => 0,
+    "Carp" => 0,
     "Moo" => 0,
     "Moo::Role" => 0,
     "namespace::clean" => 0,
@@ -44,6 +45,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "App::Cmd::Setup" => 0,
+  "Carp" => 0,
   "Mojolicious" => 0,
   "Moo" => 0,
   "Moo::Role" => 0,
