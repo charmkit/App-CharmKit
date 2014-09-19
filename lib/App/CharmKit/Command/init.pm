@@ -14,15 +14,15 @@ use namespace::clean;
 sub opt_spec {
     return (
         [   "category=s",
-            "generate skelton of category (applications, app-servers, "
-              . "cache-proxy, databases, file-servers, misc)",
+            "generate skelton of category: applications(default), app-servers, "
+              . "cache-proxy, databases, file-servers, misc",
             {default => 'applications'}
         ]
     );
 }
 
 sub abstract { 'Generate a charm skeleton.'}
-sub usage_desc {'%c init [--options] library <charm-name>'}
+sub usage_desc {'%c init [--options] <charm-name>'}
 
 sub validate_args {
     my ($self, $opt, $args) = @_;
@@ -62,4 +62,3 @@ sub execute {
 }
 
 1;
-

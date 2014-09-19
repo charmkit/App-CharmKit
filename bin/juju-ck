@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+
+# PODNAME: juju-ck
+# ABSTRACT: juju plugin for interfacing with charms made by App-CharmKit
+
+use strict;
+use warnings;
+
+print("This is our juju plugin");

@@ -17,7 +17,8 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "App-CharmKit",
   "EXE_FILES" => [
-    "bin/charmkit"
+    "bin/charmkit",
+    "bin/juju-ck"
   ],
   "LICENSE" => "perl",
   "NAME" => "App::CharmKit",
@@ -34,7 +35,7 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "Mojolicious" => 0,
+    "Pod::Elemental::Transformer::List" => 0,
     "Test::Mojo" => 0,
     "Test::More" => 0,
     "Test::NoTabs" => 0
@@ -50,10 +51,10 @@ my %FallbackPrereqs = (
   "App::Cmd::Setup" => 0,
   "Carp" => 0,
   "IO::Prompter" => 0,
-  "Mojolicious" => 0,
   "Moo" => 0,
   "Moo::Role" => 0,
   "Path::Tiny" => 0,
+  "Pod::Elemental::Transformer::List" => 0,
   "Test::Mojo" => 0,
   "Test::More" => 0,
   "Test::NoTabs" => 0,

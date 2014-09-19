@@ -22,8 +22,8 @@ A project hash consists of:
 =cut
 sub init {
     my ($self, $path, $project) = @_;
-    $path->child('hooks')->mkpath or die $!;
-    $path->child('src')->mkpath   or die $!;
+    $path->child('hooks')->mkpath     or die $!;
+    $path->child('src/hooks')->mkpath or die $!;
 
     my $yaml = YAML::Tiny->new($project);
     $yaml->write($path->child('metadata.yaml'));
