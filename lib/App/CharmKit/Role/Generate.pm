@@ -1,12 +1,12 @@
 package App::CharmKit::Role::Generate;
 
-# ABSTRACT: Project generation role
+# ABSTRACT: Generators for common tasks
 
 use Moo::Role;
 
-=method create_hook(str hook)
+=method create_hook(STR hook)
 
-Generator for tasks.
+Creates a charm hook based on `hook` name
 
 =cut
 sub create_hook {

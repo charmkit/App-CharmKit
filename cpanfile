@@ -4,6 +4,7 @@ requires "IO::Prompter" => "0";
 requires "Moo" => "0";
 requires "Moo::Role" => "0";
 requires "Path::Tiny" => "0";
+requires "Software::License" => "0";
 requires "YAML::Tiny" => "0";
 requires "namespace::clean" => "0";
 requires "strict" => "0";
@@ -11,6 +12,7 @@ requires "warnings" => "0";
 
 on 'test' => sub {
   requires "Pod::Elemental::Transformer::List" => "0";
+  requires "Software::License" => "0";
   requires "Test::Mojo" => "0";
   requires "Test::More" => "0";
   requires "Test::NoTabs" => "0";

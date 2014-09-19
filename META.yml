@@ -4,6 +4,7 @@ author:
   - 'Adam Stokes <adamjs@cpan.org>'
 build_requires:
   Pod::Elemental::Transformer::List: '0'
+  Software::License: '0'
   Test::Mojo: '0'
   Test::More: '0'
   Test::NoTabs: '0'
@@ -23,6 +24,7 @@ requires:
   Moo: '0'
   Moo::Role: '0'
   Path::Tiny: '0'
+  Software::License: '0'
   YAML::Tiny: '0'
   namespace::clean: '0'
   strict: '0'

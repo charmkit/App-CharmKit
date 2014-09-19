@@ -3,8 +3,16 @@ Changes from 2013-09-19 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.001 at 2014-09-19 03:17:55 +0000
+version 0.001 at 2014-09-19 14:37:25 +0000
 ------------------------------------------
+
+  Change: 4a85c820a11295a67d0395801e11bfd534ed75ff
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 23:19:51 +0000
+
+    Build out src dir
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 36353f6c1677496726920cf6a527c235c48c7e13
   Author: Adam Stokes <adam.stokes@ubuntu.com>

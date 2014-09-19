@@ -4,6 +4,7 @@ package App::CharmKit::Role::Init;
 
 use Carp;
 use YAML::Tiny;
+use Software::License;
 use Moo::Role;
 
 =method init(Path::Tiny path, HASH project)
@@ -50,6 +51,10 @@ $project->{maintainer}
 }
     );
     $path->child('README.md')->spew_utf8($readme);
+    my $class = "Software::License::" . $project->{license};
+    eval "require $class;";
+    my $license = $class->new({holder => $project->{maintainer}});
+    $path->child('LICENSE')->spew_utf8($license->fulltext);
 }
 
 1;
