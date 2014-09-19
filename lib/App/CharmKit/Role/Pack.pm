@@ -33,15 +33,4 @@ sub build {
     }
 }
 
-=method release()
-
-Moves resulting packed hooks into the proper charm
-hooks directory
-
-=cut
-sub release {
-  my ($self) = @_;
-  $self->build;
-}
-
 1;
