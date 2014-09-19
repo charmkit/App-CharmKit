@@ -26,12 +26,49 @@ sub init {
     $path->child('hooks')->mkpath     or die $!;
     $path->child('src/hooks')->mkpath or die $!;
 
+    # .gitignore
+    (   my $gitignore = qq{
+fatlib
+blib/
+.build/
+_build/
+cover_db/
+inc/
+Build
+!Build/
+Build.bat
+.last_cover_stats
+Makefile
+Makefile.old
+MANIFEST.bak
+MYMETA.*
+nytprof.out
+pm_to_blib
+!META.json
+.tidyall.d
+_build_params
+perltidy.LOG
+}
+    );
+    $path->child('.gitignore')->spew_utf8($gitignore);
+
+    # metadata.yaml
     my $yaml = YAML::Tiny->new($project);
     $yaml->write($path->child('metadata.yaml'));
 
+    # config.yaml
     $yaml = YAML::Tiny->new({options => ""});
     $yaml->write($path->child('config.yaml'));
 
+    # LICENSE
+    my $class = "Software::License::" . $project->{license};
+    eval "require $class;";
+    my $license = $class->new({holder => $project->{maintainer}});
+    my $year    = $license->year;
+    my $notice  = $license->notice;
+    $path->child('LICENSE')->spew_utf8($license->fulltext);
+
+    # README.md
     (   my $readme = qq{
 # $project->{name} - $project->{summary}
 
@@ -43,18 +80,15 @@ $project->{maintainer}
 
 # COPYRIGHT
 
-<year> $project->{maintainer}
+$year $project->{maintainer}
 
 # LICENSE
 
-<insert license here>
+$notice
 }
     );
     $path->child('README.md')->spew_utf8($readme);
-    my $class = "Software::License::" . $project->{license};
-    eval "require $class;";
-    my $license = $class->new({holder => $project->{maintainer}});
-    $path->child('LICENSE')->spew_utf8($license->fulltext);
+
 }
 
 1;

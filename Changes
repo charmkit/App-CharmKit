@@ -3,8 +3,24 @@ Changes from 2013-09-19 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.001 at 2014-09-19 14:37:25 +0000
+version 0.001 at 2014-09-19 17:24:04 +0000
 ------------------------------------------
+
+  Change: c571278b639ff35ac626975fef736c802b4579c9
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 12:26:59 +0000
+
+    new pack role
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 6dcbb58461306ce179abe00f546ef5e3d79bca32
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 10:38:08 +0000
+
+    add license generation
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 4a85c820a11295a67d0395801e11bfd534ed75ff
   Author: Adam Stokes <adam.stokes@ubuntu.com>

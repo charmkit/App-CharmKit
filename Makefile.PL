@@ -36,6 +36,7 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
+    "App::FatPacker" => 0,
     "Pod::Elemental::Transformer::List" => 0,
     "Software::License" => 0,
     "Test::Mojo" => 0,
@@ -51,6 +52,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "App::Cmd::Setup" => 0,
+  "App::FatPacker" => 0,
   "Carp" => 0,
   "IO::Prompter" => 0,
   "Moo" => 0,

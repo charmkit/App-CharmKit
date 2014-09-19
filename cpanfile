@@ -11,6 +11,7 @@ requires "strict" => "0";
 requires "warnings" => "0";
 
 on 'test' => sub {
+  requires "App::FatPacker" => "0";
   requires "Pod::Elemental::Transformer::List" => "0";
   requires "Software::License" => "0";
   requires "Test::Mojo" => "0";

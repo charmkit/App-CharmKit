@@ -3,6 +3,7 @@ abstract: 'Perl Framework for authoring Juju charms'
 author:
   - 'Adam Stokes <adamjs@cpan.org>'
 build_requires:
+  App::FatPacker: '0'
   Pod::Elemental::Transformer::List: '0'
   Software::License: '0'
   Test::Mojo: '0'
