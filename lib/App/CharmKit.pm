@@ -32,25 +32,25 @@ A charm directory created with CharmKit is:
 
 =head2 WORKFLOW
 
-All development happens within `src/hooks` and the builtin `pack` command
-is used for generating the proper hooks and dependencies within `hooks/`
-directory so Juju is able to act upon them. Hooks within `hooks/` directory
-are always overwritten, think of this similar to a `dist` or `release` directory.
+All development happens within B<src/hooks> and the builtin C<pack> command
+is used for generating the proper hooks and dependencies within B<hooks/>
+directory so Juju is able to act upon them. Hooks within B<hooks/> directory
+are always overwritten, think of this similar to a B<dist> or B<release> directory.
 
 To start a project:
 
   $ charmkit init [--with-hooks] <charm-name>
 
-If used `--with-hooks` then `src/hooks/` will be populated with all the default
+If used C<--with-hooks> then B<src/hooks/> will be populated with all the default
 hooks. A few questions will be prompted and then the project is generated with
-`config.yaml`, `metadata.yaml`, `LICENSE`, and `README.md`.
+B<config.yaml, metadata.yaml, LICENSE, and README.md>.
 
-In order to create additional charms:
+In order to create additional hooks:
 
   $ charmkit generate -r database-relation-joined
   $ charmkit generate upgrade-charm
 
-To package a releasable charm after `src/hooks/` is populated with completed
+To package a releasable charm after B<src/hooks/> is populated with completed
 charm definitions, running the following will finalize the charm for release:
 
   $ charmkit pack
