@@ -3,8 +3,24 @@ Changes from 2013-09-20 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.002 at 2014-09-20 02:15:01 +0000
+version 0.002 at 2014-09-20 03:04:09 +0000
 ------------------------------------------
+
+  Change: 82e3d3a4aa30c9adb2a7a7ca84d164e996cf07f2
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 23:03:43 +0000
+
+    update overview
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 8ebdc0805df0ffe6bc25cbdd9722197dddb5592e
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 22:50:24 +0000
+
+    add with-hooks option
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 86c0d99be67bce0d449116d58cc8d385455d98ac
   Author: Adam Stokes <adam.stokes@ubuntu.com>
