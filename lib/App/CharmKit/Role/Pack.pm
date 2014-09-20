@@ -27,9 +27,15 @@ sub build {
     my ($self) = @_;
     my $iter = $self->src->iterator;
     while (my $p = $iter->()) {
-        my $cmd = "fatpack pack " . $p->absolute . " > hooks/" . $p->basename. " 2>/dev/null";
+        my $dst = path('hooks')->child($p->basename);
+        my $cmd =
+            "fatpack pack "
+          . $p->absolute . " > "
+          . $dst->absolute
+          . " 2>/dev/null";
         printf("Processing hook: %s\n", $p->basename);
         `$cmd`;
+        $dst->chmod(0777);
     }
 }
 

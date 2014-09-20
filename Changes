@@ -3,8 +3,16 @@ Changes from 2013-09-20 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.002 at 2014-09-20 19:14:10 +0000
+version 0.002 at 2014-09-20 23:48:25 +0000
 ------------------------------------------
+
+  Change: 735095d3ab82f4145e14af9047a9fe771cb83812
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-20 19:38:50 +0000
+
+    add execute hook
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: a22efcfc7e316e89554a74cce91b4a15998b7123
   Author: Adam Stokes <adam.stokes@ubuntu.com>
