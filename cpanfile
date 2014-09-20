@@ -2,6 +2,7 @@ requires "App::Cmd::Setup" => "0";
 requires "Carp" => "0";
 requires "File::chdir" => "0";
 requires "IO::Prompter" => "0";
+requires "IPC::Run" => "0";
 requires "Moo" => "0";
 requires "Moo::Role" => "0";
 requires "Path::Tiny" => "0";
