@@ -12,7 +12,13 @@ use Moo::Role;
 Builds the initialization directory structure for
 charm authoring.
 
-`project` can consists of the following:
+B<hooks/> is where the finalized charms are built
+
+B<t/> is for tests
+
+B<src/hooks/> is where all hook development happens
+
+B<project> hash can consist of the following:
 
     name => 'charm-test'
     summary => 'charm summary'
@@ -22,6 +28,7 @@ charm authoring.
 sub init {
     my ($self, $path, $project) = @_;
     $path->child('hooks')->mkpath     or die $!;
+    $path->child('t')->mkpath         or die $!;
     $path->child('src/hooks')->mkpath or die $!;
 
     # .gitignore
