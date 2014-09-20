@@ -4,28 +4,39 @@ package App::CharmKit::Command::init;
 
 =head1 SYNOPSIS
 
-Create a directory suitable for charm authoring
+Create a directory suitable for charm authoring with optional
+hook generation.
 
-  $ charmkit init my-charm
+  $ charmkit init [--with-hooks] <charm-name>
+
+=cut
+
+=head1 OPTIONS
+
+=head2 with-hooks
+
+Generates charm hooks during init.
 
 =cut
 
 use Path::Tiny;
+use File::chdir;
 use IO::Prompter [-verb];
 use App::CharmKit -command;
 
 use Moo;
-with('App::CharmKit::Role::Init');
+with 'App::CharmKit::Role::Init', 'App::CharmKit::Role::Generate';
 
 use namespace::clean;
 
 sub opt_spec {
     return (
         [   "category=s",
-            "generate skelton of category: applications(default), app-servers, "
+            "charm category: applications(default), app-servers, "
               . "cache-proxy, databases, file-servers, misc",
             {default => 'applications'}
-        ]
+        ],
+        ["with-hooks", "build directory with generated hook files"]
     );
 }
 
@@ -93,6 +104,12 @@ sub execute {
       '>';
 
     $self->init($path, $project);
+    if ($opt->{with_hooks}) {
+      {
+        local $CWD = $path->absolute;
+        $self->create_all_hooks;
+      }
+    }
     printf("Project skeleton created.\n");
 }
 

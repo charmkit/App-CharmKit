@@ -23,11 +23,15 @@ use Moo;
 with('App::CharmKit::Role::Generate');
 use namespace::clean;
 
-=func opt_spec()
+=head1 OPTIONS
 
---relation, Generates hook based on its relation
+=head2 relation|r
 
---all, Generates all known hooks
+Generates hook based on its relation
+
+=head2 all|a
+
+Generates all known hooks
 
 =cut
 sub opt_spec {
