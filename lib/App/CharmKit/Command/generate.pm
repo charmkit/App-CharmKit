@@ -19,13 +19,10 @@ use namespace::clean;
 
 =func opt_spec()
 
---relation
+--relation, Generates hook based on its relation
 
-Generates hook based on its relation
+--all, Generates all known hooks
 
---all
-
-Generates all known hooks
 =cut
 sub opt_spec {
     return (
