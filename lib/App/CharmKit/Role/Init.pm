@@ -7,6 +7,18 @@ use YAML::Tiny;
 use Software::License;
 use Moo::Role;
 
+=method init(Path::Tiny path, HASH project)
+
+Builds the initialization directory structure for
+charm authoring.
+
+`project` can consists of the following:
+
+    name => 'charm-test'
+    summary => 'charm summary'
+    description => 'extended description'
+    maintainer => 'Joe Hacker'
+=cut
 sub init {
     my ($self, $path, $project) = @_;
     $path->child('hooks')->mkpath     or die $!;

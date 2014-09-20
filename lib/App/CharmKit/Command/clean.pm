@@ -2,6 +2,12 @@ package App::CharmKit::Command::clean;
 
 # ABSTRACT: Cleanses project
 
+=head1 SYNOPSIS
+
+    $ charmkit clean
+
+=cut
+
 use App::CharmKit -command;
 use Path::Tiny;
 
@@ -24,3 +30,4 @@ sub execute {
 }
 
 1;
+

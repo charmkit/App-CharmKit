@@ -2,6 +2,16 @@ package App::CharmKit::Command::generate;
 
 # ABSTRACT: Generator for hook composition
 
+=head1 SYNOPSIS
+
+    Generate `install` hook
+    $ charmkit generate install
+
+    Generate all hooks
+    $ charmkit generate -a
+
+=cut
+
 use App::CharmKit -command;
 use Moo;
 with('App::CharmKit::Role::Generate');
