@@ -25,6 +25,8 @@ A charm directory created with CharmKit is:
         config-changed
         start
         stop
+    t/
+      00_basic.t
     config.yaml
     metadata.yaml
     LICENSE
