@@ -4,11 +4,17 @@ package App::CharmKit::Command::generate;
 
 =head1 SYNOPSIS
 
-    Generate `install` hook
-    $ charmkit generate install
+Generate `install` hook
 
-    Generate all hooks
-    $ charmkit generate -a
+  $ charmkit generate install
+
+Generate all hooks
+
+  $ charmkit generate -a
+
+Generate a website relation based hook
+
+  $ charmkit -r website-relation-changed
 
 =cut
 

@@ -4,7 +4,7 @@ package App::CharmKit::Command::clean;
 
 =head1 SYNOPSIS
 
-    $ charmkit clean
+  $ charmkit clean
 
 =cut
 

@@ -2,6 +2,14 @@ package App::CharmKit::Command::init;
 
 # ABSTRACT: Initialization of project
 
+=head1 SYNOPSIS
+
+Create a directory suitable for charm authoring
+
+  $ charmkit init my-charm
+
+=cut
+
 use Path::Tiny;
 use IO::Prompter [-verb];
 use App::CharmKit -command;
