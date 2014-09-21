@@ -15,7 +15,7 @@ System utilities such as installing packages, managing files, and more.
 
 =cut
 
-use IPC::Run ();
+use IPC::Run qw( run timeout );
 use Moo;
 use namespace::clean;
 
@@ -26,8 +26,7 @@ Executes a local command
 =cut
 sub run {
     my ($self, $command) = @_;
-    my $result = IPC::Run::run $command, \my $stdin, \my $stdout,
-      \my $stderr;
+    my $result = run $command, \my $stdin, \my $stdout, \my $stderr;
     chomp for ($stdout, $stderr);
 
     +{  stdout    => $stdout,
