@@ -4,10 +4,10 @@ package App::CharmKit::Sys;
 
 =head1 SYNOPSIS
 
-    use App::CharmKit::Sys;
+use App::CharmKit::Sys;
 
-    my $sys = App::CharmKit::Sys->new;
-    $sys->install_pkg(qw/emacs24 php5 php5-fpm/);
+my $sys = App::CharmKit::Sys->new;
+$sys->install_pkg(qw/emacs24 php5 php5-fpm/);
 
 =head1 DESCRIPTION
 
@@ -45,6 +45,18 @@ Installs packages using backends such as B<apt-get>.
 =cut
 sub install_pkg{
   my ($self, $pkgs) = @_;
+}
+
+=method log(STR message)
+
+Utilizies juju-log for logging
+
+=cut
+sub log {
+    my ($self, $message) = @_;
+    my @logger = qw/juju-log $message/;
+    my $res = $self->run(\@logger);
+    print($res->{stdout});
 }
 
 1;
