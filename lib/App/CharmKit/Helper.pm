@@ -23,7 +23,7 @@ Charm helpers for composition
 use App::CharmKit::Sys qw/execute/;
 use Exporter qw/import/;
 
-our @EXPORT = qw/config_get/;
+our @EXPORT = qw/config_get relation_ids relation_get/;
 
 =func config_get(STR option)
 
