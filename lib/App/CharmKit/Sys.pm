@@ -37,14 +37,4 @@ sub execute {
     };
 }
 
-=method log(STR message)
-
-Utilizies juju-log for logging
-
-=cut
-sub log {
-    my ($message) = @_;
-    print($message . "\n");
-}
-
 1;

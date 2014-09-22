@@ -35,6 +35,7 @@ use feature ();
 use parent 'autobox';
 
 use Path::Tiny qw(path);
+use Test::More;
 use Carp qw(croak);
 
 sub import {
@@ -59,6 +60,9 @@ sub import {
     if ($flags{info}) {
         require 'App/CharmKit/Log.pm';
         'App::CharmKit::Log'->import::into($target);
+    }
+    if ($flags{tester}) {
+        Test::More->import::into($target);
     }
 }
 

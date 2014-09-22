@@ -27,13 +27,12 @@ our @EXPORT = qw/log/;
 
 =func log(STR message)
 
-Utilizies log for logging
+Utilizies juju-log for any additional logging
 
 =cut
 sub log {
     my ($message) = @_;
-    my $cmd = execute(['juju-log', $message]);
-    print($cmd->{stdout});
+    execute(['juju-log', $message]);
 }
 
 1;

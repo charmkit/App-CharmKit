@@ -3,8 +3,16 @@ Changes from 2013-09-22 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.002 at 2014-09-22 20:01:02 +0000
+version 0.002 at 2014-09-22 20:29:28 +0000
 ------------------------------------------
+
+  Change: 1de2f6fe16ec7d20d92e260a26644b71eda24ee3
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 16:29:00 +0000
+
+    rename logging
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 795e94300ff91e0a29c2c6fa3bdf223df9d0af68
   Author: Adam Stokes <adam.stokes@ubuntu.com>
