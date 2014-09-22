@@ -44,7 +44,11 @@ sub create_hook {
     (   my $hook_heading =
           qq{#!/usr/bin/env perl
 
+use App::CharmKit::Helper;
+
 # Work starts here
+
+juju-log "Beging charm authoring for $hook";
 }
     );
     $self->src->child($hook)->spew_utf8($hook_heading);
