@@ -57,9 +57,9 @@ sub import {
         'App::CharmKit::Sys'->import::into($target);
         Path::Tiny->import::into($target, qw(path));
     }
-    if ($flags{info}) {
-        require 'App/CharmKit/Log.pm';
-        'App::CharmKit::Log'->import::into($target);
+    if ($flags{logging}) {
+        require 'App/CharmKit/Logging.pm';
+        'App::CharmKit::Logging'->import::into($target);
     }
     if ($flags{tester}) {
         Test::More->import::into($target);

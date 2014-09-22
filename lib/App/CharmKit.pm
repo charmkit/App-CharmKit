@@ -25,8 +25,10 @@ A charm directory created with CharmKit is:
         config-changed
         start
         stop
-    t/
-      00_basic.t
+      tests/
+        00-basic.test
+    tests/
+      00-basic.test
     config.yaml
     metadata.yaml
     LICENSE
@@ -34,8 +36,8 @@ A charm directory created with CharmKit is:
 
 =head2 WORKFLOW
 
-All development happens within B<src/hooks> and the builtin C<pack> command
-is used for generating the proper hooks and dependencies within B<hooks/>
+All development happens within B<src/> and the builtin C<pack> command
+is used for generating the proper hooks/tests and dependencies within that
 directory so Juju is able to act upon them. Hooks within B<hooks/> directory
 are always overwritten, think of this similar to a B<dist> or B<release> directory.
 
@@ -52,8 +54,44 @@ In order to create additional hooks:
   $ charmkit generate -r database-relation-joined
   $ charmkit generate upgrade-charm
 
-To package a releasable charm after B<src/hooks/> is populated with completed
-charm definitions, running the following will finalize the charm for release:
+=head2 WRITING A HOOK
+
+Hooks are written using perl with automatically imported helpers for convenience.
+When developing hooks they should reside in B<src/hooks>.
+
+A typical hook starts with
+
+   #!/usr/bin/env perl
+
+   use charm -helper, -logging;
+
+   log 'Starting install hook for database';
+   my $dbhost = relation_get 'dbhost';
+   my $dbuser = relation_get 'dbuser';
+
+=head2 WRITING A TEST
+
+Tests are written in the same way and should live in B<src/tests/*.test>.
+
+A typical test starts with
+
+   #!/usr/bin/env perl
+
+   use charm -tester;
+
+   # See if we can use package App::CharmKit
+   use_ok('App::CharmKit');
+
+   # finish tests
+   done_testing;
+
+Tests are built in a way that the test runner from the charm reviewers will be
+able to run and validate your charm.
+
+=head2 PACKING A CHARM FOR RELEASE
+
+Once development is complete and you have your hooks defined and tests written.
+Packaging a charm for release to either Git or the Charm Store is a matter of running:
 
   $ charmkit pack
 

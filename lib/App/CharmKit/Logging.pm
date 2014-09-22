@@ -31,8 +31,9 @@ Utilizies juju-log for any additional logging
 
 =cut
 sub log {
-    my ($message) = @_;
-    execute(['juju-log', $message]);
+    my $message = shift;
+    print("$message \n");
+    # execute(['juju-log', $message]);
 }
 
 1;

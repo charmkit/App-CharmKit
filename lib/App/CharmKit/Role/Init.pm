@@ -30,6 +30,7 @@ sub init {
     $path->child('hooks')->mkpath     or die $!;
     $path->child('tests')->mkpath     or die $!;
     $path->child('src/hooks')->mkpath or die $!;
+    $path->child('src/tests')->mkpath or die $!;
 
     # .gitignore
     (   my $gitignore = qq{
@@ -60,6 +61,17 @@ perltidy.LOG
     # tests/tests.yaml
     my $yaml = YAML::Tiny->new({packages => ['perl']});
     $yaml->write($path->child('tests/tests.yaml'));
+
+    # src/tests/00-basic.test
+    (my $basic_test = qq{#!/usr/bin/env perl
+
+use charm -tester;
+
+# How to write test using Test::More
+use_ok('App::CharmKit');
+done_testing;
+});
+    $path->child('src/tests/00-basic.test')->spew_utf8($basic_test);
 
     # metadata.yaml
     $yaml = YAML::Tiny->new($project);
