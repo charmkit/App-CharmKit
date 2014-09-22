@@ -4,7 +4,7 @@ package App::CharmKit;
 
 =head1 OVERVIEW
 
-An alternative to python charm-tools. CharmKit allows the creation of charm
+A perl way to charm authoring. CharmKit allows the creation of charm
 projects for publishing to the Charm Store. In addition, there is built in
 charm linter, packaging of all hooks and their dependencies, testing framework,
 and helper routines to aide in the development of charms.

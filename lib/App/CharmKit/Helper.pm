@@ -4,15 +4,15 @@ package App::CharmKit::Helper;
 
 =head1 SYNOPSIS
 
-use App::CharmKit::Helper;
+  use App::CharmKit::Helper;
 
 or
 
-use charm -helper;
+  use charm -helper;
 
-my $port = config_get 'port';
-my $database = relation_get 'database';
-my $dbuser = relation_get 'user';
+  my $port = config_get 'port';
+  my $database = relation_get 'database';
+  my $dbuser = relation_get 'user';
 
 =head1 DESCRIPTION
 
@@ -25,26 +25,38 @@ use Exporter qw/import/;
 
 our @EXPORT = qw/config_get/;
 
-=method config_get(STR option)
+=func config_get(STR option)
 
 Queries a config option
 
 =cut
 sub config_get {
-    my ($self, $key) = @_;
+    my ($key) = @_;
     my $cmd = ['config-get', $key];
     my $ret = execute($cmd);
     return $ret->{stdout};
 }
 
-=method relation_get(STR attribute, STR unit, STR rid)
+=func relation_get(STR attribute, STR unit, STR rid)
 
 Gets relation
 
 =cut
 sub relation_get {
-  my ($self, $key) = @_;
+  my ($key) = @_;
   my $cmd = ['relation-get', $key];
+  my $ret = execute($cmd);
+  return $ret->{stdout};
+}
+
+=func relation_ids(STR relation_name)
+
+Get relation ids
+
+=cut
+sub relation_ids {
+  my ($relation_name) = @_;
+  my $cmd = ['relation-ids', $relation_name];
   my $ret = execute($cmd);
   return $ret->{stdout};
 }

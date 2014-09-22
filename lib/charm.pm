@@ -31,8 +31,6 @@ use warnings;
 use Import::Into;
 
 use feature ();
-use parent 'autobox';
-
 use Path::Tiny qw(path);
 use Test::More;
 use Carp qw(croak);
