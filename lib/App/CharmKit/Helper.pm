@@ -61,4 +61,57 @@ sub relation_ids {
   return $ret->{stdout};
 }
 
+=func relation_list(INT rid)
+
+Relation list
+
+=cut
+sub relation_list {
+    my $rid = shift || undef;
+    my $cmd = ['relation-list'];
+    if ($rid) {
+        push @{$cmd}, '-r';
+        push @{$cmd}, $rid;
+    }
+    my $ret = execute($cmd);
+    return $ret->{stdout};
+}
+
+=func unit_get(STR key)
+
+Get unit information
+
+=cut
+sub unit_get {
+  my ($key) = @_;
+  my $cmd = ['unit-get', $key];
+  my $ret = execute($cmd);
+  return $ret->{stdout};
+}
+
+=func open_port(INT port, STR protocol)
+
+Open port on service
+
+=cut
+sub open_port {
+    my $port     = shift;
+    my $protocol = shift || 'TCP';
+    my $cmd      = ['open-port', "$port/$protocol"];
+    my $ret      = execute($cmd);
+    return $ret->{stdout};
+}
+
+=func close_port(INT port, STR protocol)
+
+Close port on service
+
+=cut
+sub close_port {
+    my $port     = shift;
+    my $protocol = shift || 'TCP';
+    my $cmd      = ['close-port', "$port/$protocol"];
+    my $ret      = execute($cmd);
+    return $ret->{stdout};
+}
 1;

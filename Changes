@@ -3,8 +3,24 @@ Changes from 2013-09-22 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.002 at 2014-09-22 22:17:54 +0000
+version 0.002 at 2014-09-22 22:45:58 +0000
 ------------------------------------------
+
+  Change: 4e5c1d95f422db26aba5c8b54407d509359474a7
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 18:22:18 +0000
+
+    update exports
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 2d7893da20d4ad906b56fbcef57093a614a5500d
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 18:18:16 +0000
+
+    update helper functions
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 0f162259c7625272bf5657a36e78515e5dcb4d66
   Author: Adam Stokes <adam.stokes@ubuntu.com>
