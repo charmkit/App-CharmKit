@@ -15,13 +15,12 @@ charm hooks. Including but not limited too strict, warnings, utf8, Path::Tiny,
 etc ..
 
     use charm -sys;
-    execute 'ls', '/tmp';
-    log 'went to the park';
 
-is equivalent to:
-
+or ..
     use App::CharmKit::Sys;
-    execute 'ls', '/tmp';
+
+    my $ret = execute ['ls', '/tmp'];
+    print($ret->{stdout});
     log 'went to the park';
 
 =cut
