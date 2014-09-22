@@ -35,7 +35,6 @@ use feature ();
 use parent 'autobox';
 
 use Path::Tiny qw(path);
-use YAML::Tiny qw(LoadFile DumpFile Load Dump);
 use Carp qw(croak);
 
 sub import {
@@ -55,6 +54,11 @@ sub import {
     if ($flags{sys}) {
         require 'App/CharmKit/Sys.pm';
         'App::CharmKit::Sys'->import::into($target);
+        Path::Tiny->import::into($target, qw(path));
+    }
+    if ($flags{info}) {
+        require 'App/CharmKit/Log.pm';
+        'App::CharmKit::Log'->import::into($target);
     }
 }
 

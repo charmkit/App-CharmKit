@@ -3,8 +3,24 @@ Changes from 2013-09-22 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.002 at 2014-09-22 18:16:42 +0000
+version 0.002 at 2014-09-22 20:01:02 +0000
 ------------------------------------------
+
+  Change: 795e94300ff91e0a29c2c6fa3bdf223df9d0af68
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 15:48:52 +0000
+
+    add log module
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 3bf31871f78f75934f13f8672b64a8f691b9c63f
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 14:42:32 +0000
+
+    more syntax sugar for helpers
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: f35dce704746eb2d6c192436eac59c54d9d9cd13
   Author: Adam Stokes <adam.stokes@ubuntu.com>

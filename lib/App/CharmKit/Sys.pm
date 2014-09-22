@@ -15,12 +15,12 @@ System utilities such as installing packages, managing files, and more.
 
 =cut
 
-use IPC::Run qw( run timeout );
-use Exporter qw( import );
+use IPC::Run qw(run timeout);
+use Exporter qw(import);
 
-our @EXPORT = qw/execute log/;
+our @EXPORT = qw/execute/;
 
-=fun execute(ARRAYREF command)
+=func execute(ARRAYREF command)
 
 Executes a local command
 
