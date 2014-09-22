@@ -14,7 +14,7 @@ charm authoring.
 
 B<hooks/> is where the finalized charms are built
 
-B<t/> is for tests
+B<tests/> is for tests
 
 B<src/hooks/> is where all hook development happens
 
@@ -28,7 +28,7 @@ B<project> hash can consist of the following:
 sub init {
     my ($self, $path, $project) = @_;
     $path->child('hooks')->mkpath     or die $!;
-    $path->child('t')->mkpath         or die $!;
+    $path->child('tests')->mkpath     or die $!;
     $path->child('src/hooks')->mkpath or die $!;
 
     # .gitignore
@@ -57,8 +57,12 @@ perltidy.LOG
     );
     $path->child('.gitignore')->spew_utf8($gitignore);
 
+    # tests/tests.yaml
+    my $yaml = YAML::Tiny->new({packages => ['perl']});
+    $yaml->write($path->child('tests/tests.yaml'));
+
     # metadata.yaml
-    my $yaml = YAML::Tiny->new($project);
+    $yaml = YAML::Tiny->new($project);
     $yaml->write($path->child('metadata.yaml'));
 
     # config.yaml
