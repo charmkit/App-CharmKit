@@ -40,4 +40,4 @@ requires:
   strict: '0'
   utf8::all: '0'
   warnings: '0'
-version: 0.003_1
+version: 0.003_2
