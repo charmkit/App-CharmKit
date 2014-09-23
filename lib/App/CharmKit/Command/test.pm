@@ -20,17 +20,23 @@ with('App::CharmKit::Role::Pack');
 use namespace::clean;
 
 sub opt_spec {
-    return ();
+    return (
+        [   "rebuild|r",
+            "force a re-pack of charm project before running tests"
+        ]
+    );
 }
 
 sub abstract { 'Tests your charm project'}
-sub usage_desc {'%c test'}
+sub usage_desc {'%c test [-r]'}
 
 sub execute {
     my ($self, $opt, $args) = @_;
-    $self->build;
+    if ($opt->{rebuild}) {
+        $self->build;
+    }
     my $cmd = "prove -v tests/*.test";
-    `$cmd`;
+    system($cmd);
 }
 
 1;
