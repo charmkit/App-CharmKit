@@ -3,8 +3,24 @@ Changes from 2013-09-23 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.002 at 2014-09-23 02:34:10 +0000
+version 0.002 at 2014-09-23 02:38:25 +0000
 ------------------------------------------
+
+  Change: 6504d0b545d760fd894095d48f431e1bdd837723
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 22:36:50 +0000
+
+    exposes syntactic sugar for handling juju integration
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 1c2dffe6d4c47ac3aa24f524f675e21b6809ddac
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 22:36:30 +0000
+
+    consolidate changes for initial release
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: c263d935fb485db8541ee9bbca3cbead2b6edf33
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -14,6 +30,319 @@ version 0.002 at 2014-09-23 02:34:10 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
+  Change: 4e5c1d95f422db26aba5c8b54407d509359474a7
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 18:22:18 +0000
+
+    update exports
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 2d7893da20d4ad906b56fbcef57093a614a5500d
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 18:18:16 +0000
+
+    update helper functions
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 0f162259c7625272bf5657a36e78515e5dcb4d66
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 17:57:38 +0000
+
+    update method doc
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 857ef1c0442e824b447f3a9e6c4a036c15762784
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 17:49:17 +0000
+
+    update docs and testers
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: df4148a665bdc8178ac490b03709cde052747542
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 17:07:50 +0000
+
+    work on tester
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 74aed325107bfbbe10feda4af1ed8b8128045429
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 17:07:42 +0000
+
+    add helper
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 1de2f6fe16ec7d20d92e260a26644b71eda24ee3
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 16:29:00 +0000
+
+    rename logging
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 795e94300ff91e0a29c2c6fa3bdf223df9d0af68
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 15:48:52 +0000
+
+    add log module
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 3bf31871f78f75934f13f8672b64a8f691b9c63f
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 14:42:32 +0000
+
+    more syntax sugar for helpers
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: f35dce704746eb2d6c192436eac59c54d9d9cd13
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 13:12:07 +0000
+
+    new helper package
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 05ce7aa6749bc46101f7dd2eaee65962e345bc25
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 11:31:11 +0000
+
+    add tests runner config
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: b9d516b751cd85258ac0e732a9147127bf618eb3
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-21 18:30:52 +0000
+
+    start work on interfacing with juju helper cmds
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: e7c93af95d9ef6453c80cee904341756ff3cfff1
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-20 20:23:39 +0000
+
+    update exec hook
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: ffd3b45a26ca4ed7921b30231740bdb44a38f662
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-20 19:49:44 +0000
+
+    make packed hooks executable
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 735095d3ab82f4145e14af9047a9fe771cb83812
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-20 19:38:50 +0000
+
+    add execute hook
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: a22efcfc7e316e89554a74cce91b4a15998b7123
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-20 11:12:31 +0000
+
+    add configuration getter/setter
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 75dbb63165a793a6742df11689edf0dbbafb6ca2
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 23:25:14 +0000
+
+    start sys helper package
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 75e9dc4cd69fc06bbbf680ab36d5047221153230
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 23:16:58 +0000
+
+    update readme
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 5471bef0bb5d87fb2cbc5859e3d4d82d4d34da6b
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 23:14:59 +0000
+
+    update init docs
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: fb50a239d7aecae4c9a34a4e22d9a1b259dc67e2
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 23:08:04 +0000
+
+    update readme syntax
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 889001b68b954825b740c0b9d927a61e23db8aee
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 23:04:26 +0000
+
+    update readme
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 82e3d3a4aa30c9adb2a7a7ca84d164e996cf07f2
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 23:03:43 +0000
+
+    update overview
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 8ebdc0805df0ffe6bc25cbdd9722197dddb5592e
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 22:50:24 +0000
+
+    add with-hooks option
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 86c0d99be67bce0d449116d58cc8d385455d98ac
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 22:02:20 +0000
+
+    update overview
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 4e828a874ead04a887b80ca84563ed81472c6ed5
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 21:52:07 +0000
+
+    add synopsis
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.001 at 2014-09-20 01:44:56 +0000
+------------------------------------------
+
+  Change: 553b7b36c28b3bb3437649e8a8b2ad4342163418
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 21:44:56 +0000
+
+    v0.001 
+
+  Change: 44c1ec3b1f4c6cac52a8aa772b2687260a6d2fc1
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 21:44:13 +0000
+
+    more documentation updates
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: a244ce5171534d71162316dd4460bc326d179817
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 16:02:34 +0000
+
+    update documentation
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 108203b61c727846a06f8557f7d5988b8ba9c80f
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 15:25:13 +0000
+
+    add cleaner
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: ec3de098528cfc7c0d1f826e3414f31a01447d3d
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 14:47:54 +0000
+
+    hook generate task
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 7850da40c3937440f0c17bc9795ad501097af4e7
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 13:39:45 +0000
+
+    No options necessary for hook pack
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 437d684c34bf033a651be1c2f1ed1961f9c48a3b
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 13:24:45 +0000
+
+    new pack role
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 6dcbb58461306ce179abe00f546ef5e3d79bca32
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-19 10:38:08 +0000
+
+    add license generation
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 4a85c820a11295a67d0395801e11bfd534ed75ff
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 23:19:51 +0000
+
+    Build out src dir
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 36353f6c1677496726920cf6a527c235c48c7e13
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 22:51:36 +0000
+
+    now initialize project directory skeleton
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 8aec5bb3ebbce7475bb1b7c9260ed1744c87b100
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 20:13:03 +0000
+
+    add init command
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 544a8f03762c31dc3da2a5fe050bcbae105989ac
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 16:51:31 +0000
+
+    new roles
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 7ff0e6295dfc6a21b48be3c1278d4ec5cc1c8b76
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 11:24:41 +0000
+
+    start roles
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 0a69bc1e2e1c52e37722d456b14bcd4309420768
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-18 00:21:23 +0000
+
+    init
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
 ================
 End of releases.
