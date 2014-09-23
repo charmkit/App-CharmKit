@@ -4,6 +4,8 @@ author:
   - 'Adam Stokes <adamjs@cpan.org>'
 build_requires:
   App::FatPacker: '0'
+  DDP: '0'
+  FindBin: '0'
   Pod::Elemental::Transformer::List: '0'
   Software::License: '0'
   Test::Mojo: '0'
@@ -11,6 +13,7 @@ build_requires:
   Test::NoTabs: '0'
   autobox: '0'
   autodie: '0'
+  lib: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
 dynamic_config: 0
@@ -28,6 +31,7 @@ requires:
   IO::Prompter: '0'
   IPC::Run: '0'
   Import::Into: '0'
+  JSON::PP: '0'
   Moo: '0'
   Moo::Role: '0'
   Path::Tiny: '0'
@@ -40,4 +44,4 @@ requires:
   strict: '0'
   utf8::all: '0'
   warnings: '0'
-version: 0.003_2
+version: 0.003_3

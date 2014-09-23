@@ -13,12 +13,18 @@ use_ok('charm');
 
 # testing import::into exposures.
 
-my $yaml_string = Load("---\noption: 'A yaml option'");
-ok $yaml_string->{option} eq 'A yaml option';
+my $yaml = yaml();
+my $yaml_string = $yaml->read_string("---\noption: A yaml option");
+ok $yaml_string->[0]->{option} eq 'A yaml option';
 
 my $path_string = path('/tmp/what');
 ok $path_string->absolute eq '/tmp/what';
 
-my $json = decode_json('{ "option" : "A json option"}');
-ok $json->{option} eq 'A json option';
+my $mt = tmpl(template => 'HI THERE');
+ok $mt->render_mt->as_string eq 'HI THERE';
+
+my $json = json();
+my $json_string = $json->decode("{ \"option\": \"A json option\" }");
+ok $json_string->{option} eq 'A json option';
+
 done_testing();

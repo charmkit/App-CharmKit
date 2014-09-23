@@ -4,7 +4,10 @@
 =head1 CharmKit Resources
 
 =for :list
+* L<https://juju.ubuntu.com/docs/>
+Juju documentation to learn more about Juju and Charms.
+
 * L<App::CharmKit::Manual::GettingStarted>
-Read the getting started guide for a walkthrough on utilizing L<App::CharmKit>
+Brief walkthrough on getting started with L<App::CharmKit>
 
 =cut

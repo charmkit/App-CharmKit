@@ -32,7 +32,6 @@ sub opt_spec {
     return ();
 }
 
-sub abstract { 'Build distributable hooks for charm deployment'}
 sub usage_desc {'%c pack'}
 
 sub execute {

@@ -41,7 +41,6 @@ sub opt_spec {
     );
 }
 
-sub abstract { 'Generator for hook composition'}
 sub usage_desc {'%c generate [-r] <hook-name>'}
 
 sub validate_args {

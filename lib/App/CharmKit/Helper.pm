@@ -21,6 +21,9 @@ Charm helpers for composition
 =cut
 
 use App::CharmKit::Sys qw/execute/;
+use YAML::Tiny;
+use JSON::PP;
+use Text::MicroTemplate;
 use Exporter qw/import/;
 
 our @EXPORT = qw/config_get
@@ -30,7 +33,31 @@ our @EXPORT = qw/config_get
   relation_list
   open_port
   close_port
-  unit_get/;
+  unit_get
+  json
+  yaml
+  tmpl/;
+
+=func json
+
+Wrapper for JSON::PP
+
+=cut
+sub json { JSON::PP->new->utf8; }
+
+=func yaml
+
+Wrapper for YAML::Tiny
+
+=cut
+sub yaml { YAML::Tiny->new(@_); }
+
+=func tmpl
+
+Wrapper for Text::MicroTemplate
+
+=cut
+sub tmpl { Text::MicroTemplate->new(@_); }
 
 =func service_control(STR service_name, STR action)
 

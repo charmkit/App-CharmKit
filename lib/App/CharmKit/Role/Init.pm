@@ -80,7 +80,18 @@ done_testing;
     $yaml->write($path->child('metadata.yaml'));
 
     # config.yaml
-    $path->child('config.yaml')->touch;
+    $yaml = YAML::Tiny->new(
+        {   options => {
+                supports_charmkit => {
+                    default => 1,
+                    description =>
+                      'Supports extended functionality from App::CharmKit',
+                    type => 'boolean'
+                }
+            }
+        }
+    );
+    $yaml->write($path->child('config.yaml'));
 
     # LICENSE
     my $class = "Software::License::" . $project->{license};

@@ -31,10 +31,8 @@ use warnings;
 use Import::Into;
 
 use feature ();
-use Path::Tiny qw(path);
-use Text::MicroTemplate;
+use Path::Tiny;
 use Test::More;
-use Carp qw(croak);
 
 sub import {
     my $target = caller;
@@ -47,13 +45,13 @@ sub import {
     'warnings'->import::into($target);
     'utf8::all'->import::into($target);
     'autodie'->import::into($target, ':all');
-    'feature'->import::into($target, ':5.10');
+    'feature'->import::into($target, ':5.14');
     'English'->import::into($target, '-no_match_vars');
+    Path::Tiny->import::into($target, qw(path));
 
     if ($flags{sys}) {
         require 'App/CharmKit/Sys.pm';
         'App::CharmKit::Sys'->import::into($target);
-        Path::Tiny->import::into($target, qw(path));
     }
 
     if ($flags{tester}) {
@@ -67,8 +65,6 @@ sub import {
     require 'App/CharmKit/Logging.pm';
     'App::CharmKit::Logging'->import::into($target);
 
-    Text::MicroTemplate->import::into($target, ':all');
-
 }
 
 1;
@@ -79,9 +75,15 @@ List of modules exported by helper:
 
 =for :list
 * L<Path::Tiny>
+Exposes B<path> routine
+* L<YAML::Tiny>
+Exposes object as B<yaml>
+* L<JSON::PP>
+Exposes object as B<json>
 * L<Text::MicroTemplate>
+Exposes object as B<tmpl>
+* L<Test::More>
 * L<autodie>
 * L<utf8::all>
-* L<Test::More>
 
 =cut

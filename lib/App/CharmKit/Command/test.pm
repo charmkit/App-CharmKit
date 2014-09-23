@@ -1,6 +1,6 @@
 package App::CharmKit::Command::test;
 
-# ABSTRACT: Runs a test runner
+# ABSTRACT: Test your charm project
 
 =head1 SYNOPSIS
 
@@ -27,7 +27,6 @@ sub opt_spec {
     );
 }
 
-sub abstract { 'Tests your charm project'}
 sub usage_desc {'%c test [-r]'}
 
 sub execute {

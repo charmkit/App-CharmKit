@@ -1,6 +1,6 @@
 package App::CharmKit::Command::clean;
 
-# ABSTRACT: Cleanses project
+# ABSTRACT: Cleans project
 
 =head1 SYNOPSIS
 
@@ -19,7 +19,6 @@ sub opt_spec {
     return ();
 }
 
-sub abstract { 'Cleanses project'}
 sub usage_desc {'%c clean'}
 
 sub execute {

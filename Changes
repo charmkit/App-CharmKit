@@ -3,8 +3,30 @@ Changes from 2013-09-23 00:00:00 +0000 to present.
 ==================================================
 
 --------------------------------------------
-version 0.003_2 at 2014-09-23 18:19:59 +0000
+version 0.003_3 at 2014-09-23 21:55:44 +0000
 --------------------------------------------
+
+  Change: 9915e3d73bbb812238e78e29b23337b2be6d5ad4
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-23 16:12:48 +0000
+
+    syntax test
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: cef66bef9128f5030d9ec6801824fd416f73164b
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-23 14:38:12 +0000
+
+    make sure we are always in toplevel when running charmkit
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 220ade53345c108f72646377a0ac712b2bcf6e6b
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-23 14:20:11 +0000
+
+    v0.003_2 
 
   Change: 0e75444894958f3ee4de64115e46de1ce9cbd9a9
   Author: Adam Stokes <adam.stokes@ubuntu.com>

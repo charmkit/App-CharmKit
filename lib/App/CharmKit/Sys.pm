@@ -10,10 +10,9 @@ or
 
   use App::CharmKit::Sys;
 
-  # Exposes Path::Tiny
-  my $curpath = path('.');
-  my $homepath = path('~');
-  $homepath->child('.config')->mkpath;
+  apt_update();
+  apt_upgrade();
+  apt_inst(['nginx-common', 'redis-server']);
 
 =head1 DESCRIPTION
 
@@ -24,7 +23,7 @@ Provides system utilities such as installing packages, managing files, and more.
 use IPC::Run qw(run timeout);
 use Exporter qw(import);
 
-our @EXPORT = qw/execute apt_inst/;
+our @EXPORT = qw/execute apt_inst apt_upgrade apt_update/;
 
 =func execute(ARRAYREF command)
 
@@ -52,13 +51,39 @@ sub execute {
 
 Installs packages via apt-get
 
-   apt_inst ['nginx'];
+   apt_inst(['nginx']);
 
 =cut
 sub apt_inst {
     my $pkgs = shift;
     my $cmd = ['apt-get', '-qyf', 'install'];
     map { push @{$cmd}, $_ } @{$pkgs};
+    my $ret = execute($cmd);
+    return $ret->{stdout};
+}
+
+=func apt_upgrade()
+
+Upgrades system
+
+   apt_upgrade();
+
+=cut
+sub apt_upgrade {
+    my $cmd = ['apt-get', '-qyf', 'dist-upgrade'];
+    my $ret = execute($cmd);
+    return $ret->{stdout};
+}
+
+=func apt_update()
+
+Update repository sources
+
+   apt_update();
+
+=cut
+sub apt_update {
+    my $cmd = ['apt-get', 'update'];
     my $ret = execute($cmd);
     return $ret->{stdout};
 }

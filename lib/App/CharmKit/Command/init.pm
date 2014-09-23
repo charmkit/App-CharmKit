@@ -1,6 +1,6 @@
 package App::CharmKit::Command::init;
 
-# ABSTRACT: Initialization of project
+# ABSTRACT: Generate a charm project
 
 =head1 SYNOPSIS
 
@@ -40,7 +40,6 @@ sub opt_spec {
     );
 }
 
-sub abstract { 'Generate a charm skeleton.'}
 sub usage_desc {'%c init [--options] <charm-name>'}
 
 sub validate_args {
