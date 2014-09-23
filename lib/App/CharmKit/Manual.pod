@@ -1,4 +1,4 @@
-# PODNAME: App::CharmKit::Manual;
+# PODNAME: App::CharmKit::Manual
 # ABSTRACT: CharmKit Resources
 
 =head1 CharmKit Resources
