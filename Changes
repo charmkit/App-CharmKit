@@ -3,8 +3,28 @@ Changes from 2013-09-23 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.002 at 2014-09-23 02:38:25 +0000
+version 0.003 at 2014-09-23 03:03:32 +0000
 ------------------------------------------
+
+  Change: 2f612ee42ac28641d98c4d58fc5d2726b3418c03
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 23:02:15 +0000
+
+    move documentation into script file
+
+    for proper rendering on metacpan.org
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.002 at 2014-09-23 02:39:10 +0000
+------------------------------------------
+
+  Change: a3025b2928faf89310f3344eb101436f6f63385e
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-22 22:39:10 +0000
+
+    v0.002 
 
   Change: 6504d0b545d760fd894095d48f431e1bdd837723
   Author: Adam Stokes <adam.stokes@ubuntu.com>

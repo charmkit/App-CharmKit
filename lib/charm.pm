@@ -14,11 +14,11 @@ Exposing helper subs from various packages that would be useful in writing
 charm hooks. Including but not limited too strict, warnings, utf8, Path::Tiny,
 etc ..
 
-    use charm -sys;
-
-or ..
     use App::CharmKit::Sys;
 
+or ..
+
+    use charm -sys, -logging;
     my $ret = execute ['ls', '/tmp'];
     print($ret->{stdout});
     log 'went to the park';
