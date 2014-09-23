@@ -15,5 +15,8 @@ and helper routines to aide in the development of charms.
 use strict;
 use warnings;
 use App::CharmKit;
+use Path::Tiny;
 
-App::CharmKit->run;
+my $toplevel = path('./config.yaml');
+
+App::CharmKit->run unless !$toplevel->exists;
