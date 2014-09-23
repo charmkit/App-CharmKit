@@ -1,0 +1,10 @@
+# PODNAME: App::CharmKit::Manual;
+# ABSTRACT: CharmKit Resources
+
+=head1 CharmKit Resources
+
+=for :list
+* L<App::CharmKit::Manual::GettingStarted>
+Read the getting started guide for a walkthrough on utilizing L<App::CharmKit>
+
+=cut
