@@ -77,7 +77,11 @@ sub import {
 
 List of modules exported by helper:
 
-L<Path::Tiny::path>
+=for :list
+* L<Path::Tiny::path>
+* L<Text::MicroTemplate>
+* L<autodie>
+* L<utf8::all>
+* L<Test::More>
 
-L<Carp::croak>
 =cut
