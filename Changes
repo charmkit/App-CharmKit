@@ -3,8 +3,18 @@ Changes from 2013-09-23 00:00:00 +0000 to present.
 ==================================================
 
 --------------------------------------------
-version 0.003_3 at 2014-09-23 21:55:44 +0000
+version 0.003_3 at 2014-09-23 21:56:46 +0000
 --------------------------------------------
+
+  Change: 11ca5ce4fffd96f6e873d428b16a0765dcf3af7d
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-23 17:56:00 +0000
+
+    rework syntax helpers for yaml, json, and templating.
+
+    Add additional unittests More documentation
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 9915e3d73bbb812238e78e29b23337b2be6d5ad4
   Author: Adam Stokes <adam.stokes@ubuntu.com>
