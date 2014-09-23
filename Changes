@@ -2,9 +2,17 @@
 Changes from 2013-09-23 00:00:00 +0000 to present.
 ==================================================
 
-------------------------------------------
-version 0.003 at 2014-09-23 04:13:51 +0000
-------------------------------------------
+--------------------------------------------
+version 0.003_1 at 2014-09-23 04:15:03 +0000
+--------------------------------------------
+
+  Change: 2ef4ba0c50932d3c54e3278b81f42668db5d62a6
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-23 00:14:22 +0000
+
+    add argument to repack before running tests
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: bbdcce889beafb08b82a752a507fca0c17b70381
   Author: Adam Stokes <adam.stokes@ubuntu.com>
