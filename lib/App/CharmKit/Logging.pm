@@ -6,13 +6,13 @@ package App::CharmKit::Logging;
 
 Directly,
 
-use App::CharmKit::Logging;
+  use App::CharmKit::Logging;
 
 Or sugar,
 
-use charm -logging;
+  use charm -logging;
 
-log 'this is a log emitter';
+  log 'this is a log emitter';
 
 =head1 DESCRIPTION
 

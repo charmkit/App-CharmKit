@@ -4,7 +4,7 @@ package charm;
 
 =head1 SYNOPSIS
 
-use charm;
+  use charm;
 
 =cut
 
@@ -78,7 +78,7 @@ sub import {
 List of modules exported by helper:
 
 =for :list
-* L<Path::Tiny::path>
+* L<Path::Tiny>
 * L<Text::MicroTemplate>
 * L<autodie>
 * L<utf8::all>

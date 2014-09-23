@@ -4,16 +4,16 @@ package App::CharmKit::Sys;
 
 =head1 SYNOPSIS
 
-use charm -sys;
+  use charm -sys;
 
 or
 
-use App::CharmKit::Sys;
+  use App::CharmKit::Sys;
 
-# Exposes Path::Tiny
-my $curpath = path('.');
-my $homepath = path('~');
-$homepath->child('.config')->mkpath;
+  # Exposes Path::Tiny
+  my $curpath = path('.');
+  my $homepath = path('~');
+  $homepath->child('.config')->mkpath;
 
 =head1 DESCRIPTION
 

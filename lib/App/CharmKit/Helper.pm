@@ -8,7 +8,7 @@ package App::CharmKit::Helper;
 
 or
 
-  use charm -helper;
+  use charm;
 
   my $port = config_get 'port';
   my $database = relation_get 'database';
