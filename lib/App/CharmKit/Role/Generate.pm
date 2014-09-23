@@ -43,10 +43,14 @@ sub create_hook {
 
     (   my $hook_heading =
           qq{#!/usr/bin/env perl
+# To see what helper functions are available to you automatically, run:
+# > perldoc App::CharmKit::Helper
+#
+# Other functionality can be enabled by putting the following in the beginning
+# of the file:
+# use charm -sys;
 
-use charm -logging, -helper;
-
-# Work starts here
+use charm;
 
 log "Start of charm authoring for $hook";
 }

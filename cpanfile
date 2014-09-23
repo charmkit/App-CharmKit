@@ -10,6 +10,7 @@ requires "Moo::Role" => "0";
 requires "Path::Tiny" => "0";
 requires "Software::License" => "0";
 requires "Test::More" => "0";
+requires "Text::MicroTemplate" => "0";
 requires "YAML::Tiny" => "0";
 requires "feature" => "0";
 requires "namespace::clean" => "0";

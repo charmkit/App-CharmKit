@@ -81,18 +81,25 @@ A typical test starts with
 
     #!/usr/bin/env perl
 
-    use charm -tester;
+    use charm -tester, -sys;
 
-    # See if we can use package App::CharmKit
-    use_ok('App::CharmKit');
+    # See if an nginx config file exists
+    ok -e '/etc/nginx/sites-enabled/mysite.com';
+
+    my $cmd = ['service', 'nginx', 'status'];
+    my $ret = execute($cmd);
+    ok $ret->{error} eq 0;
 
     # finish tests
     done_testing;
 
 Tests are built in a way that the test runner from the charm reviewers will be
-able to run and validate your charm.
+able to run and validate your charm. The tests can be executed calling them directly
+(how the test runner does it) or running with:
 
-## PACKING A CHARM FOR RELEASE
+    $ prove tests/*.test
+
+## PACKAGING A CHARM FOR RELEASE
 
 Once development is complete and you have your hooks defined and tests written.
 Packaging a charm for release to either Git or the Charm Store is a matter of running:

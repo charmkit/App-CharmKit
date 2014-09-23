@@ -69,13 +69,15 @@ sub execute {
     }
     printf("Initializing project %s\n", $path->absolute);
 
+    my $default_maintainer = 'Joe Hacker';
+    my $default_category = $opt->{category};
     @ARGV = ();    # IO::Prompter workaround
-    $project->{name}        = prompt 'Name:', -def => "$path";
+    $project->{name}        = prompt "Name [default $path]:", -def => "$path";
     $project->{summary}     = prompt 'Summary:';
     $project->{description} = prompt 'Description:';
-    $project->{maintainer}  = prompt 'Maintainer:', -def => 'Hedgey Hedgehog';
-    $project->{categories}  = [prompt 'Category:', -def => $opt->{category}];
-    $project->{license}     = prompt 'License:',
+    $project->{maintainer}  = prompt "Maintainer [default $default_maintainer]:", -def => $default_maintainer;
+    $project->{categories}  = [prompt "Category [default: $default_category]:", -def => $default_category];
+    $project->{license}     = prompt 'License [? for list]:',
       -menu => {
         agpl_3      => 'AGPL_3',
         apache_1_1  => 'Apache_1_1',

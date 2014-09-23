@@ -23,7 +23,27 @@ Charm helpers for composition
 use App::CharmKit::Sys qw/execute/;
 use Exporter qw/import/;
 
-our @EXPORT = qw/config_get relation_ids relation_get/;
+our @EXPORT = qw/config_get
+  relation_ids
+  relation_get
+  relation_set
+  relation_list
+  open_port
+  close_port
+  unit_get/;
+
+=func service_control(STR service_name, STR action)
+
+Controls a upstart service
+
+=cut
+sub service_control {
+    my $service_name = shift;
+    my $action       = shift;
+    my $cmd          = ['service', $service_name, $action];
+    my $ret          = execute($cmd);
+    return $ret->{stdout};
+}
 
 =func config_get(STR option)
 
@@ -43,10 +63,40 @@ Gets relation
 
 =cut
 sub relation_get {
-  my ($key) = @_;
-  my $cmd = ['relation-get', $key];
-  my $ret = execute($cmd);
-  return $ret->{stdout};
+    my $attribute = shift || undef;
+    my $unit      = shift || undef;
+    my $rid       = shift || undef;
+    my $cmd       = ['relation-get'];
+
+    if ($rid) {
+        push @{$cmd}, '-r';
+        push @{$cmd}, $rid;
+    }
+    if ($attribute) {
+        push @{$cmd}, $attribute;
+    }
+    if ($unit) {
+        push @{$cmd}, $unit;
+    }
+    my $ret = execute($cmd);
+    return $ret->{stdout};
+}
+
+=func relation_set(HASHREF opts)
+
+Relation set
+
+=cut
+sub relation_set {
+    my $opts = shift;
+    my $cmd  = ['relation-set'];
+    my $opts_str;
+    foreach my $key (keys %{$opts}) {
+        $opts_str .= sprintf("%s=%s ", $key, $opts->{$key});
+    }
+    push @{$cmd}, $opts_str;
+    my $ret = execute($cmd);
+    return $ret->{stdout};
 }
 
 =func relation_ids(STR relation_name)

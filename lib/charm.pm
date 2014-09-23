@@ -32,6 +32,7 @@ use Import::Into;
 
 use feature ();
 use Path::Tiny qw(path);
+use Text::MicroTemplate;
 use Test::More;
 use Carp qw(croak);
 
@@ -54,13 +55,20 @@ sub import {
         'App::CharmKit::Sys'->import::into($target);
         Path::Tiny->import::into($target, qw(path));
     }
-    if ($flags{logging}) {
-        require 'App/CharmKit/Logging.pm';
-        'App::CharmKit::Logging'->import::into($target);
-    }
+
     if ($flags{tester}) {
         Test::More->import::into($target);
     }
+
+    # expose charm helpers by default
+    require 'App/CharmKit/Helper.pm';
+    'App::CharmKit::Helper'->import::into($target);
+
+    require 'App/CharmKit/Logging.pm';
+    'App::CharmKit::Logging'->import::into($target);
+
+    Text::MicroTemplate->import::into($target, ':all');
+
 }
 
 1;

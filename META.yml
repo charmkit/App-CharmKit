@@ -33,6 +33,7 @@ requires:
   Path::Tiny: '0'
   Software::License: '0'
   Test::More: '0'
+  Text::MicroTemplate: '0'
   YAML::Tiny: '0'
   feature: '0'
   namespace::clean: '0'

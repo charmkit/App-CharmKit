@@ -63,14 +63,16 @@ perltidy.LOG
     $yaml->write($path->child('tests/tests.yaml'));
 
     # src/tests/00-basic.test
-    (my $basic_test = qq{#!/usr/bin/env perl
+    (   my $basic_test =
+          qq{#!/usr/bin/env perl
 
 use charm -tester;
 
 # How to write test using Test::More
 use_ok('App::CharmKit');
 done_testing;
-});
+}
+    );
     $path->child('src/tests/00-basic.test')->spew_utf8($basic_test);
 
     # metadata.yaml
@@ -78,7 +80,17 @@ done_testing;
     $yaml->write($path->child('metadata.yaml'));
 
     # config.yaml
-    $yaml = YAML::Tiny->new({options => ""});
+    $yaml = YAML::Tiny->new(
+        {   options => {
+                supports_charmkit => {
+                    default => 'true',
+                    description =>
+                      'Supports extended functionality from App::CharmKit',
+                    type => 'boolean'
+                }
+            }
+        }
+    );
     $yaml->write($path->child('config.yaml'));
 
     # LICENSE
