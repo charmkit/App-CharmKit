@@ -18,10 +18,10 @@ etc ..
 
 or ..
 
-    use charm -sys, -logging;
-    my $ret = execute ['ls', '/tmp'];
+    use charm -sys;
+    my $ret = execute(['ls', '/tmp']);
     print($ret->{stdout});
-    log 'went to the park';
+    log('went to the park');
 
 =cut
 
