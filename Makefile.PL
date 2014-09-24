@@ -17,20 +17,19 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "App-CharmKit",
   "EXE_FILES" => [
-    "bin/charmkit",
-    "bin/juju-ck"
+    "bin/charmkit"
   ],
   "LICENSE" => "perl",
   "NAME" => "App::CharmKit",
   "PREREQ_PM" => {
     "App::Cmd::Setup" => 0,
-    "Carp" => 0,
     "Exporter" => 0,
     "File::chdir" => 0,
     "IO::Prompter" => 0,
     "IPC::Run" => 0,
     "Import::Into" => 0,
     "JSON::PP" => 0,
+    "Module::Runtime" => 0,
     "Moo" => 0,
     "Moo::Role" => 0,
     "Path::Tiny" => 0,
@@ -46,6 +45,7 @@ my %WriteMakefileArgs = (
   },
   "TEST_REQUIRES" => {
     "App::FatPacker" => 0,
+    "App::Prove" => 0,
     "DDP" => 0,
     "FindBin" => 0,
     "Pod::Elemental::Transformer::List" => 0,
@@ -53,11 +53,10 @@ my %WriteMakefileArgs = (
     "Test::Mojo" => 0,
     "Test::More" => 0,
     "Test::NoTabs" => 0,
-    "autobox" => 0,
     "autodie" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.003_3",
+  "VERSION" => "0.003_4",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -67,7 +66,7 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "App::Cmd::Setup" => 0,
   "App::FatPacker" => 0,
-  "Carp" => 0,
+  "App::Prove" => 0,
   "DDP" => 0,
   "Exporter" => 0,
   "File::chdir" => 0,
@@ -76,6 +75,7 @@ my %FallbackPrereqs = (
   "IPC::Run" => 0,
   "Import::Into" => 0,
   "JSON::PP" => 0,
+  "Module::Runtime" => 0,
   "Moo" => 0,
   "Moo::Role" => 0,
   "Path::Tiny" => 0,
@@ -86,7 +86,6 @@ my %FallbackPrereqs = (
   "Test::NoTabs" => 0,
   "Text::MicroTemplate" => 0,
   "YAML::Tiny" => 0,
-  "autobox" => 0,
   "autodie" => 0,
   "feature" => 0,
   "lib" => 0,

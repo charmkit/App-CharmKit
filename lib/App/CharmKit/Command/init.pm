@@ -69,14 +69,20 @@ sub execute {
     printf("Initializing project %s\n", $path->absolute);
 
     my $default_maintainer = 'Joe Hacker';
-    my $default_category = $opt->{category};
+    my $default_category   = $opt->{category};
     @ARGV = ();    # IO::Prompter workaround
-    $project->{name}        = prompt "Name [default $path]:", -def => "$path";
-    $project->{summary}     = prompt 'Summary:';
+    $project->{name}    = prompt "Name [default $path]:",    -def => "$path";
+    $project->{version} = prompt "Version [default 0.0.1]:", -def => '0.0.1';
+    $project->{summary} = prompt 'Summary:';
     $project->{description} = prompt 'Description:';
-    $project->{maintainer}  = prompt "Maintainer [default $default_maintainer]:", -def => $default_maintainer;
-    $project->{categories}  = [prompt "Category [default: $default_category]:", -def => $default_category];
-    $project->{license}     = prompt 'License [? for list]:',
+    $project->{maintainer} =
+      prompt "Maintainer [default $default_maintainer]:",
+      -def => $default_maintainer;
+    $project->{categories} = [
+        prompt "Category [default: $default_category]:",
+        -def => $default_category
+    ];
+    $project->{license} = prompt 'License [? for list]:',
       -menu => {
         agpl_3      => 'AGPL_3',
         apache_1_1  => 'Apache_1_1',
@@ -106,10 +112,10 @@ sub execute {
 
     $self->init($path, $project);
     if ($opt->{with_hooks}) {
-      {
-        local $CWD = $path->absolute;
-        $self->create_all_hooks;
-      }
+        {
+            local $CWD = $path->absolute;
+            $self->create_all_hooks;
+        }
     }
     printf("Project skeleton created.\n");
 }
