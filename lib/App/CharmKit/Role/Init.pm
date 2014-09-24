@@ -80,6 +80,7 @@ done_testing;
     my $json          = JSON::PP->new->utf8->pretty;
     my $charmkit_meta = {
         name       => $project->{name},
+        version    => $project->{version},
         maintainer => $project->{maintainer},
         series     => ['precise', 'trusty']
     };
@@ -87,7 +88,15 @@ done_testing;
     $path->child('charmkit.json')->spew_utf8($json_encoded);
 
     # metadata.yaml
-    $yaml = YAML::Tiny->new($project);
+    $yaml = YAML::Tiny->new(
+        {   name        => $project->{name},
+            summary     => $project->{summary},
+            description => $project->{description},
+            maintainer  => $project->{maintainer},
+            categories  => $project->{categories},
+            license     => $project->{license}
+        }
+    );
     $yaml->write($path->child('metadata.yaml'));
 
     # config.yaml
