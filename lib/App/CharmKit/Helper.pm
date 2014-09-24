@@ -31,6 +31,7 @@ our @EXPORT = qw/config_get
   relation_get
   relation_set
   relation_list
+  service_control
   open_port
   close_port
   unit_get

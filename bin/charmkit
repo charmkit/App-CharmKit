@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 # PODNAME: charmkit
-# ABSTRACT: entry point for charmkit
+# ABSTRACT: charmkit - author charms
 
 =head1 DESCRIPTION
 

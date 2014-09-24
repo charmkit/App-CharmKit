@@ -102,6 +102,9 @@ done_testing;
     # config.yaml
     $path->child('config.yaml')->touch;
 
+    # copyright
+    $path->child('copyright')->touch;
+
     # LICENSE
     my $class = "Software::License::" . $project->{license};
     use_module($class);

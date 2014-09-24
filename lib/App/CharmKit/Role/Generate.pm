@@ -52,7 +52,7 @@ sub create_hook {
 
 use charm;
 
-log "Start of charm authoring for $hook";
+log("Start of charm authoring for $hook");
 }
     );
     $self->src->child($hook)->spew_utf8($hook_heading);

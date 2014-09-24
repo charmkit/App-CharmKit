@@ -39,7 +39,6 @@ sub execute {
     my $result = run $command, \my $stdin, \my $stdout, \my $stderr;
     chomp for ($stdout, $stderr);
 
-    die $stderr unless $? eq 0;
     +{  stdout    => $stdout,
         stderr    => $stderr,
         has_error => $? > 0,
