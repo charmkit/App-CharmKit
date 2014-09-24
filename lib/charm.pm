@@ -34,6 +34,17 @@ use feature ();
 use Path::Tiny;
 use Test::More;
 
+if ($INC{"App/FatPacker/Trace.pm"}) {
+    require JSON::PP;
+    require Path::Tiny;
+    require Test::More;
+    require HTTP::Tiny;
+    require IO::Socket::SSL;
+    require YAML::Tiny;
+    require IPC::Run;
+    require Text::MicroTemplate;
+}
+
 sub import {
     my $target = caller;
     my $class  = shift;

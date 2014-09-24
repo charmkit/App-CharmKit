@@ -21,6 +21,7 @@ Charm helpers for composition
 =cut
 
 use App::CharmKit::Sys qw/execute/;
+use HTTP::Tiny;
 use YAML::Tiny;
 use JSON::PP;
 use Text::MicroTemplate;
@@ -37,7 +38,8 @@ our @EXPORT = qw/config_get
   unit_get
   json
   yaml
-  tmpl/;
+  tmpl
+  http/;
 
 =func json
 
@@ -59,6 +61,13 @@ Wrapper for Text::MicroTemplate
 
 =cut
 sub tmpl { Text::MicroTemplate->new(@_); }
+
+=func http
+
+Wrapper for HTTP::Tiny
+
+=cut
+sub http { HTTP::Tiny->new; }
 
 =func service_control(STR service_name, STR action)
 

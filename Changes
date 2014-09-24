@@ -3,8 +3,42 @@ Changes from 2013-09-24 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.004 at 2014-09-24 03:29:49 +0000
+version 0.005 at 2014-09-24 16:44:02 +0000
 ------------------------------------------
+
+  Change: 6e3026fb995987102913f9bbebdc3f75bd891ad2
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-24 12:43:39 +0000
+
+    add github clone
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 41f503b0d14d513bf64e4c301257f7de16812cd5
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-24 11:23:36 +0000
+
+    start download command
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 85864e0dd081dcea68362bf327ca3fee5bcf40a5
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-24 11:07:20 +0000
+
+    update synopsis
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.004 at 2014-09-24 03:29:58 +0000
+------------------------------------------
+
+  Change: 04891430a361a2de8531b27531a4ab679ab9fc91
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-23 23:29:58 +0000
+
+    v0.004 
 
   Change: f00199b0e86fd4464d3a4093441ed28d07409164
   Author: Adam Stokes <adam.stokes@ubuntu.com>
