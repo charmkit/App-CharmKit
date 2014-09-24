@@ -2,9 +2,10 @@ package App::CharmKit::Role::Init;
 
 # ABSTRACT: Initialization of new charms
 
-use Carp;
 use YAML::Tiny;
+use JSON::PP;
 use Software::License;
+use Module::Runtime qw(use_module);
 use Moo::Role;
 
 =method init(Path::Tiny path, HASH project)
@@ -75,27 +76,26 @@ done_testing;
     );
     $path->child('src/tests/00-basic.test')->spew_utf8($basic_test);
 
+    # charmkit.json
+    my $json          = JSON::PP->new->utf8->pretty;
+    my $charmkit_meta = {
+        name       => $project->{name},
+        maintainer => $project->{maintainer},
+        series     => ['precise', 'trusty']
+    };
+    my $json_encoded = $json->encode($charmkit_meta);
+    $path->child('charmkit.json')->spew_utf8($json_encoded);
+
     # metadata.yaml
     $yaml = YAML::Tiny->new($project);
     $yaml->write($path->child('metadata.yaml'));
 
     # config.yaml
-    $yaml = YAML::Tiny->new(
-        {   options => {
-                supports_charmkit => {
-                    default => 1,
-                    description =>
-                      'Supports extended functionality from App::CharmKit',
-                    type => 'boolean'
-                }
-            }
-        }
-    );
-    $yaml->write($path->child('config.yaml'));
+    $path->child('config.yaml')->touch;
 
     # LICENSE
     my $class = "Software::License::" . $project->{license};
-    eval "require $class;";
+    use_module($class);
     my $license = $class->new({holder => $project->{maintainer}});
     my $year    = $license->year;
     my $notice  = $license->notice;
