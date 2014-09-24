@@ -102,16 +102,21 @@ done_testing;
     # config.yaml
     $path->child('config.yaml')->touch;
 
-    # copyright
-    $path->child('copyright')->touch;
-
-    # LICENSE
     my $class = "Software::License::" . $project->{license};
     use_module($class);
     my $license = $class->new({holder => $project->{maintainer}});
     my $year    = $license->year;
     my $notice  = $license->notice;
-    $path->child('LICENSE')->spew_utf8($license->fulltext);
+
+    # copyright
+    ( my $copyright = qq{Format: http://dep.debian.net/deps/dep5/
+
+Files: *
+Copyright: $year, $project->{maintainer}
+License: $project->{license}
+  <Needs license text here>
+});
+    $path->child('copyright')->spew_utf8($copyright);
 
     # README.md
     (   my $readme = qq{
@@ -133,6 +138,30 @@ $notice
 }
     );
     $path->child('README.md')->spew_utf8($readme);
+
+    ( my $makefile = q{PWD := $(shell pwd)
+HOOKS_DIR := $(PWD)/hooks
+TEST_DIR := $(PWD)/tests
+
+ensure_ck:
+	@apt-get -qyf install cpanminus
+	@cpanm App::CharmKit --notest
+
+pack:
+	@charmkit pack
+
+test: clean pack
+	@charmkit test
+
+lint: clean pack
+	@charmkit lint
+
+clean: ensure_ck
+	@charmkit clean
+
+.PHONY: pack test lint ensure_ck
+});
+    $path->child('Makefile')->spew_utf8($makefile);
 
 }
 

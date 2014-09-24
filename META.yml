@@ -5,17 +5,15 @@ author:
 build_requires:
   App::FatPacker: '0'
   App::Prove: '0'
-  DDP: '0'
   FindBin: '0'
   Pod::Elemental::Transformer::List: '0'
   Software::License: '0'
-  Test::Mojo: '0'
   Test::More: '0'
-  Test::NoTabs: '0'
   autodie: '0'
   lib: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
+  File::ShareDir::Install: '0.06'
 dynamic_config: 0
 generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142060'
 license: perl
@@ -25,7 +23,9 @@ meta-spec:
 name: App-CharmKit
 requires:
   App::Cmd::Setup: '0'
+  DDP: '0'
   Exporter: '0'
+  File::ShareDir: '0'
   File::chdir: '0'
   HTTP::Tiny: '0'
   IO::Prompter: '0'
@@ -46,4 +46,4 @@ requires:
   strict: '0'
   utf8::all: '0'
   warnings: '0'
-version: '0.005'
+version: '0.006'

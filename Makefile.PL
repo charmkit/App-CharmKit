@@ -7,13 +7,18 @@ use warnings;
 
 use ExtUtils::MakeMaker ;
 
+use File::ShareDir::Install;
+$File::ShareDir::Install::INCLUDE_DOTFILES = 1;
+$File::ShareDir::Install::INCLUDE_DOTDIRS = 1;
+install_share dist => "share";
 
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Perl Framework for authoring Juju charms",
   "AUTHOR" => "Adam Stokes <adamjs\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => 0
+    "ExtUtils::MakeMaker" => 0,
+    "File::ShareDir::Install" => "0.06"
   },
   "DISTNAME" => "App-CharmKit",
   "EXE_FILES" => [
@@ -23,7 +28,9 @@ my %WriteMakefileArgs = (
   "NAME" => "App::CharmKit",
   "PREREQ_PM" => {
     "App::Cmd::Setup" => 0,
+    "DDP" => 0,
     "Exporter" => 0,
+    "File::ShareDir" => 0,
     "File::chdir" => 0,
     "HTTP::Tiny" => 0,
     "IO::Prompter" => 0,
@@ -48,17 +55,14 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "App::FatPacker" => 0,
     "App::Prove" => 0,
-    "DDP" => 0,
     "FindBin" => 0,
     "Pod::Elemental::Transformer::List" => 0,
     "Software::License" => 0,
-    "Test::Mojo" => 0,
     "Test::More" => 0,
-    "Test::NoTabs" => 0,
     "autodie" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.005",
+  "VERSION" => "0.006",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -71,6 +75,7 @@ my %FallbackPrereqs = (
   "App::Prove" => 0,
   "DDP" => 0,
   "Exporter" => 0,
+  "File::ShareDir" => 0,
   "File::chdir" => 0,
   "FindBin" => 0,
   "HTTP::Tiny" => 0,
@@ -85,9 +90,7 @@ my %FallbackPrereqs = (
   "Path::Tiny" => 0,
   "Pod::Elemental::Transformer::List" => 0,
   "Software::License" => 0,
-  "Test::Mojo" => 0,
   "Test::More" => 0,
-  "Test::NoTabs" => 0,
   "Text::MicroTemplate" => 0,
   "YAML::Tiny" => 0,
   "autodie" => 0,
@@ -111,5 +114,10 @@ delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
 
 WriteMakefile(%WriteMakefileArgs);
 
+{
+package
+MY;
+use File::ShareDir::Install qw(postamble);
+}
 
 

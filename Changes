@@ -1,10 +1,28 @@
 ==================================================
-Changes from 2013-09-24 00:00:00 +0000 to present.
+Changes from 2013-09-25 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.005 at 2014-09-24 16:44:40 +0000
+version 0.006 at 2014-09-25 00:22:33 +0000
 ------------------------------------------
+
+  Change: 6703be32ebc97219bd11eefe5984c5cd0c0813cc
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-24 20:21:38 +0000
+
+    add linter
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.005 at 2014-09-24 16:44:51 +0000
+------------------------------------------
+
+  Change: 5aa8e8b06af86c0ea9d8590338b4287094d994ae
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-24 12:44:51 +0000
+
+    v0.005 
 
   Change: 94d28081380c9f3e6cf7a79fbade90a286dda84b
   Author: Adam Stokes <adam.stokes@ubuntu.com>

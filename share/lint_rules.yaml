@@ -1,0 +1,34 @@
+---
+files:
+  - name: 'config.yaml'
+    attributes:
+      - NOT_EMPTY
+    parse:
+      - pattern: '^options:\s*\n'
+        error: 'ERR_REQUIRED_CONFIG_ITEM'
+  - name: 'metadata.yaml'
+    attributes:
+      - NOT_EMPTY
+      - EXISTS
+    parse:
+      - pattern: '^(name|summary|description):\s+\w+'
+        error: 'ERR_REQUIRED_CONFIG_ITEM'
+      - pattern: '^(maintainer|categories):\s+\w+'
+        error: 'ERR_CONFIG_ITEM'
+      - pattern: '^requires:\s*\n'
+        error: 'ERR_NO_REQUIRES'
+      - pattern: '^provides:\s*\n'
+        error: 'ERR_NO_PROVIDES'
+      - pattern: '^peers:\s*\n'
+        error: 'ERR_NO_PEERS'
+      - pattern: '^subordinates:\s*\n'
+        error: 'ERR_NO_SUBORDINATES'
+  - name: 'copyright'
+    attributes:
+      - NOT_EMPTY
+      - EXISTS
+    parse:
+      - pattern: '^License:\s\w+\n\s+\w+\n'
+        error: 'ERR_INVALID_COPYRIGHT'
+
+

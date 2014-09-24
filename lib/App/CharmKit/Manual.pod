@@ -6,7 +6,6 @@
 =for :list
 * L<https://juju.ubuntu.com/docs/>
 Juju documentation to learn more about Juju and Charms.
-
 * L<App::CharmKit::Manual::GettingStarted>
 Brief walkthrough on getting started with L<App::CharmKit>
 
