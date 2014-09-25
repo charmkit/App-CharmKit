@@ -3,8 +3,16 @@ Changes from 2013-09-25 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.008 at 2014-09-25 03:56:59 +0000
+version 0.008 at 2014-09-25 04:11:10 +0000
 ------------------------------------------
+
+  Change: ae0af35e14c52e7bb644a53072de183f59ff847e
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-25 00:10:44 +0000
+
+    more helper routines
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 3bab1268bd1a59197a85bd202ef855018c447e85
   Author: Adam Stokes <adam.stokes@ubuntu.com>
