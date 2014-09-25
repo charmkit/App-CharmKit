@@ -6,6 +6,7 @@ build_requires:
   App::FatPacker: '0'
   App::Prove: '0'
   FindBin: '0'
+  IPC::System::Simple: '0'
   Pod::Elemental::Transformer::List: '0'
   Software::License: '0'
   Test::More: '0'
@@ -46,4 +47,4 @@ requires:
   strict: '0'
   utf8::all: '0'
   warnings: '0'
-version: '0.006'
+version: '0.007'

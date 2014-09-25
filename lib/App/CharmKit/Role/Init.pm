@@ -60,7 +60,7 @@ perltidy.LOG
     $path->child('.gitignore')->spew_utf8($gitignore);
 
     # tests/tests.yaml
-    my $yaml = YAML::Tiny->new({packages => ['perl']});
+    my $yaml = YAML::Tiny->new({packages => ['perl', 'make']});
     $yaml->write($path->child('tests/tests.yaml'));
 
     # src/tests/00-basic.test
@@ -69,8 +69,7 @@ perltidy.LOG
 
 use charm -tester;
 
-# How to write test using Test::More
-use_ok('App::CharmKit');
+# Start tests
 done_testing;
 }
     );
@@ -144,7 +143,14 @@ HOOKS_DIR := $(PWD)/hooks
 TEST_DIR := $(PWD)/tests
 
 ensure_ck:
-	@apt-get -qyf install cpanminus
+	@apt-get -qyf install cpanminus \
+		libnet-ssleay-perl \
+		libio-socket-ssl-perl \
+		libio-prompter-perl \
+		libapp-fatpacker-perl \
+		libipc-system-simple-perl \
+		libsoftware-license-perl \
+		libautodie-perl
 	@cpanm App::CharmKit --notest
 
 pack:

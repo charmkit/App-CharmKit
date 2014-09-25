@@ -27,6 +27,7 @@ on 'test' => sub {
   requires "App::FatPacker" => "0";
   requires "App::Prove" => "0";
   requires "FindBin" => "0";
+  requires "IPC::System::Simple" => "0";
   requires "Pod::Elemental::Transformer::List" => "0";
   requires "Software::License" => "0";
   requires "Test::More" => "0";

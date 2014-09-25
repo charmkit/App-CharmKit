@@ -56,13 +56,14 @@ my %WriteMakefileArgs = (
     "App::FatPacker" => 0,
     "App::Prove" => 0,
     "FindBin" => 0,
+    "IPC::System::Simple" => 0,
     "Pod::Elemental::Transformer::List" => 0,
     "Software::License" => 0,
     "Test::More" => 0,
     "autodie" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.006",
+  "VERSION" => "0.007",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -82,6 +83,7 @@ my %FallbackPrereqs = (
   "IO::Prompter" => 0,
   "IO::Socket::SSL" => 0,
   "IPC::Run" => 0,
+  "IPC::System::Simple" => 0,
   "Import::Into" => 0,
   "JSON::PP" => 0,
   "Module::Runtime" => 0,
