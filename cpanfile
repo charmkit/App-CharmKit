@@ -29,6 +29,7 @@ on 'test' => sub {
   requires "FindBin" => "0";
   requires "IPC::System::Simple" => "0";
   requires "Pod::Elemental::Transformer::List" => "0";
+  requires "Pod::Weaver::Section::Contributors" => "0";
   requires "Software::License" => "0";
   requires "Test::More" => "0";
   requires "autodie" => "0";

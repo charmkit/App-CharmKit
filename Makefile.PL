@@ -15,7 +15,7 @@ install_share dist => "share";
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Perl Framework for authoring Juju charms",
-  "AUTHOR" => "Adam Stokes <adamjs\@cpan.org>",
+  "AUTHOR" => "Adam Stokes <adam.stokes\@ubuntu.com>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0,
     "File::ShareDir::Install" => "0.06"
@@ -58,12 +58,13 @@ my %WriteMakefileArgs = (
     "FindBin" => 0,
     "IPC::System::Simple" => 0,
     "Pod::Elemental::Transformer::List" => 0,
+    "Pod::Weaver::Section::Contributors" => 0,
     "Software::License" => 0,
     "Test::More" => 0,
     "autodie" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.008",
+  "VERSION" => "0.009",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -91,6 +92,7 @@ my %FallbackPrereqs = (
   "Moo::Role" => 0,
   "Path::Tiny" => 0,
   "Pod::Elemental::Transformer::List" => 0,
+  "Pod::Weaver::Section::Contributors" => 0,
   "Software::License" => 0,
   "Test::More" => 0,
   "Text::MicroTemplate" => 0,

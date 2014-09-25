@@ -4,11 +4,11 @@ App::CharmKit - Perl Framework for authoring Juju charms
 
 # VERSION
 
-version 0.008
+version 0.009
 
 # AUTHOR
 
-Adam Stokes <adamjs@cpan.org>
+Adam Stokes <adam.stokes@ubuntu.com>
 
 # COPYRIGHT AND LICENSE
 
