@@ -10,7 +10,7 @@ Directly,
 
 Or sugar,
 
-  use charm -logging;
+  use charm;
 
   log 'this is a log emitter';
 

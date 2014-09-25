@@ -2,6 +2,7 @@ package App::CharmKit::Role::Init;
 
 # ABSTRACT: Initialization of new charms
 
+use App::CharmKit::Sys qw(execute);
 use YAML::Tiny;
 use JSON::PP;
 use Software::License;
@@ -59,6 +60,11 @@ perltidy.LOG
     );
     $path->child('.gitignore')->spew_utf8($gitignore);
 
+    # git init
+    if (!$path->child('.git')->exists) {
+        execute(['git', 'init', '.']);
+    }
+
     # tests/tests.yaml
     my $yaml = YAML::Tiny->new({packages => ['perl', 'make']});
     $yaml->write($path->child('tests/tests.yaml'));
@@ -108,13 +114,15 @@ done_testing;
     my $notice  = $license->notice;
 
     # copyright
-    ( my $copyright = qq{Format: http://dep.debian.net/deps/dep5/
+    (   my $copyright =
+          qq{Format: http://dep.debian.net/deps/dep5/
 
 Files: *
 Copyright: $year, $project->{maintainer}
 License: $project->{license}
   <Needs license text here>
-});
+}
+    );
     $path->child('copyright')->spew_utf8($copyright);
 
     # README.md
@@ -138,7 +146,8 @@ $notice
     );
     $path->child('README.md')->spew_utf8($readme);
 
-    ( my $makefile = q{PWD := $(shell pwd)
+    (   my $makefile =
+          q{PWD := $(shell pwd)
 HOOKS_DIR := $(PWD)/hooks
 TEST_DIR := $(PWD)/tests
 
@@ -166,7 +175,8 @@ clean: ensure_ck
 	@charmkit clean
 
 .PHONY: pack test lint ensure_ck
-});
+}
+    );
     $path->child('Makefile')->spew_utf8($makefile);
 
 }
