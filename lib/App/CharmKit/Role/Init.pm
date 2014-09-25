@@ -127,9 +127,35 @@ License: $project->{license}
 
     # README.md
     (   my $readme = qq{
-# $project->{name} - $project->{summary}
+# Juju charm for $project->{name}
 
 $project->{description}
+
+Made with [CharmKit](https://github.com/battlemidget/App-CharmKit)
+
+## How to Deploy
+
+### With CharmKit
+
+```console
+> charmkit get <github-user>/$project->{name}
+> charmkit deploy <charm>
+```
+
+### Juju
+
+#### Charm Store
+
+```console
+> juju deploy cs:trusty/$project->{name}
+```
+
+#### Source
+
+```console
+> mkdir -p ~/charms && git clone https://github.com/<github-user>/$project->{name}
+> juju deploy --repository=charms local:<series>/$project->{name}
+```
 
 # AUTHOR
 
