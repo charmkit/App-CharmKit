@@ -29,7 +29,8 @@ The format for rules is as follows:
         - NOT_EMPTY
         - EXISTS
       parse:
-        - ['/<Needs license>/', ERR_INVALID_COPYRIGHT]
+        - pattern: '^options:\s*\n'
+          error: 'ERR_INVALID_COPYRIGHT'
 
 =cut
 use DDP;
@@ -41,7 +42,18 @@ use Moo::Role;
 
 =attr errors
 
-Errors hash
+Errors hash, current list of errors:
+
+=for :list
+* ERR_INVALID_COPYRIGHT
+* ERR_REQUIRED_CONFIG_ITEM
+* ERR_CONFIG_ITEM
+* ERR_NO_REQUIRES
+* ERR_NO_PEERS
+* ERR_NO_PROVIDERS
+* ERR_NO_SUBORDINATES
+* ERR_EXISTS
+* ERR_EMPTY
 
 =cut
 has errors => (
