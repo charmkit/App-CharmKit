@@ -3,8 +3,24 @@ Changes from 2013-09-25 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.008 at 2014-09-25 02:15:14 +0000
+version 0.008 at 2014-09-25 02:32:34 +0000
 ------------------------------------------
+
+  Change: 70c70ca0582449ecc89c25e9dd3e7fb2fcf9075d
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-24 22:29:37 +0000
+
+    reduce license menu
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 8985bba038d2b0f2ffd67e794137fe6a60cacb5f
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-24 22:28:11 +0000
+
+    update readme generation
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: c644aced064a430babca98f4de948d8f19230ab6
   Author: Adam Stokes <adam.stokes@ubuntu.com>

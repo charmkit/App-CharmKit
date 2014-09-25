@@ -62,7 +62,7 @@ perltidy.LOG
 
     # git init
     if (!$path->child('.git')->exists) {
-        execute(['git', 'init', '.']);
+        execute(['git', 'init', $project->{name}]);
     }
 
     # tests/tests.yaml
