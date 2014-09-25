@@ -27,4 +27,11 @@ my $json = json();
 my $json_string = $json->decode("{ \"option\": \"A json option\" }");
 ok $json_string->{option} eq 'A json option';
 
+my $getent = getent('passwd', 'root');
+ok $getent->{error} eq 0;
+
+my $dirtest = make_dir(['/tmp/test']);
+ok path('/tmp/test')->exists;
+remove_dir(['/tmp/test']);
+
 done_testing();

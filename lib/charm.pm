@@ -60,14 +60,13 @@ sub import {
     'English'->import::into($target, '-no_match_vars');
     Path::Tiny->import::into($target, qw(path));
 
-    if ($flags{sys}) {
-        require 'App/CharmKit/Sys.pm';
-        'App::CharmKit::Sys'->import::into($target);
-    }
-
     if ($flags{tester}) {
         Test::More->import::into($target);
     }
+
+    # expose system utilities by default
+    require 'App/CharmKit/Sys.pm';
+    'App::CharmKit::Sys'->import::into($target);
 
     # expose charm helpers by default
     require 'App/CharmKit/Helper.pm';
