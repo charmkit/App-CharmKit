@@ -68,6 +68,10 @@ sub import {
     require 'App/CharmKit/Sys.pm';
     'App::CharmKit::Sys'->import::into($target);
 
+    # data faker utilities
+    require 'App/CharmKit/Faker.pm';
+    'App::CharmKit::Faker'->import::into($target);
+
     # expose charm helpers by default
     require 'App/CharmKit/Helper.pm';
     'App::CharmKit::Helper'->import::into($target);

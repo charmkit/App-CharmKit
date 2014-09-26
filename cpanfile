@@ -1,5 +1,6 @@
 requires "App::Cmd::Setup" => "0";
 requires "Class::Tiny" => "0";
+requires "Data::Faker" => "0";
 requires "Exporter" => "0";
 requires "File::ShareDir" => "0";
 requires "File::chdir" => "0";

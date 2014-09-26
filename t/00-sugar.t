@@ -45,4 +45,10 @@ my $contents_in = slurp('/tmp/test.txt');
 ok($contents_in =~ /this is a test/, 'contents read from file and matched');
 ok($write_path->remove, 'test.txt removed');
 
+my $faker = faker();
+my $fake_name = $faker->name;
+ok($fake_name =~ /^\w+/, 'Fake name generated: '. $fake_name);
+my $fake_zip = $faker->us_zip_code;
+ok($fake_zip =~ /\d+/, 'Fake zip code generated: '.$fake_zip);
+
 done_testing();

@@ -3,8 +3,26 @@ Changes from 2013-09-26 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.010 at 2014-09-26 19:41:52 +0000
+version 0.011 at 2014-09-26 20:03:16 +0000
 ------------------------------------------
+
+  Change: 41d4a67bac563759477fc957562b869c139e3ca3
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-26 15:46:00 +0000
+
+    add synopsis to charmkit script
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.010 at 2014-09-26 19:42:00 +0000
+------------------------------------------
+
+  Change: e5d0fa8d84f55249153770955f492300773d1a66
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-26 15:42:00 +0000
+
+    v0.010 
 
   Change: 18ac661cf54f8197880e59e6edb021f58367ea99
   Author: Adam Stokes <adam.stokes@ubuntu.com>

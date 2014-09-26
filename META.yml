@@ -25,6 +25,7 @@ name: App-CharmKit
 requires:
   App::Cmd::Setup: '0'
   Class::Tiny: '0'
+  Data::Faker: '0'
   Exporter: '0'
   File::ShareDir: '0'
   File::chdir: '0'
@@ -45,4 +46,4 @@ requires:
   strict: '0'
   utf8::all: '0'
   warnings: '0'
-version: '0.010'
+version: '0.011'
