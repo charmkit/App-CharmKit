@@ -35,13 +35,14 @@ ok($getent->{error} eq 0, 'genent works');
 my $dirtest = make_dir(['/tmp/test']);
 ok(path('/tmp/test')->exists, 'directory created');
 remove_dir(['/tmp/test']);
+ok(!path('/tmp/test')->exists, 'directory removed');
 
 my $contents = "this is a test";
 my $write_path = path('/tmp/test.txt');
-ok(spew($write_path, $contents), 'contents written to file');
+ok(spew($write_path, $contents), 'contents written to test.txt');
 
 my $contents_in = slurp('/tmp/test.txt');
 ok($contents_in =~ /this is a test/, 'contents read from file and matched');
-$write_path->remove;
+ok($write_path->remove, 'test.txt removed');
 
 done_testing();

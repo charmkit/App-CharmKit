@@ -4,7 +4,7 @@ package App::CharmKit::Sys;
 
 =head1 SYNOPSIS
 
-  use charm -sys;
+  use charm;
 
 or
 
@@ -12,7 +12,7 @@ or
 
   apt_update();
   apt_upgrade();
-  apt_inst(['nginx-common', 'redis-server']);
+  apt_install(['nginx-common', 'redis-server']);
 
 =head1 DESCRIPTION
 
@@ -20,14 +20,17 @@ Provides system utilities such as installing packages, managing files, and more.
 
 =cut
 
+use strict;
+use warnings;
 use Path::Tiny;
 use IPC::Run qw(run timeout);
 use Exporter qw(import);
 
 our @EXPORT = qw/execute
-  apt_inst
+  apt_install
   apt_upgrade
   apt_update
+  apt_add_repo
   make_dir
   remove_dir
   set_owner
@@ -35,7 +38,10 @@ our @EXPORT = qw/execute
   del_user
   spew
   slurp
-  getent/;
+  getent
+  service_control
+  service_status/;
+
 
 =func spew(STR path, STR contents)
 
@@ -157,18 +163,54 @@ sub execute {
     };
 }
 
-=func apt_inst(ARRAYREF pkgs)
+
+=func apt_add_repo(STR repo, STR key, BOOL update)
+
+Adds a archive repository or ppa. B<key> is required if adding http source.
+
+B<source> can be in the format of:
+
+  ppa:charmers/example
+  deb https://stub:key@private.example.com/ubuntu trusty main
+
+=cut
+
+sub apt_add_repo {
+    my $repo   = shift;
+    my $update = shift || 0;
+    my $key    = shift || undef;
+    if ($repo =~ /^(ppa:|cloud:|http|deb|cloud-archive:)/) {
+        execute(['apt-add-repository', '--yes', $repo]);
+    }
+    if ($repo =~ /^cloud:/) {
+        apt_install(['ubuntu-cloud-keyring']);
+    }
+    if ($key) {
+        execute(
+            [   'apt-key', 'adv', '--keyserver',
+                'hkp://keyserver.ubuntu.com:80',
+                '--recv', $key
+            ]
+        );
+    }
+    if ($update) {
+        apt_update();
+    }
+}
+
+=func apt_install(ARRAYREF pkgs)
 
 Installs packages via apt-get
 
-   apt_inst(['nginx']);
+   apt_install(['nginx']);
 
 =cut
-sub apt_inst {
+sub apt_install {
     my $pkgs = shift;
     my $cmd = ['apt-get', '-qyf', 'install'];
     map { push @{$cmd}, $_ } @{$pkgs};
     my $ret = execute($cmd);
+    die $! unless $ret->{error} > 0;
     return $ret->{stdout};
 }
 
@@ -197,5 +239,33 @@ sub apt_update {
     my $ret = execute($cmd);
     return $ret->{stdout};
 }
+
+
+=func service_control(STR service_name, STR action)
+
+Controls a upstart service
+
+=cut
+
+sub service_control {
+    my $service_name = shift;
+    my $action       = shift;
+    my $cmd          = ['service', $service_name, $action];
+    my $ret          = execute($cmd);
+    return $ret;
+}
+
+=func service_status(STR service_nae)
+
+Get running status of service
+
+=cut
+
+sub service_status {
+    my $service_name = shift;
+    my $ret = service_control($service_name, 'status');
+    return $ret->{error};
+}
+
 
 1;

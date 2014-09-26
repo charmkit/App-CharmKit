@@ -32,10 +32,17 @@ our @EXPORT = qw/config_get
   relation_get
   relation_set
   relation_list
-  service_control
+  relation_type
+  relation_id
+  local_unit
+  remote_unit
+  service_name
+  hook_name
+  in_relation_hook
   open_port
   close_port
   unit_get
+  unit_private_ip
   json
   yaml
   tmpl
@@ -43,44 +50,32 @@ our @EXPORT = qw/config_get
 
 =func json
 
-Wrapper for JSON::PP
+Wrapper for L<JSON::PP>
 
 =cut
 sub json { JSON::PP->new->utf8; }
 
 =func yaml
 
-Wrapper for YAML::Tiny
+Wrapper for L<YAML::Tiny>
 
 =cut
 sub yaml { YAML::Tiny->new(@_); }
 
 =func tmpl
 
-Wrapper for Text::MicroTemplate
+Wrapper for L<Text::MicroTemplate>
 
 =cut
 sub tmpl { Text::MicroTemplate->new(@_); }
 
 =func http
 
-Wrapper for HTTP::Tiny
+Wrapper for L<HTTP::Tiny>
 
 =cut
 sub http { HTTP::Tiny->new; }
 
-=func service_control(STR service_name, STR action)
-
-Controls a upstart service
-
-=cut
-sub service_control {
-    my $service_name = shift;
-    my $action       = shift;
-    my $cmd          = ['service', $service_name, $action];
-    my $ret          = execute($cmd);
-    return $ret->{stdout};
-}
 
 =func config_get(STR option)
 
@@ -176,6 +171,17 @@ sub unit_get {
   return $ret->{stdout};
 }
 
+
+=func unit_private_ip
+
+Get units private ip
+
+=cut
+
+sub unit_private_ip {
+    return unit_get('private-address');
+}
+
 =func open_port(INT port, STR protocol)
 
 Open port on service
@@ -201,4 +207,75 @@ sub close_port {
     my $ret      = execute($cmd);
     return $ret->{stdout};
 }
+
+=func in_relation_hook
+
+Determine if we're in relation hook
+
+=cut
+
+sub in_relation_hook {
+    return defined($ENV{'JUJU_RELATION'});
+}
+
+=func relation_type
+
+scope for current relation
+
+=cut
+
+sub relation_type {
+    return $ENV{'JUJU_RELATION'} || undef;
+}
+
+=func relation_id
+
+relation id for current relation hook
+
+=cut
+
+sub relation_id {
+    return $ENV{'JUJU_RELATION_ID'} || undef;
+}
+
+=func local_unit
+
+local unit id
+
+=cut
+
+sub local_unit {
+    return $ENV{'JUJU_UNIT_NAME'} || undef;
+}
+
+=func remote unit
+
+remote unit for current relation hook
+
+=cut
+
+sub remote_unit {
+    return $ENV{'JUJU_REMOTE_UNIT'} || undef;
+}
+
+=func service_name
+
+name of service running unit belongs too
+
+=cut
+
+sub service_name {
+    return (split /\//, local_unit())[0];
+}
+
+=func hook_name
+
+name of running hook
+
+=cut
+
+sub hook_name {
+    return $0;
+}
+
 1;

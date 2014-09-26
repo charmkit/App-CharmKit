@@ -25,14 +25,21 @@ use Exporter qw/import/;
 
 our @EXPORT = qw/log/;
 
-=func log(STR message)
+=func log(STR message, STR level)
 
 Utilizies juju-log for any additional logging
 
 =cut
 sub log {
     my $message = shift;
-    execute(['juju-log', $message]);
+    my $level = shift || undef;
+    my $cmd = ['juju-log'];
+    if ($level) {
+      push @{$cmd}, '-l';
+      push @{$cmd}, $level;
+    }
+    push @{$cmd}, $message;
+    execute($cmd);
 }
 
 1;

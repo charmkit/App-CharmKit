@@ -1,5 +1,13 @@
 ---
 files:
+  - name: 'README.md'
+    attributes:
+      - NOT_EMPTY
+      - EXISTS
+    aliases:
+      - 'README'
+      - 'README.mkdn'
+      - 'README.txt'
   - name: 'config.yaml'
     attributes:
       - NOT_EMPTY

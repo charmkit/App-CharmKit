@@ -120,6 +120,7 @@ sub parse {
     }
 }
 
+
 =method validate(HASHREF filemeta)
 
 Performs validation of file based on available attribute
@@ -131,6 +132,7 @@ Performs validation of file based on available attribute
 * EXISTS
 
 =cut
+
 sub validate {
     my ($self, $filemeta) = @_;
     my $filepath = path($filemeta->{name});
@@ -139,8 +141,18 @@ sub validate {
         if ($attr =~ /NOT_EMPTY/ && -z $name) {
             $self->check_error($name, 'ERR_EMPTY');
         }
-        if ($attr =~ /EXISTS/ && !$filepath->exists) {
-            $self->check_error($name, 'ERR_EXISTS');
+        if ($attr =~ /EXISTS/) {
+
+            # Verify any file aliases
+            my $alias_exists = 0;
+            foreach my $alias (@{$filemeta->{aliases}}) {
+                next unless path($alias)->exists;
+                $alias_exists = 1;
+            }
+            if (!$alias_exists) {
+                $self->check_error($name, 'ERR_EXISTS')
+                  unless $filepath->exists;
+            }
         }
     }
 
