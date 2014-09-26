@@ -2,34 +2,25 @@ package App::CharmKit::Role::Pack;
 
 # ABSTRACT: Fatpack hooks
 
+use strict;
+use warnings;
 use Path::Tiny;
-use Moo::Role;
 
 =attr src
 
 Path::Tiny object for pristine hooks. Primarily used during development
 of non fatpacked hooks.
-=cut
-has src => (
-    is      => 'ro',
-    lazy    => 1,
-    default => sub {
-        path('.')->child('src/hooks');
-    }
-);
 
 =attr src_tests
 
 Path::Tiny object for pristine tests. Primarily used during development
 of non fatpacked hooks.
 =cut
-has src_tests => (
-    is      => 'ro',
-    lazy    => 1,
-    default => sub {
-        path('.')->child('src/tests');
-    }
-);
+
+use Class::Tiny {
+    src       => path('.')->child('src/hooks'),
+    src_tests => path('.')->child('src/tests')
+};
 
 
 =method build()

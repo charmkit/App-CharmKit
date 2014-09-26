@@ -5,6 +5,7 @@ author:
 build_requires:
   App::FatPacker: '0'
   App::Prove: '0'
+  DDP: '0'
   FindBin: '0'
   IPC::System::Simple: '0'
   Pod::Elemental::Transformer::List: '0'
@@ -25,7 +26,7 @@ meta-spec:
 name: App-CharmKit
 requires:
   App::Cmd::Setup: '0'
-  DDP: '0'
+  Class::Tiny: '0'
   Exporter: '0'
   File::ShareDir: '0'
   File::chdir: '0'
@@ -36,15 +37,13 @@ requires:
   Import::Into: '0'
   JSON::PP: '0'
   Module::Runtime: '0'
-  Moo: '0'
-  Moo::Role: '0'
   Path::Tiny: '0'
   Software::License: '0'
   Test::More: '0'
   Text::MicroTemplate: '0'
   YAML::Tiny: '0'
   feature: '0'
-  namespace::clean: '0'
+  parent: '0'
   strict: '0'
   utf8::all: '0'
   warnings: '0'

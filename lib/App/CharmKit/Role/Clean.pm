@@ -2,7 +2,9 @@ package App::CharmKit::Role::Clean;
 
 # ABSTRACT: Project cleaner role
 
-use Moo::Role;
+use strict;
+use warnings;
+use Class::Tiny;
 
 =method clean(ARRAYREF [Path::Tiny files])
 

@@ -13,11 +13,8 @@ against local juju deployments.
 
 =cut
 
+use parent 'App::CharmKit::Role::Pack';
 use App::CharmKit -command;
-use Moo;
-with('App::CharmKit::Role::Pack');
-
-use namespace::clean;
 
 sub opt_spec {
     return (
@@ -34,7 +31,7 @@ sub execute {
     if ($opt->{rebuild}) {
         $self->build;
     }
-    my $cmd = "prove -v tests/*.test";
+    my $cmd = "prove -lv tests/*.test";
     system($cmd);
 }
 

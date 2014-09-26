@@ -2,21 +2,14 @@ package App::CharmKit::Role::Generate;
 
 # ABSTRACT: Generators for common tasks
 
+use strict;
+use warnings;
 use Path::Tiny;
-use Moo::Role;
 
 =attr src
 
 Path::Tiny object for pristine hooks. Primarily used during development
 of non fatpacked hooks.
-=cut
-has src => (
-    is      => 'ro',
-    lazy    => 1,
-    default => sub {
-        path('.')->child('src/hooks');
-    }
-);
 
 =attr default_hooks
 
@@ -24,13 +17,12 @@ Arrayref of default charm hooks used when doing a blanket generate
 of all hooks.
 
 =cut
-has default_hooks => (
-    is      => 'ro',
-    lazy    => 1,
-    default => sub {
-        ['install', 'config-changed', 'upgrade-charm', 'start', 'stop'];
-    }
-);
+
+use Class::Tiny {
+    src => path('.')->child('src/hooks'),
+    default_hooks =>
+      ['install', 'config-changed', 'upgrade-charm', 'start', 'stop']
+};
 
 =method create_hook(STR hook)
 

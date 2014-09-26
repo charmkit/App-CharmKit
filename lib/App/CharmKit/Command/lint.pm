@@ -8,10 +8,10 @@ package App::CharmKit::Command::lint;
 
 =cut
 
+use strict;
+use warnings;
 use App::CharmKit -command;
-use Moo;
-with 'App::CharmKit::Role::Lint';
-use namespace::clean;
+use parent 'App::CharmKit::Role::Lint';
 
 sub opt_spec {
     return ();

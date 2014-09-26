@@ -12,11 +12,10 @@ Clones a charm from GitHub
 
 =cut
 
+use strict;
+use warnings;
 use App::CharmKit -command;
-use Moo;
-with('App::CharmKit::Role::GitHub');
-
-use namespace::clean;
+use parent 'App::CharmKit::Role::GitHub';
 
 sub opt_spec {
     return (

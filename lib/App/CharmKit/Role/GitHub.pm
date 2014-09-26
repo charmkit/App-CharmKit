@@ -2,8 +2,10 @@ package App::CharmKit::Role::GitHub;
 
 # ABSTRACT: Checkout from github
 
+use strict;
+use warnings;
 use Path::Tiny;
-use Moo::Role;
+use Class::Tiny;
 
 =method clone(STR location, STR dst)
 

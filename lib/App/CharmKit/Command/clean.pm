@@ -7,13 +7,12 @@ package App::CharmKit::Command::clean;
   $ charmkit clean
 
 =cut
-
+use strict;
+use warnings;
 use App::CharmKit -command;
 use Path::Tiny;
 
-use Moo;
-with 'App::CharmKit::Role::Clean';
-use namespace::clean;
+use parent 'App::CharmKit::Role::Clean';
 
 sub opt_spec {
     return (['purge', 'full purge of all generated code (does not affect src)']);

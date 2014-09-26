@@ -18,10 +18,10 @@ Generate a website relation based hook
 
 =cut
 
+use strict;
+use warnings;
 use App::CharmKit -command;
-use Moo;
-with('App::CharmKit::Role::Generate');
-use namespace::clean;
+use parent 'App::CharmKit::Role::Generate';
 
 =head1 OPTIONS
 

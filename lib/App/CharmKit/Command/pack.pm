@@ -21,12 +21,11 @@ Coerce your charm code to a releasable charm.
 
 =cut
 
+use strict;
+use warnings;
 use App::CharmKit -command;
 
-use Moo;
-with('App::CharmKit::Role::Pack');
-
-use namespace::clean;
+use parent 'App::CharmKit::Role::Pack';
 
 sub opt_spec {
     return ();

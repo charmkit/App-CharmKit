@@ -32,14 +32,6 @@ The format for rules is as follows:
         - pattern: '^options:\s*\n'
           error: 'ERR_INVALID_COPYRIGHT'
 
-=cut
-use DDP;
-use YAML::Tiny;
-use Path::Tiny;
-use File::ShareDir qw(dist_file);
-use Moo::Role;
-
-
 =attr errors
 
 Errors hash, current list of errors:
@@ -55,74 +47,63 @@ Errors hash, current list of errors:
 * ERR_EXISTS
 * ERR_EMPTY
 
-=cut
-has errors => (
-    is      => 'ro',
-    default => sub {
-        {   ERR_INVALID_COPYRIGHT => {
-                message => 'Copyright is malformed or missing',
-                level   => 'WARNING'
-            },
-            ERR_REQUIRED_CONFIG_ITEM => {
-                message => 'Missing required configuration item',
-                level   => 'FATAL'
-            },
-            ERR_CONFIG_ITEM => {
-                message => 'Missing optional configuration item',
-                level   => 'WARNING'
-            },
-            ERR_NO_REQUIRES => {
-                message => 'No requires set for charm relations',
-                level   => 'WARNING'
-            },
-            ERR_NO_PROVIDES => {
-                message => 'No provides set for charm relations',
-                level   => 'WARNING'
-            },
-            ERR_NO_PEERS => {
-                message => 'No peers set for charm relations',
-                level   => 'INFO'
-            },
-            ERR_NO_SUBORDINATES => {
-                message => 'No subordinates set for charm relations',
-                level   => 'INFO'
-            },
-            ERR_EXISTS => {
-                message => 'File does not exist',
-                level   => 'FATAL'
-            },
-            ERR_EMPTY => {
-                message => 'File is empty',
-                level   => 'FATAL'
-            }
-        };
-    }
-);
-
-
 =attr rules
 
 Lint rules file
-
-=cut
-
-has rules => (
-    is      => 'ro',
-    default => sub {
-        YAML::Tiny->read(dist_file('App-CharmKit', 'lint_rules.yaml'));
-    }
-);
 
 =attr has_error
 
 Stores whether or not a fatal error was found
 
 =cut
-has has_error => (
-    is      => 'rw',
-    lazy    => 1,
-    default => 0
-);
+use strict;
+use warnings;
+use YAML::Tiny;
+use Path::Tiny;
+use File::ShareDir qw(dist_file);
+
+use Class::Tiny {
+    errors => {
+        ERR_INVALID_COPYRIGHT => {
+            message => 'Copyright is malformed or missing',
+            level   => 'WARNING'
+        },
+        ERR_REQUIRED_CONFIG_ITEM => {
+            message => 'Missing required configuration item',
+            level   => 'FATAL'
+        },
+        ERR_CONFIG_ITEM => {
+            message => 'Missing optional configuration item',
+            level   => 'WARNING'
+        },
+        ERR_NO_REQUIRES => {
+            message => 'No requires set for charm relations',
+            level   => 'WARNING'
+        },
+        ERR_NO_PROVIDES => {
+            message => 'No provides set for charm relations',
+            level   => 'WARNING'
+        },
+        ERR_NO_PEERS => {
+            message => 'No peers set for charm relations',
+            level   => 'INFO'
+        },
+        ERR_NO_SUBORDINATES => {
+            message => 'No subordinates set for charm relations',
+            level   => 'INFO'
+        },
+        ERR_EXISTS => {
+            message => 'File does not exist',
+            level   => 'FATAL'
+        },
+        ERR_EMPTY => {
+            message => 'File is empty',
+            level   => 'FATAL'
+        }
+    },
+    rules => YAML::Tiny->read(dist_file('App-CharmKit', 'lint_rules.yaml')),
+    has_error => 0
+};
 
 =method parse
 

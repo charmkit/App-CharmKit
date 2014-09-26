@@ -19,15 +19,14 @@ Generates charm hooks during init.
 
 =cut
 
+use strict;
+use warnings;
 use Path::Tiny;
 use File::chdir;
 use IO::Prompter [-verb];
 use App::CharmKit -command;
 
-use Moo;
-with 'App::CharmKit::Role::Init', 'App::CharmKit::Role::Generate';
-
-use namespace::clean;
+use parent 'App::CharmKit::Role::Init', 'App::CharmKit::Role::Generate';
 
 sub opt_spec {
     return (
