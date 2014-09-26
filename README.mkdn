@@ -8,7 +8,7 @@ version 0.009
 
 # AUTHOR
 
-Adam Stokes <adam.stokes@ubuntu.com>
+Adam Stokes <adamjs@cpan.org>
 
 # COPYRIGHT AND LICENSE
 

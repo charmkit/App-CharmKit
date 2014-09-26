@@ -1,15 +1,13 @@
 ---
 abstract: 'Perl Framework for authoring Juju charms'
 author:
-  - 'Adam Stokes <adam.stokes@ubuntu.com>'
+  - 'Adam Stokes <adamjs@cpan.org>'
 build_requires:
   App::FatPacker: '0'
   App::Prove: '0'
-  DDP: '0'
   FindBin: '0'
   IPC::System::Simple: '0'
   Pod::Elemental::Transformer::List: '0'
-  Pod::Weaver::Section::Contributors: '0'
   Software::License: '0'
   Test::More: '0'
   autodie: '0'

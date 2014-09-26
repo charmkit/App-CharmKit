@@ -43,9 +43,9 @@ writes to a file, defaults to utf8
 
 =cut
 sub spew {
-  my $path = path(shift);
-  my $contents = shift;
-  $path->spew_utf8($contents);
+    my $path     = path(shift);
+    my $contents = shift;
+    $path->spew_utf8($contents);
 }
 
 =func slurp(STR path)
