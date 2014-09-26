@@ -3,6 +3,7 @@
 
 __END__
 
+
 =head1 Getting Started
 
 =head2 Creating a project
@@ -18,7 +19,8 @@ To start a project:
 
 If used C<--with-hooks> then B<src/hooks/> will be populated with all the default
 hooks. A few questions will be prompted and then the project is generated with
-B<config.yaml, metadata.yaml, LICENSE, and README.md>.
+F<charmkit.json>, F<config.yaml>, F<metadata.yaml>, F<LICENSE>, F<README.md>,
+and F<Makefile>.
 
 =head2 Directory Layout
 
@@ -44,11 +46,13 @@ Once a project is created the structure of your project should look similar to:
     metadata.yaml
     LICENSE
     README.md
+    charmkit.json
+    Makefile
 
 =head2 Creating hooks
 
 By default CharmKit allows the creation of a set of default unit hooks.
-Those hooks are B<install, config-changed, start, upgrade-charm, stop>.
+Those hooks are B<install>, B<config-changed>, B<start>, B<upgrade-charm>, B<stop>.
 
   $ charmkit generate upgrade-charm
 
@@ -69,11 +73,16 @@ A typical hook starts with
 
    #!/usr/bin/env perl
 
-   use charm -logging;
+   use charm;
 
    log 'Starting install hook for database';
+
+   apt_install(['mysql-server', 'nginx', 'php5-fpm'])
+
    my $dbhost = relation_get 'dbhost';
    my $dbuser = relation_get 'dbuser';
+
+   service_control('nginx', 'restart');
 
 =head2 Writing charm tests
 
@@ -83,14 +92,13 @@ A typical test starts with
 
    #!/usr/bin/env perl
 
-   use charm -tester, -sys;
+   use charm -tester;
 
    # See if an nginx config file exists
-   ok -e '/etc/nginx/sites-enabled/mysite.com';
+   ok (-e '/etc/nginx/sites-enabled/mysite.com', 'found nginx site config');
 
-   my $cmd = ['service', 'nginx', 'status'];
-   my $ret = execute($cmd);
-   ok $ret->{error} eq 0;
+   my $ret = service_status('nginx');
+   ok ($ret->{error} eq 0, 'nginx is running);
 
    # finish tests
    done_testing;
@@ -99,13 +107,24 @@ Tests are built in a way that the test runner from the charm reviewers will be
 able to run and validate your charm. The tests can be executed calling them directly
 (how the test runner does it) or running with:
 
-   $ prove tests/*.test
+   $ charmkit test
 
-=head2 Packaging a charm fo release
+or
+
+   $ prove -lv tests/*.test
+
+=head2 Packaging a charm for release
 
 Once development is complete and you have your hooks defined and tests written.
-Packaging a charm for release to either Git or the Charm Store is a matter of running:
+Packaging a charm for release to either Git or the Charm Store is a matter of
+running:
 
   $ charmkit pack
+
+=head2 Getting external charms
+
+CharmKit currently only supports cloning from GitHub.
+
+  $ charmkit get battlemidget/test-charm
 
 =cut

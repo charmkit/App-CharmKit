@@ -92,6 +92,8 @@ sub remove_dir {
 
 sets owner of directories
 
+  set_owner('ubuntu', ['/var/lib/mydb', '/etc/mydb/conf'])
+
 =cut
 sub set_owner {
     my ($user, $dirs) = @_;
@@ -104,9 +106,12 @@ sub set_owner {
 
 accesses user info from nss
 
-Params:
-  db: nss database to query
-  key: what to query
+B<Params>
+
+=for :list
+*  db: nss database to query
+*  key: what to query
+*  returns: result from C<execute>
 
 =cut
 sub getent {
@@ -118,6 +123,13 @@ sub getent {
 =func add_user(STR user, STR homedir)
 
 adds user to system
+
+B<Params>
+
+=for :list
+* user: username
+* homedir: users home directory
+* returns: result from C<execute>
 
 =cut
 sub add_user {
@@ -149,6 +161,12 @@ Executes a local command:
    my $cmd = ['juju-log', 'a message'];
    my $ret = execute($cmd);
    print $ret->{stdout};
+
+B<Params>
+
+=for :list
+* command: command to run
+* returns: hash of { stdout =>, stderr =>, has_error =>, error => }
 
 =cut
 sub execute {

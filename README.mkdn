@@ -4,7 +4,7 @@ App::CharmKit - Perl Framework for authoring Juju charms
 
 # VERSION
 
-version 0.009
+version 0.010
 
 # AUTHOR
 
