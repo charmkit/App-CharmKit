@@ -228,7 +228,6 @@ sub apt_install {
     my $cmd = ['apt-get', '-qyf', 'install'];
     map { push @{$cmd}, $_ } @{$pkgs};
     my $ret = execute($cmd);
-    die $! unless $ret->{error} > 0;
     return $ret->{stdout};
 }
 
