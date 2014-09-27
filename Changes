@@ -3,8 +3,16 @@ Changes from 2013-09-27 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.011 at 2014-09-27 00:10:21 +0000
+version 0.011 at 2014-09-27 00:59:09 +0000
 ------------------------------------------
+
+  Change: e70029b12d8b425084d45d4ba799ca9dac7813d6
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-26 20:30:51 +0000
+
+    update weaver
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: b2c57c360bc9edbff25811ecb76389d682c72484
   Author: Adam Stokes <adam.stokes@ubuntu.com>
