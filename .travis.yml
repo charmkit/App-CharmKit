@@ -8,9 +8,6 @@ perl:
 notifications:
   email: false
 install:
-  - dzil authordeps --missing | cpanm --notest
-  - dzil listdeps |cpanm --notest
   - cpanm --notest -q --mirror-only --installdeps .
-  - dzil install
 script:
-  - dzil test
+  - prove -r t
