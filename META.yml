@@ -8,6 +8,7 @@ build_requires:
   FindBin: '0'
   IPC::System::Simple: '0'
   Pod::Elemental::Transformer::List: '0'
+  Pod::Weaver::Plugin::Encoding: '0'
   Software::License: '0'
   Test::More: '0'
   autodie: '0'
@@ -16,7 +17,7 @@ configure_requires:
   ExtUtils::MakeMaker: '0'
   File::ShareDir::Install: '0.06'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142060'
+generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142690'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -25,6 +26,7 @@ name: App-CharmKit
 requires:
   App::Cmd::Setup: '0'
   Class::Tiny: '0'
+  Data::Dumper: '0'
   Data::Faker: '0'
   Exporter: '0'
   File::ShareDir: '0'
@@ -46,4 +48,4 @@ requires:
   strict: '0'
   utf8::all: '0'
   warnings: '0'
-version: '0.011'
+version: '0.012'

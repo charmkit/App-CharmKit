@@ -1,10 +1,90 @@
 ==================================================
-Changes from 2013-09-27 00:00:00 +0000 to present.
+Changes from 2013-10-01 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.011 at 2014-09-27 00:59:09 +0000
+version 0.012 at 2014-10-01 01:41:47 +0000
 ------------------------------------------
+
+  Change: 55fd19135b98a1467a90fbb7938ef3ea9b9967bc
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-30 21:27:40 +0000
+
+    fix some dependencies necessary for tests to run
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 302962087d2135a5cfc1c2644e53c68669e4c165
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-30 21:24:06 +0000
+
+    more travis fixes
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: cbd78a7dd6d31423d08bdeb4c046398b422bcf7e
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-30 21:20:05 +0000
+
+    update travis build steps
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 907aae58235aaad8b80d704e474e1c3b59c3cdc1
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-30 21:12:11 +0000
+
+    add prettyLog output
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 7e329f28c7d60102b2648d8cd1de8eaa85fe72ba
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-30 21:04:36 +0000
+
+    add travis-ci
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 0196af7180858a0f2b1f9f0ac6d2a0e5a7f6ede3
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-30 20:57:02 +0000
+
+    update doc for cloning
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: d635a0ee3dc26ef4494b72d062b3327cd83ba3cc
+  Author: adam.stokes <battlemidget@users.noreply.github.com>
+  Date : 2014-09-29 10:45:26 +0000
+
+    Merge pull request #2 from gitter-badger/gitter-badge-5
+
+    Add a Gitter chat badge to README.mkdn 
+
+  Change: cb02c652c0ee5aa5bb844a1741eb2561c5050f38
+  Author: The Gitter Badger <badger@gitter.im>
+  Date : 2014-09-29 14:44:54 +0000
+
+    Added Gitter badge 
+
+  Change: 001f48100430ed0b8a5f9b2bd486044f6cabaad6
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-26 23:11:27 +0000
+
+    dont die on apt_install error
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.011 at 2014-09-27 00:59:19 +0000
+------------------------------------------
+
+  Change: 48ec025ba521c82c6111163fc1b15362bac17c98
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-09-26 20:59:19 +0000
+
+    v0.011 
 
   Change: e70029b12d8b425084d45d4ba799ca9dac7813d6
   Author: Adam Stokes <adam.stokes@ubuntu.com>

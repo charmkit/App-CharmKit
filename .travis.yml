@@ -11,5 +11,6 @@ install:
   - dzil authordeps --missing | cpanm --notest
   - dzil listdeps |cpanm --notest
   - cpanm --notest -q --mirror-only --installdeps .
+  - dzil install
 script:
-  - prove -r t
+  - dzil test
