@@ -9,5 +9,8 @@ notifications:
   email: false
 install:
   - cpanm --notest -q --mirror-only --installdeps .
+  - perl Makefile.PL
+  - make
+  - make install
 script:
   - prove -r t
