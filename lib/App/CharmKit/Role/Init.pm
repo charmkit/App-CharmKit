@@ -155,7 +155,7 @@ Made with [CharmKit](https://github.com/battlemidget/App-CharmKit)
 #### Source
 
 ```console
-> mkdir -p ~/charms && git clone https://github.com/<github-user>/$project->{name}
+> mkdir -p ~/charms && git clone https://github.com/<github-user>/$project->{name} ~/charms/
 > juju deploy --repository=charms local:<series>/$project->{name}
 ```
 
