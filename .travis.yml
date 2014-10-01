@@ -8,7 +8,7 @@ perl:
 notifications:
   email: false
 install:
-  - cpanm --notest Dist::Zilla
+  - dzil authordeps --missing | cpanm --notest
   - dzil listdeps |cpanm --notest
   - cpanm --notest -q --mirror-only --installdeps .
 script:
