@@ -20,10 +20,11 @@ Reporting utilities
 
 =cut
 
+use Data::Dumper;
 use App::CharmKit::Sys qw/execute/;
 use Exporter qw/import/;
 
-our @EXPORT = qw/log/;
+our @EXPORT = qw/log prettyLog/;
 
 =func log(STR message, STR level)
 
@@ -40,6 +41,16 @@ sub log {
     }
     push @{$cmd}, $message;
     execute($cmd);
+}
+
+=func prettyLog(object)
+
+Dumps the perl data structure into something readable
+
+=cut
+sub prettyLog {
+    my $obj = shift;
+    print Dumper($obj);
 }
 
 1;
