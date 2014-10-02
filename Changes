@@ -3,8 +3,26 @@ Changes from 2013-10-02 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.013 at 2014-10-02 03:04:29 +0000
+version 0.014 at 2014-10-02 20:44:28 +0000
 ------------------------------------------
+
+  Change: 2864f3828da071635f968e4dd1ea9c2ccaa01b3b
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-02 14:23:27 +0000
+
+    more linter patterns
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.013 at 2014-10-02 03:04:40 +0000
+------------------------------------------
+
+  Change: 26ff198cf67a3862485b7e591183158a308f814c
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-01 23:04:40 +0000
+
+    v0.013 
 
   Change: 2be864f6562eaa50b0e5ec7b7a0b10a1c43abe13
   Author: Adam Stokes <adam.stokes@ubuntu.com>

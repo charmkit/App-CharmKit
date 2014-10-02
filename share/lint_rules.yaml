@@ -13,6 +13,9 @@ hooks:
     attributes:
     - NOT_EMPTY
 files:
+  - name: 'README.ex'
+    attributes:
+      - NOT_EXISTS
   - name: 'README.md'
     attributes:
       - NOT_EMPTY
