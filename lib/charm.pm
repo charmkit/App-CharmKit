@@ -28,6 +28,7 @@ or ..
 use strict;
 use utf8::all;
 use warnings;
+use boolean;
 use Import::Into;
 
 use feature ();
@@ -58,6 +59,7 @@ sub import {
     'autodie'->import::into($target, ':all');
     'feature'->import::into($target, ':5.14');
     'English'->import::into($target, '-no_match_vars');
+    'boolean'->import::into($target, ':all');
     Path::Tiny->import::into($target, qw(path));
 
     if ($flags{tester}) {
@@ -99,5 +101,6 @@ Exposes object as B<tmpl>
 * L<Test::More>
 * L<autodie>
 * L<utf8::all>
+* L<boolean>
 
 =cut
