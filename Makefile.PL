@@ -46,7 +46,6 @@ my %WriteMakefileArgs = (
     "Software::License" => 0,
     "Test::More" => 0,
     "Text::MicroTemplate" => 0,
-    "Util::Any" => 0,
     "YAML::Tiny" => 0,
     "boolean" => 0,
     "feature" => 0,
@@ -67,7 +66,7 @@ my %WriteMakefileArgs = (
     "autodie" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.014",
+  "VERSION" => "0.015",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -100,7 +99,6 @@ my %FallbackPrereqs = (
   "Software::License" => 0,
   "Test::More" => 0,
   "Text::MicroTemplate" => 0,
-  "Util::Any" => 0,
   "YAML::Tiny" => 0,
   "autodie" => 0,
   "boolean" => 0,

@@ -47,7 +47,6 @@ use boolean;
 use YAML::Tiny;
 use Path::Tiny;
 use File::ShareDir qw(dist_file);
-use Util::Any -list;
 use Set::Light;
 use App::CharmKit::Logging qw/prettyLog/;
 

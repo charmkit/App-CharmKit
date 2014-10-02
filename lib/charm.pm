@@ -44,6 +44,7 @@ if ($INC{"App/FatPacker/Trace.pm"}) {
     require YAML::Tiny;
     require IPC::Run;
     require Text::MicroTemplate;
+    require Set::Light;
 }
 
 sub import {

@@ -43,7 +43,6 @@ requires:
   Software::License: '0'
   Test::More: '0'
   Text::MicroTemplate: '0'
-  Util::Any: '0'
   YAML::Tiny: '0'
   boolean: '0'
   feature: '0'
@@ -51,4 +50,4 @@ requires:
   strict: '0'
   utf8::all: '0'
   warnings: '0'
-version: '0.014'
+version: '0.015'
