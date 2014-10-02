@@ -67,7 +67,7 @@ sub execute {
     }
     printf("Initializing project %s\n", $path->absolute);
 
-    my $default_maintainer = 'Joe Hacker';
+    my $default_maintainer = 'Joe Hacker <joe.hacker@mail.com>';
     my $default_category   = $opt->{category};
     @ARGV = ();    # IO::Prompter workaround
     $project->{name} = prompt "Name [default $path]:", -def => "$path";

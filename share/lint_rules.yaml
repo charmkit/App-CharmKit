@@ -1,4 +1,17 @@
 ---
+hooks:
+  - name: 'install'
+    attributes:
+      - EXISTS
+  - name: 'start'
+    attributes:
+      - EXISTS
+  - name: 'stop'
+    attributes:
+      - EXISTS
+  - name: 'config-changed'
+    attributes:
+    - NOT_EMPTY
 files:
   - name: 'README.md'
     attributes:
@@ -11,32 +24,38 @@ files:
   - name: 'config.yaml'
     attributes:
       - NOT_EMPTY
-    parse:
-      - pattern: '^options:\s*\n'
-        error: 'ERR_REQUIRED_CONFIG_ITEM'
+    known_option_keys:
+      - description
+      - type
+      - default
+    known_option_types:
+      - string
+      - int
+      - float
+      - boolean
   - name: 'metadata.yaml'
     attributes:
       - NOT_EMPTY
       - EXISTS
-    parse:
-      - pattern: '^(name|summary|description):\s+\w+'
-        error: 'ERR_REQUIRED_CONFIG_ITEM'
-      - pattern: '^(maintainer|categories):\s+\w+'
-        error: 'ERR_CONFIG_ITEM'
-      - pattern: '^requires:\s*\n'
-        error: 'ERR_NO_REQUIRES'
-      - pattern: '^provides:\s*\n'
-        error: 'ERR_NO_PROVIDES'
-      - pattern: '^peers:\s*\n'
-        error: 'ERR_NO_PEERS'
-      - pattern: '^subordinates:\s*\n'
-        error: 'ERR_NO_SUBORDINATES'
+    known_meta_keys:
+      - name
+      - summary
+      - maintainer
+      - maintainers
+      - description
+      - categories
+      - subordinate
+      - provides
+      - requires
+      - format
+      - peers
+    known_relation_keys:
+      - interface
+      - scope
+      - limit
+      - optional
   - name: 'copyright'
     attributes:
       - NOT_EMPTY
       - EXISTS
-    parse:
-      - pattern: '^License:\s\w+\n\s+\w+\n'
-        error: 'ERR_INVALID_COPYRIGHT'
-
 

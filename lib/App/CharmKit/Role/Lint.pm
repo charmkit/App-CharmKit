@@ -61,6 +61,7 @@ use warnings;
 use YAML::Tiny;
 use Path::Tiny;
 use File::ShareDir qw(dist_file);
+use DDP;
 
 use Class::Tiny {
     errors => {
@@ -75,6 +76,11 @@ use Class::Tiny {
         ERR_CONFIG_ITEM => {
             message => 'Missing optional configuration item',
             level   => 'WARNING'
+        },
+        ERR_CONFIG_SYNTAX => {
+            message =>
+              'Issue with an item, could be duplicate or a conflicting key',
+            level => 'FATAL'
         },
         ERR_NO_REQUIRES => {
             message => 'No requires set for charm relations',
@@ -93,7 +99,7 @@ use Class::Tiny {
             level   => 'INFO'
         },
         ERR_EXISTS => {
-            message => 'File does not exist',
+            message => 'Required file does not exist',
             level   => 'FATAL'
         },
         ERR_EMPTY => {
@@ -116,12 +122,99 @@ sub parse {
     # Check attributes
     my $rules = $self->rules->[0];
     foreach my $meta (@{$rules->{files}}) {
-        $self->validate($meta);
+        $self->validate_attributes($meta);
+        if ($meta->{name} =~ /^metadata\.yaml/) {
+            $self->validate_metadata($meta);
+        }
+        if ($meta->{name} =~ /^config\.yaml/) {
+            $self->validate_configdata($meta);
+        }
+    }
+    foreach my $hook (@{$rules->{hooks}}) {
+        $self->validate_hook($hook);
+    }
+}
+
+=method validate_configdata(HASHREF configdata)
+
+Validates B<config.yaml>
+
+=cut
+sub validate_configdata {
+    my ($self, $configdata) = @_;
+    my $config_on_disk = YAML::Tiny->read($configdata->{name})->[0];
+    my $filepath       = path($configdata->{name});
+    $self->check_error(sprintf("%s:options", $configdata->{name}),
+        'ERR_REQUIRED_CONFIG_ITEM')
+      unless defined($config_on_disk->{options});
+
+    foreach my $option (keys %{$config_on_disk->{options}}) {
+        my $check_opt = $config_on_disk->{options}->{$option};
+        if (   !defined($check_opt->{type})
+            || !defined($check_opt->{description})
+            || !defined($check_opt->{default}))
+        {
+            $self->check_error(sprintf("%s:%s", $filepath, $option),
+                'ERR_REQUIRED_CONFIG_ITEM');
+        }
     }
 }
 
 
-=method validate(HASHREF filemeta)
+=method validate_metadata(HASHREF metadata)
+
+Validates B<metadata.yaml>
+
+=cut
+sub validate_metadata {
+    my ($self, $metadata) = @_;
+    my $meta_on_disk = YAML::Tiny->read($metadata->{name})->[0];
+    my $filepath     = path($metadata->{name});
+    foreach my $metakey (@{$metadata->{known_meta_keys}}) {
+        if ($metakey =~ /name|summary|description/
+            && !defined($meta_on_disk->{$metakey}))
+        {
+            $self->check_error(sprintf("%s:%s", $metadata->{name}, $metakey),
+                'ERR_REQUIRED_CONFIG_ITEM');
+        }
+        elsif (!defined($meta_on_disk->{$metakey})) {
+            $self->check_error(sprintf("%s:%s", $metadata->{name}, $metakey),
+                'ERR_CONFIG_ITEM');
+        }
+    }
+    foreach my $re (@{$metadata->{parse}}) {
+
+        # Dont parse if file doesn't exist and wasn't required
+        next if !$filepath->exists;
+        my $input  = $filepath->slurp_utf8;
+        my $search = $re->{pattern};
+        if ($input !~ /$search/m) {
+            $self->check_error($filepath, $re->{error});
+        }
+    }
+}
+
+
+=method validate_hook(HASHREF hookmeta)
+
+Validates charm hooks
+
+=cut
+sub validate_hook {
+    my ($self, $hookmeta) = @_;
+    my $filepath = path('hooks')->child($hookmeta->{name});
+    my $name     = $filepath->stringify;
+    foreach my $attr (@{$hookmeta->{attributes}}) {
+        if ($attr =~ /EXISTS/) {
+            $self->check_error($name, 'ERR_EXISTS') unless $filepath->exists;
+        }
+        if ($attr =~ /NOT_EMPTY/ && -z $filepath) {
+            $self->check_error($name, 'ERR_EMPTY');
+        }
+    }
+}
+
+=method validate_attributes(HASHREF filemeta)
 
 Performs validation of file based on available attribute
 
@@ -133,7 +226,7 @@ Performs validation of file based on available attribute
 
 =cut
 
-sub validate {
+sub validate_attributes {
     my ($self, $filemeta) = @_;
     my $filepath = path($filemeta->{name});
     my $name     = $filemeta->{name};
@@ -156,16 +249,6 @@ sub validate {
         }
     }
 
-    foreach my $re (@{$filemeta->{parse}}) {
-
-        # Dont parse if file doesn't exist and wasn't required
-        next if !$filepath->exists;
-        my $input  = $filepath->slurp_utf8;
-        my $search = $re->{pattern};
-        if ($input !~ /$search/m) {
-            $self->check_error($name, $re->{error});
-        }
-    }
 }
 
 =method check_error(STR key, STR error_key)
