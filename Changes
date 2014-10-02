@@ -3,8 +3,16 @@ Changes from 2013-10-02 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.013 at 2014-10-02 03:02:37 +0000
+version 0.013 at 2014-10-02 03:04:29 +0000
 ------------------------------------------
+
+  Change: 2be864f6562eaa50b0e5ec7b7a0b10a1c43abe13
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-01 23:04:01 +0000
+
+    Expand lint rules
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 669668a392be6f4935fbe3cd92eed47f1ee66aae
   Author: Adam Stokes <adam.stokes@ubuntu.com>
