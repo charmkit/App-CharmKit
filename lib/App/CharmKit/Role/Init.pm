@@ -188,7 +188,19 @@ ensure_ck:
 		libsoftware-license-perl \
 		libautodie-perl \
 		libemail-address-perl \
-		libset-tiny-perl
+		libset-tiny-perl \
+		libfile-sharedir-perl \
+		libboolean-perl \
+		libjson-pp-perl \
+		libyaml-tiny-perl \
+		libtext-microtemplate-perl \
+		libipc-run-perl \
+		libpath-tiny-perl \
+		libimport-into-perl \
+		libhttp-tiny-perl \
+		libapp-cmd-perl \
+		libdata-dumper-perl
+		libdata-faker-perl
 	@cpanm App::CharmKit --notest
 
 pack:
