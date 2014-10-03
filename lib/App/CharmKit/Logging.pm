@@ -19,7 +19,8 @@ Or sugar,
 Reporting utilities
 
 =cut
-
+use strict;
+use warnings;
 use Data::Dumper;
 use App::CharmKit::Sys qw/execute/;
 use Exporter qw/import/;

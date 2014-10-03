@@ -13,6 +13,8 @@ against local juju deployments.
 
 =cut
 
+use strict;
+use warnings;
 use parent 'App::CharmKit::Role::Pack';
 use App::CharmKit -command;
 

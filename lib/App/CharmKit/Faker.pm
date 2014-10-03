@@ -21,6 +21,8 @@ Data faker utilities for generating fake data
 
 =cut
 
+use strict;
+use warnings;
 use Data::Faker;
 use Exporter qw/import/;
 

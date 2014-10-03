@@ -20,6 +20,8 @@ Charm helpers for composition
 
 =cut
 
+use strict;
+use warnings;
 use App::CharmKit::Sys qw/execute/;
 use HTTP::Tiny;
 use YAML::Tiny;
