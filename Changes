@@ -3,8 +3,26 @@ Changes from 2013-10-03 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.015 at 2014-10-03 20:27:22 +0000
+version 0.016 at 2014-10-03 20:50:44 +0000
 ------------------------------------------
+
+  Change: 316ceccde8bb5b428dc54d2c715f6180461485b7
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-03 16:42:48 +0000
+
+    use strict;warnings
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.015 at 2014-10-03 20:27:32 +0000
+------------------------------------------
+
+  Change: 7bd647c3ed13dc5461daf1b4cf30e5df18996c26
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-03 16:27:32 +0000
+
+    v0.015 
 
   Change: 1ec40a3412f1fb8e94ff25b1f25f103d5f18b196
   Author: Adam Stokes <adam.stokes@ubuntu.com>

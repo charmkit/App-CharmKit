@@ -51,4 +51,6 @@ requires:
   strict: '0'
   utf8::all: '0'
   warnings: '0'
-version: '0.015'
+resources:
+  repository: git://github.com/battlemidget/App-CharmKit.git
+version: '0.016'
