@@ -101,7 +101,6 @@ done_testing;
             description => $project->{description},
             maintainer  => $project->{maintainer},
             categories  => $project->{categories},
-            license     => $project->{license}
         }
     );
     $yaml->write($path->child('metadata.yaml'));
@@ -156,7 +155,7 @@ Made with [CharmKit](https://github.com/battlemidget/App-CharmKit)
 
 ```console
 > mkdir -p ~/charms && git clone https://github.com/<github-user>/$project->{name} ~/charms/
-> juju deploy --repository=charms local:<series>/$project->{name}
+> juju deploy --repository=charms local:trusty/$project->{name}
 ```
 
 # AUTHOR
@@ -187,7 +186,9 @@ ensure_ck:
 		libapp-fatpacker-perl \
 		libipc-system-simple-perl \
 		libsoftware-license-perl \
-		libautodie-perl
+		libautodie-perl \
+		libemail-address-perl \
+		libset-tiny-perl
 	@cpanm App::CharmKit --notest
 
 pack:
