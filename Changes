@@ -3,14 +3,25 @@ Changes from 2013-10-03 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.015 at 2014-10-03 20:14:29 +0000
+version 0.015 at 2014-10-03 20:27:22 +0000
 ------------------------------------------
 
-  Change: 8e9bcff5f4deacb86b5fa1260cc8ee32eceebd6c
+  Change: 1ec40a3412f1fb8e94ff25b1f25f103d5f18b196
   Author: Adam Stokes <adam.stokes@ubuntu.com>
-  Date : 2014-10-03 15:21:08 +0000
+  Date : 2014-10-03 16:26:53 +0000
 
-    lint email addresses, use updated Set::Tiny
+    update install deps
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 06fb8d539570fc57d1c5a21d35d9f08e4f707ba6
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-03 16:15:01 +0000
+
+    more linter work
+
+    - Lints proper email addresses - Condenses lint fatal's for similar
+    errors
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
