@@ -47,7 +47,8 @@ use boolean;
 use YAML::Tiny;
 use Path::Tiny;
 use File::ShareDir qw(dist_file);
-use Set::Light;
+use Set::Tiny;
+use Email::Address;
 use App::CharmKit::Logging qw/prettyLog/;
 
 use Class::Tiny {
@@ -129,21 +130,36 @@ sub validate_configdata {
         'options is not the toplevel root key.')
       unless defined($config_on_disk->{options});
 
-    # Missing required keys for an option
+    my $known_option_keys = Set::Tiny->new(qw/type description default/);
     foreach my $option (keys %{$config_on_disk->{options}}) {
-        my $check_opt = $config_on_disk->{options}->{$option};
-        if (   !defined($check_opt->{type})
-            || !defined($check_opt->{description})
-            || !defined($check_opt->{default}))
-        {
-            $self->lint_fatal(
-                $filepath,
-                sprintf(
-                    "Missing required field(type,description,default) for (%s)",
-                    $option)
-            );
-        }
+        my $check_opt            = $config_on_disk->{options}->{$option};
+        my $existing_option_keys = Set::Tiny->new(keys %{$check_opt});
+
+        # Missing required keys for an option
+        my $missing_keys =
+          $known_option_keys->difference($existing_option_keys);
+        $self->lint_fatal(
+            $filepath,
+            sprintf(
+                "Missing required keys for %s: %s",
+                $option, $missing_keys->as_string
+            )
+          )
+          unless $missing_keys->is_empty
+          || $check_opt->{type} =~ /^(int|float|string)/;
+
+        # Invalid keys in config option
+        my $invalid_keys =
+          $existing_option_keys->difference($known_option_keys);
+        $self->lint_fatal(
+            $filepath,
+            sprintf(
+                "Unknown keys for %s: %s",
+                $option, $invalid_keys->as_string
+            )
+        ) unless $invalid_keys->is_empty;
     }
+
 }
 
 
@@ -156,6 +172,10 @@ sub validate_metadata {
     my ($self, $metadata) = @_;
     my $meta_on_disk = YAML::Tiny->read($metadata->{name})->[0];
     my $filepath     = path($metadata->{name});
+
+    # sets
+    my $meta_keys_set = Set::Tiny->new(@{$metadata->{known_meta_keys}});
+    my $meta_keys_on_disk_set = Set::Tiny->new(keys %{$meta_on_disk});
 
     # Check directory name against metadata name
     my $base_dirname = path('.')->absolute->basename;
@@ -170,32 +190,45 @@ sub validate_metadata {
     }
 
     # Verify required meta keys
+    my $meta_key_optional_set = Set::Tiny->new;
+    my $meta_key_required_set = Set::Tiny->new;
     foreach my $metakey (@{$metadata->{known_meta_keys}}) {
-        if ($metakey =~ /name|summary|description/
+        if ($metakey =~ /^(name|summary|description)/
             && !defined($meta_on_disk->{$metakey}))
         {
-            $self->lint_fatal($metadata->{name},
-                sprintf('Missing required item: %s', $metakey));
+            $meta_key_required_set->insert($metakey);
         }
         elsif (!defined($meta_on_disk->{$metakey})) {
 
             # Charm must provide at least one thing
             if ($metakey eq 'provides') {
-                $self->lint_fatal($metadata->{name},
-                    sprintf('Missing required item: %s', $metakey));
+                $self->lint_fatal(
+                    $metadata->{name},
+                    sprintf('Charm must provide at least one thing: %s',
+                        $metakey)
+                );
             }
             else {
-                $self->lint_warn($metadata->{name},
-                    sprintf('Missing optional item: %s', $metakey));
+                $meta_key_optional_set->insert($metakey);
             }
         }
     }
+    $self->lint_fatal(
+        $metadata->{name},
+        sprintf('Missing required item(s): %s',
+            $meta_key_required_set->as_string)
+    ) unless $meta_key_required_set->is_empty;
+
+    $self->lint_warn(
+        $metadata->{name},
+        sprintf('Missing optional item(s): %s',
+            $meta_key_optional_set->as_string)
+    ) unless $meta_key_optional_set->is_empty;
+
 
     # MAINTAINER
     # Make sure there isn't maintainer and maintainers listed
-    if (   defined($meta_on_disk->{maintainer})
-        && defined($meta_on_disk->{maintainers}))
-    {
+    if ($meta_keys_on_disk_set->contains(qw/maintainer maintainers/)) {
         $self->lint_fatal($metadata->{name},
                 "Can not have maintainer and maintainer(s) listed. "
               . "Only pick one.");
@@ -222,23 +255,34 @@ sub validate_metadata {
         }
     }
 
-    # TODO: Add maintainer email format checker
+    # validate email format
+    my $email_invalid = 0;
+    foreach my $m (@{$maintainers}) {
+        my @addresses = Email::Address->parse($m);
+        $email_invalid = 1
+          unless (ref $addresses[0] eq 'Email::Address');
+    }
+    if ($email_invalid) {
+        $self->lint_fatal($metadata->{name},
+            sprintf("Maintainer format should be 'Name <email>'"));
+    }
+
 
     # check for keys not known to charm
-    my $meta_keys_set = Set::Light->new(@{$metadata->{known_meta_keys}});
-
-    foreach my $meta_on_disk_key (keys %{$meta_on_disk}) {
-        $self->lint_fatal($metadata->{name},
-            sprintf("Unknown config item: %s", $meta_on_disk_key))
-          if (!$meta_keys_set->has($meta_on_disk_key));
-    }
+    my $invalid_keys = $meta_keys_on_disk_set->difference($meta_keys_set);
+    $self->lint_fatal($metadata->{name},
+        sprintf("Unknown key: %s", $invalid_keys->as_string))
+      unless $invalid_keys->is_empty;
 
     # check if relations defined
+    my $missing_relation = Set::Tiny->new;
     foreach my $relation (@{$metadata->{known_relation_keys}}) {
-        $self->lint_warn($metadata->{name},
-            sprintf("Missing relation item: %s", $relation))
-          if (!defined($meta_on_disk->{$relation}));
+        $missing_relation->insert($relation)
+          unless $meta_keys_on_disk_set->contains([$relation]);
     }
+    $self->lint_warn($metadata->{name},
+        sprintf("Missing relation item(s): %s", $missing_relation->as_string))
+      unless $missing_relation->is_empty;
 
     # no revision key should exist
     if (defined($meta_on_disk->{revision})) {
@@ -246,6 +290,9 @@ sub validate_metadata {
                 'Revision should not be stored in metadata.yaml. '
               . 'Move to a revision file.');
     }
+
+    # TODO lint subordinate
+    # TODO lint peers
 
     foreach my $re (@{$metadata->{parse}}) {
 

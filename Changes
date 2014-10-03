@@ -1,14 +1,30 @@
 ==================================================
-Changes from 2013-10-02 00:00:00 +0000 to present.
+Changes from 2013-10-03 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.015 at 2014-10-02 22:30:55 +0000
+version 0.015 at 2014-10-03 20:14:29 +0000
 ------------------------------------------
 
-  Change: 382364bc3037a81d38c3f9f55401e40543580af2
+  Change: 8e9bcff5f4deacb86b5fa1260cc8ee32eceebd6c
   Author: Adam Stokes <adam.stokes@ubuntu.com>
-  Date : 2014-10-02 17:11:50 +0000
+  Date : 2014-10-03 15:21:08 +0000
+
+    lint email addresses, use updated Set::Tiny
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 73fea503bc1eb7ebd0ee9aee504d50bee854e0a0
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-03 15:20:28 +0000
+
+    dont add license to metadata.yaml
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 222638240a7f3dc456541a8cdb2e83c94ba91f8f
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-02 18:32:25 +0000
 
     dont use util::any
 
