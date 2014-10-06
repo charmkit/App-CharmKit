@@ -23,7 +23,7 @@ use strict;
 use warnings;
 use Data::Dumper;
 use App::CharmKit::Sys qw/execute/;
-use Exporter qw/import/;
+use base "Exporter::Tiny";
 
 our @EXPORT = qw/log prettyLog/;
 

@@ -24,7 +24,7 @@ Data faker utilities for generating fake data
 use strict;
 use warnings;
 use Data::Faker;
-use Exporter qw/import/;
+use base "Exporter::Tiny";
 
 our @EXPORT = qw/faker/;
 

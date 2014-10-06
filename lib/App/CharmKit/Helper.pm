@@ -27,7 +27,7 @@ use HTTP::Tiny;
 use YAML::Tiny;
 use JSON::PP;
 use Text::MicroTemplate;
-use Exporter qw/import/;
+use base "Exporter::Tiny";
 
 our @EXPORT = qw/config_get
   relation_ids
