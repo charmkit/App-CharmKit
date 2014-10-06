@@ -4,7 +4,6 @@ requires "Data::Dumper" => "0";
 requires "Data::Faker" => "0";
 requires "Email::Address" => "0";
 requires "English" => "0";
-requires "Exporter" => "0";
 requires "Exporter::Tiny" => "0";
 requires "File::ShareDir" => "0";
 requires "File::chdir" => "0";

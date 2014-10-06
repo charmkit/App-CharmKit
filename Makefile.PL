@@ -33,7 +33,6 @@ my %WriteMakefileArgs = (
     "Data::Faker" => 0,
     "Email::Address" => 0,
     "English" => 0,
-    "Exporter" => 0,
     "Exporter::Tiny" => 0,
     "File::ShareDir" => 0,
     "File::chdir" => 0,
@@ -70,7 +69,7 @@ my %WriteMakefileArgs = (
     "autodie" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.017",
+  "VERSION" => "0.018",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -86,7 +85,6 @@ my %FallbackPrereqs = (
   "Data::Faker" => 0,
   "Email::Address" => 0,
   "English" => 0,
-  "Exporter" => 0,
   "Exporter::Tiny" => 0,
   "File::ShareDir" => 0,
   "File::chdir" => 0,

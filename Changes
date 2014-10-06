@@ -3,8 +3,26 @@ Changes from 2013-10-06 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.017 at 2014-10-06 17:22:01 +0000
+version 0.018 at 2014-10-06 17:25:34 +0000
 ------------------------------------------
+
+  Change: ec8f2185b6382f55c125c816d82bdafd2974d16a
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-06 13:25:30 +0000
+
+    use Exporter::Tiny
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.017 at 2014-10-06 17:22:08 +0000
+------------------------------------------
+
+  Change: 0f3d171af50336725083e26716f61d1ba33f55ab
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-06 13:22:08 +0000
+
+    v0.017 
 
   Change: 8899f815fe0c090e341ab287624af77c763a69c3
   Author: Adam Stokes <adam.stokes@ubuntu.com>
