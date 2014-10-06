@@ -29,7 +29,9 @@ requires:
   Data::Dumper: '0'
   Data::Faker: '0'
   Email::Address: '0'
+  English: '0'
   Exporter: '0'
+  Exporter::Tiny: '0'
   File::ShareDir: '0'
   File::chdir: '0'
   HTTP::Tiny: '0'
@@ -45,6 +47,7 @@ requires:
   Test::More: '0'
   Text::MicroTemplate: '0'
   YAML::Tiny: '0'
+  base: '0'
   boolean: '0'
   feature: '0'
   parent: '0'
@@ -52,5 +55,5 @@ requires:
   utf8::all: '0'
   warnings: '0'
 resources:
-  repository: git://github.com/battlemidget/App-CharmKit.git
-version: '0.016'
+  repository: git://github.com/charmkit/App-CharmKit.git
+version: '0.017'

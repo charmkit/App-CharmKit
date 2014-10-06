@@ -1,10 +1,28 @@
 ==================================================
-Changes from 2013-10-03 00:00:00 +0000 to present.
+Changes from 2013-10-06 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.016 at 2014-10-03 21:00:25 +0000
+version 0.017 at 2014-10-06 17:21:27 +0000
 ------------------------------------------
+
+  Change: d0568e0eb07fd1bf73cc67bc16faeccd1da80006
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-06 13:18:36 +0000
+
+    win32 fix for getent
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 0.016 at 2014-10-03 21:00:34 +0000
+------------------------------------------
+
+  Change: 50e551b0937fb86e82ba12ec03afc5f6f51178be
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-03 17:00:34 +0000
+
+    v0.016 
 
   Change: 7424d450b86c53789f344bf6dcbf6b016ac3d80f
   Author: Adam Stokes <adam.stokes@ubuntu.com>

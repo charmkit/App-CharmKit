@@ -24,7 +24,8 @@ use strict;
 use warnings;
 use Path::Tiny;
 use IPC::Run qw(run timeout);
-use Exporter qw(import);
+use English;
+use base "Exporter::Tiny";
 
 our @EXPORT = qw/execute
   apt_install
@@ -34,11 +35,11 @@ our @EXPORT = qw/execute
   make_dir
   remove_dir
   set_owner
+  getent
   add_user
   del_user
   spew
   slurp
-  getent
   service_control
   service_status/;
 
@@ -102,6 +103,7 @@ sub set_owner {
     }
 }
 
+
 =func getent(STR db, STR key)
 
 accesses user info from nss
@@ -114,10 +116,17 @@ B<Params>
 *  returns: result from C<execute>
 
 =cut
+
 sub getent {
     my ($db, $key) = @_;
-    my $ret = execute(['getent', $db, $key]);
-    return $ret;
+    if ($OSNAME eq 'linux') {
+        my $ret = execute(['getent', $db, $key]);
+        return $ret;
+    }
+    else {
+        print "Unsupported OS\n.";
+        return 0;
+    }
 }
 
 =func add_user(STR user, STR homedir)
