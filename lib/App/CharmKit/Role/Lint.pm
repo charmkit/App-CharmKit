@@ -325,7 +325,7 @@ sub validate_hook {
             $self->lint_fatal($name, 'Hook is empty');
         }
     }
-    if (!-x $filepath) {
+    if ($filepath->exists && !-x $filepath) {
         $self->lint_fatal($name, 'Hook is not executable');
     }
 }
