@@ -79,7 +79,7 @@ Wrapper for L<HTTP::Tiny>
 sub http { HTTP::Tiny->new; }
 
 
-=func config_get(STR option)
+=func config_get
 
 Queries a config option
 
@@ -91,7 +91,7 @@ sub config_get {
     return $ret->{stdout};
 }
 
-=func relation_get(STR attribute, STR unit, STR rid)
+=func relation_get
 
 Gets relation
 
@@ -116,7 +116,7 @@ sub relation_get {
     return $ret->{stdout};
 }
 
-=func relation_set(HASHREF opts)
+=func relation_set
 
 Relation set
 
@@ -133,7 +133,7 @@ sub relation_set {
     return $ret->{stdout};
 }
 
-=func relation_ids(STR relation_name)
+=func relation_ids
 
 Get relation ids
 
@@ -145,7 +145,7 @@ sub relation_ids {
   return $ret->{stdout};
 }
 
-=func relation_list(INT rid)
+=func relation_list
 
 Relation list
 
@@ -161,7 +161,7 @@ sub relation_list {
     return $ret->{stdout};
 }
 
-=func unit_get(STR key)
+=func unit_get
 
 Get unit information
 
@@ -184,7 +184,7 @@ sub unit_private_ip {
     return unit_get('private-address');
 }
 
-=func open_port(INT port, STR protocol)
+=func open_port
 
 Open port on service
 
@@ -197,7 +197,7 @@ sub open_port {
     return $ret->{stdout};
 }
 
-=func close_port(INT port, STR protocol)
+=func close_port
 
 Close port on service
 

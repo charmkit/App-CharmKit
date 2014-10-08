@@ -24,7 +24,7 @@ use Class::Tiny {
       ['install', 'config-changed', 'upgrade-charm', 'start', 'stop']
 };
 
-=method create_hook(STR hook)
+=method create_hook
 
 Creates a hook file defined by `hook` parameter, also writes out some
 initial starter code to file.
@@ -50,7 +50,7 @@ log("Start of charm authoring for $hook");
     $self->src->child($hook)->spew_utf8($hook_heading);
 }
 
-=method create_all_hooks()
+=method create_all_hooks
 
 Iterates `default_hooks` and creates the necessary hook files.
 

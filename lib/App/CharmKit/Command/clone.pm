@@ -4,30 +4,27 @@ package App::CharmKit::Command::clone;
 
 =head1 SYNOPSIS
 
-  $ charmkit clone battlemidget/charm-plone -o plone
+  $ charmkit clone battlemidget/charm-plone -o ~/charms/trusty/plone
 
 =head1 DESCRIPTION
 
-Clones a charm from GitHub
+Clones a charm from a git endpoint, supports GitHub with <username>/<repo>.
 
 =cut
 
 use strict;
 use warnings;
+use Path::Tiny;
 use App::CharmKit -command;
-use parent 'App::CharmKit::Role::GitHub';
+use parent 'App::CharmKit::Role::Git';
 
 sub opt_spec {
-    return (
-        [   "output|o=s",
-            "Destination directory to place cloned charm"
-        ]
-    );
+    return (["output|o=s", "Destination directory to place cloned charm"],);
 }
 
 sub usage_desc {
     my $self = shift;
-    my $eg   = "charmkit get battlemidget/charm-plone -o plone";
+    my $eg   = "charmkit clone battlemidget/charm-plone -o plone";
     "$eg\n\n%c clone [-o]";
 }
 
@@ -42,7 +39,7 @@ sub validate_args {
 sub execute {
     my ($self, $opt, $args) = @_;
     if ($opt->{output}) {
-        $self->clone($args->[0], $opt->{output});
+        $self->clone($args->[0], path($opt->{output}));
     }
     else {
         $self->clone($args->[0]);

@@ -23,13 +23,15 @@ use Class::Tiny {
 };
 
 
-=method build()
+=method build
 
 Uses fatpack to build the hooks and pulls in any necessary
 perl dependencies for use
 =cut
 sub build {
     my ($self) = @_;
+    path('hooks')->mkpath unless path('hooks')->exists;
+    path('tests')->mkpath unless path('tests')->exists;
     my ($cmd, $dst);
     my $iter = $self->src->iterator;
     while (my $p = $iter->()) {

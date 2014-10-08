@@ -33,6 +33,7 @@ requires:
   Exporter::Tiny: '0'
   File::ShareDir: '0'
   File::chdir: '0'
+  Git::Repository: '0'
   HTTP::Tiny: '0'
   IO::Prompter: '0'
   IO::Socket::SSL: '0'
@@ -55,4 +56,4 @@ requires:
   warnings: '0'
 resources:
   repository: git://github.com/charmkit/App-CharmKit.git
-version: '0.018'
+version: '0.18'

@@ -36,6 +36,7 @@ my %WriteMakefileArgs = (
     "Exporter::Tiny" => 0,
     "File::ShareDir" => 0,
     "File::chdir" => 0,
+    "Git::Repository" => 0,
     "HTTP::Tiny" => 0,
     "IO::Prompter" => 0,
     "IO::Socket::SSL" => 0,
@@ -69,7 +70,7 @@ my %WriteMakefileArgs = (
     "autodie" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.018",
+  "VERSION" => "0.18",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -89,6 +90,7 @@ my %FallbackPrereqs = (
   "File::ShareDir" => 0,
   "File::chdir" => 0,
   "FindBin" => 0,
+  "Git::Repository" => 0,
   "HTTP::Tiny" => 0,
   "IO::Prompter" => 0,
   "IO::Socket::SSL" => 0,

@@ -44,7 +44,7 @@ our @EXPORT = qw/execute
   service_status/;
 
 
-=func spew(STR path, STR contents)
+=func spew
 
 writes to a file, defaults to utf8
 
@@ -55,7 +55,7 @@ sub spew {
     $path->spew_utf8($contents);
 }
 
-=func slurp(STR path)
+=func slurp
 
 reads a file, defaults to utf8
 
@@ -65,7 +65,7 @@ sub slurp {
     return $path->slurp_utf8;
 }
 
-=func make_dir(ARRAYREF dirs)
+=func make_dir
 
 mkdir helper for creating directories
 
@@ -77,7 +77,7 @@ sub make_dir {
     }
 }
 
-=func remove_dir(ARRAYREF dirs)
+=func remove_dir
 
 removes directories
 
@@ -89,7 +89,7 @@ sub remove_dir {
     }
 }
 
-=func set_owner(STR user, ARRAYREF dirs)
+=func set_owner
 
 sets owner of directories
 
@@ -104,7 +104,7 @@ sub set_owner {
 }
 
 
-=func getent(STR db, STR key)
+=func getent
 
 accesses user info from nss
 
@@ -129,7 +129,7 @@ sub getent {
     }
 }
 
-=func add_user(STR user, STR homedir)
+=func add_user
 
 adds user to system
 
@@ -152,7 +152,7 @@ sub add_user {
     return $ret;
 }
 
-=func del_user(STR user)
+=func del_user
 
 removes a user, does attempt to remove home directory
 
@@ -163,7 +163,7 @@ sub del_user {
   return $ret;
 }
 
-=func execute(ARRAYREF command)
+=func execute
 
 Executes a local command:
 
@@ -191,7 +191,7 @@ sub execute {
 }
 
 
-=func apt_add_repo(STR repo, STR key, BOOL update)
+=func apt_add_repo
 
 Adds a archive repository or ppa. B<key> is required if adding http source.
 
@@ -225,7 +225,7 @@ sub apt_add_repo {
     }
 }
 
-=func apt_install(ARRAYREF pkgs)
+=func apt_install
 
 Installs packages via apt-get
 
@@ -240,7 +240,7 @@ sub apt_install {
     return $ret->{stdout};
 }
 
-=func apt_upgrade()
+=func apt_upgrade
 
 Upgrades system
 
@@ -253,7 +253,7 @@ sub apt_upgrade {
     return $ret->{stdout};
 }
 
-=func apt_update()
+=func apt_update
 
 Update repository sources
 
@@ -267,7 +267,7 @@ sub apt_update {
 }
 
 
-=func service_control(STR service_name, STR action)
+=func service_control
 
 Controls a upstart service
 
@@ -281,7 +281,7 @@ sub service_control {
     return $ret;
 }
 
-=func service_status(STR service_nae)
+=func service_status
 
 Get running status of service
 

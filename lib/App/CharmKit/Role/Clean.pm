@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use Class::Tiny;
 
-=method clean(ARRAYREF [Path::Tiny files])
+=method clean
 
 Cleans up files.
 

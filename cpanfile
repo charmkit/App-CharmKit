@@ -7,6 +7,7 @@ requires "English" => "0";
 requires "Exporter::Tiny" => "0";
 requires "File::ShareDir" => "0";
 requires "File::chdir" => "0";
+requires "Git::Repository" => "0";
 requires "HTTP::Tiny" => "0";
 requires "IO::Prompter" => "0";
 requires "IO::Socket::SSL" => "0";

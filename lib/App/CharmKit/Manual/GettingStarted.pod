@@ -123,8 +123,16 @@ running:
 
 =head2 Getting external charms
 
-CharmKit currently only supports cloning from GitHub.
+CharmKit currently supports git endpoints and GitHub syntax B<username>/B<repo>
 
-  $ charmkit get battlemidget/test-charm
+  $ charmkit clone battlemidget/test-charm -o ~/charms/trusty/test-charm
+
+=head2 Deploying a charm
+
+  $ charmkit deploy test-charm -c ~/charms
+
+The syntax above will allow Juju to find the local charm and which series it belongs too.
+A requirement of Juju is to have a proper directory structure in the format of B<charms/<series>/<charmname>,
+where series could be any Distribution release your charm supports, (eg. trusty, precise).
 
 =cut

@@ -27,7 +27,7 @@ use base "Exporter::Tiny";
 
 our @EXPORT = qw/log prettyLog/;
 
-=func log(STR message, STR level)
+=func log
 
 Utilizies juju-log for any additional logging
 
@@ -44,7 +44,7 @@ sub log {
     execute($cmd);
 }
 
-=func prettyLog(object)
+=func prettyLog
 
 Dumps the perl data structure into something readable
 

@@ -109,7 +109,7 @@ sub validate_tests {
       if ($tests_path->child('00-autogen')->exists);
 }
 
-=method validate_configdata(HASHREF configdata)
+=method validate_configdata
 
 Validates B<config.yaml>
 
@@ -163,7 +163,7 @@ sub validate_configdata {
 }
 
 
-=method validate_metadata(HASHREF metadata)
+=method validate_metadata
 
 Validates B<metadata.yaml>
 
@@ -307,7 +307,7 @@ sub validate_metadata {
 }
 
 
-=method validate_hook(HASHREF hookmeta)
+=method validate_hook
 
 Validates charm hooks
 
@@ -330,7 +330,7 @@ sub validate_hook {
     }
 }
 
-=method validate_attributes(HASHREF filemeta)
+=method validate_attributes
 
 Performs validation of file based on available attribute
 
@@ -371,7 +371,7 @@ sub validate_attributes {
     }
 }
 
-=method lint_fatal(STR item, STR message)
+=method lint_fatal
 
 Prints a FATAL lint message
 
@@ -387,7 +387,7 @@ sub lint_fatal {
     );
 }
 
-=method lint_warn(STR item, STR message)
+=method lint_warn
 
 Prints a WARNING lint message
 
@@ -402,7 +402,7 @@ sub lint_warn {
     );
 }
 
-=method lint_info(STR item, STR message)
+=method lint_info
 
 Prints a INFO lint message
 
@@ -417,7 +417,7 @@ sub lint_info {
     );
 }
 
-=method lint_print(STR item, HASHREF error)
+=method lint_print
 
 Prints out lint errors
 
