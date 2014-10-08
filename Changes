@@ -3,12 +3,12 @@ Changes from 2013-10-08 00:00:00 +0000 to present.
 ==================================================
 
 -----------------------------------------
-version 0.18 at 2014-10-08 02:29:18 +0000
+version 0.18 at 2014-10-08 02:29:47 +0000
 -----------------------------------------
 
-  Change: 74f77ca0f1cd182795efd33b39bf30b13c8021b1
+  Change: 19b4467c52f46d4def4ee6683fbda1ddbcbd825b
   Author: Adam Stokes <adam.stokes@ubuntu.com>
-  Date : 2014-10-07 22:29:13 +0000
+  Date : 2014-10-07 22:29:42 +0000
 
     Clone/Deploy updates and documentation modifications
 
