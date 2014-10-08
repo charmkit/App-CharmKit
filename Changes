@@ -3,8 +3,26 @@ Changes from 2013-10-08 00:00:00 +0000 to present.
 ==================================================
 
 -----------------------------------------
-version 0.18 at 2014-10-08 02:29:47 +0000
+version 0.19 at 2014-10-08 02:49:18 +0000
 -----------------------------------------
+
+  Change: d6f854d608cb2d4b3361f8e591fddf451347a345
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-07 22:49:10 +0000
+
+    Update dist.ini
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+-----------------------------------------
+version 0.18 at 2014-10-08 02:29:57 +0000
+-----------------------------------------
+
+  Change: e6cd57c890dda2d7eb3a5219f9741dade3c88a6f
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-07 22:29:57 +0000
+
+    v0.18 
 
   Change: 19b4467c52f46d4def4ee6683fbda1ddbcbd825b
   Author: Adam Stokes <adam.stokes@ubuntu.com>
