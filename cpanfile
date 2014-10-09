@@ -17,6 +17,7 @@ requires "Import::Into" => "0";
 requires "JSON::PP" => "0";
 requires "Juju" => "0";
 requires "Module::Runtime" => "0";
+requires "Params::Util" => "0";
 requires "Path::Tiny" => "0";
 requires "Set::Tiny" => "0";
 requires "Software::License" => "0";

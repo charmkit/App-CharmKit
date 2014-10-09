@@ -50,6 +50,7 @@ requires:
   JSON::PP: '0'
   Juju: '0'
   Module::Runtime: '0'
+  Params::Util: '0'
   Path::Tiny: '0'
   Set::Tiny: '0'
   Software::License: '0'
@@ -64,5 +65,5 @@ requires:
   utf8::all: '0'
   warnings: '0'
 resources:
-  repository: git://github.com/battlemidget/App-CharmKit.git
+  repository: git://github.com/charmkit/App-CharmKit.git
 version: '0.20'

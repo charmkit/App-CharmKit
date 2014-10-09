@@ -10,9 +10,15 @@ Directly,
 
 Or sugar,
 
-  use charm -tester -caster;
+  use charm -tester;
 
-  my $cast = Cast->new(endpoint => 'wss://localhost:17070', password => 's3cr3t');
+  my $cast = load_helper(
+    'Cast',
+    {   endpoint => 'wss://localhost:17070',
+        password => 'secret'
+    }
+  );
+
   $cast->deploy('wordpress');
   $cast->deploy('mysql');
   $cast->add_relation('wordpress', 'mysql');
