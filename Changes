@@ -1,14 +1,22 @@
 ==================================================
-Changes from 2013-10-08 00:00:00 +0000 to present.
+Changes from 2013-10-09 00:00:00 +0000 to present.
 ==================================================
 
 -----------------------------------------
-version 0.19 at 2014-10-08 02:49:18 +0000
+version 0.19 at 2014-10-09 00:57:22 +0000
 -----------------------------------------
 
-  Change: d6f854d608cb2d4b3361f8e591fddf451347a345
+  Change: fdd6ea8f32dbbede533f57dc522f29fc6f7b73f5
   Author: Adam Stokes <adam.stokes@ubuntu.com>
-  Date : 2014-10-07 22:49:10 +0000
+  Date : 2014-10-08 20:55:29 +0000
+
+    allow differentiate against unittest vs charmtest
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 6b918c6033cf132f10b89fdbed1e8f2158df7b0d
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-07 22:49:57 +0000
 
     Update dist.ini
 

@@ -36,6 +36,7 @@ sub init {
     $path->child('tests')->mkpath     or die $!;
     $path->child('src/hooks')->mkpath or die $!;
     $path->child('src/tests')->mkpath or die $!;
+    $path->child('src/unittests')->mkpath or die $!;
 
     # .gitignore
     (   my $gitignore = qq{
@@ -82,7 +83,7 @@ use charm -tester;
 done_testing;
 }
     );
-    $path->child('src/tests/00-basic.test')->spew_utf8($basic_test);
+    $path->child('src/tests/01-deploy.test')->spew_utf8($basic_test);
 
     # charmkit.json
     my $json          = JSON::PP->new->utf8->pretty;
