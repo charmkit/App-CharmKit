@@ -27,6 +27,7 @@ use boolean;
 use Import::Into;
 
 use feature ();
+use aliased;
 use Path::Tiny;
 use Test::More;
 
@@ -57,16 +58,11 @@ sub import {
     'feature'->import::into($target, ':5.14');
     'English'->import::into($target, '-no_match_vars');
     'boolean'->import::into($target, ':all');
+    'aliased'->import::into($target);
     Path::Tiny->import::into($target, qw(path));
 
     if ($flags{tester}) {
         Test::More->import::into($target);
-    }
-
-    # Include juju capabilities for functional charm testing
-    if ($flags{caster}) {
-        require 'App/CharmKit/Cast.pm';
-        'App::CharmKit::Cast'->import::into($target);
     }
 
     # expose system utilities by default

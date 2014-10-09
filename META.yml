@@ -65,4 +65,4 @@ requires:
   warnings: '0'
 resources:
   repository: git://github.com/battlemidget/App-CharmKit.git
-version: '0.19'
+version: '0.20'

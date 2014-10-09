@@ -25,6 +25,8 @@ use warnings;
 use Path::Tiny;
 use IPC::Run qw(run timeout);
 use English;
+use Module::Runtime qw(use_package_optimistically);
+use Params::Util qw(_HASHLIKE);
 use base "Exporter::Tiny";
 
 our @EXPORT = qw/execute
@@ -41,7 +43,8 @@ our @EXPORT = qw/execute
   spew
   slurp
   service_control
-  service_status/;
+  service_status
+  load_helper/;
 
 
 =func spew
@@ -291,6 +294,22 @@ sub service_status {
     my $service_name = shift;
     my $ret = service_control($service_name, 'status');
     return $ret->{error};
+}
+
+
+=func load_helper
+
+Helper for bringing in additional utilities. A lot of utilities are
+exported automatically however, this is useful if more control is
+required over the helpers.
+
+=cut
+
+sub load_helper {
+    my $name  = shift;
+    my $opts  = _HASHLIKE(shift) or die "Options should be a HASHREF";
+    my $klass = "App::CharmKit::$name";
+    return use_package_optimistically($klass)->new(%{$opts});
 }
 
 

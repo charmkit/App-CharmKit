@@ -3,8 +3,26 @@ Changes from 2013-10-09 00:00:00 +0000 to present.
 ==================================================
 
 -----------------------------------------
-version 0.19 at 2014-10-09 02:17:17 +0000
+version 0.20 at 2014-10-09 03:19:38 +0000
 -----------------------------------------
+
+  Change: e1e82eff09412505ce88472ee37ef4f4fa76d945
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-08 22:43:42 +0000
+
+    add caster unittest
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+-----------------------------------------
+version 0.19 at 2014-10-09 02:17:27 +0000
+-----------------------------------------
+
+  Change: b8fc2257e4e35f6ea01b3eeead09addf5e533bb4
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-08 22:17:27 +0000
+
+    v0.19 
 
   Change: 5cdeb2b3afd7ca0e93c423b36214c9c9653b17c6
   Author: Adam Stokes <adam.stokes@ubuntu.com>
