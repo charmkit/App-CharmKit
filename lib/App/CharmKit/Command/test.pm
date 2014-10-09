@@ -16,15 +16,13 @@ against local juju deployments.
 use strict;
 use warnings;
 use parent 'App::CharmKit::Role::Pack';
-use DDP;
 use App::CharmKit -command;
 
 sub opt_spec {
     return (
         [   "rebuild|r",
             "force a re-pack of charm project before running tests"
-        ],
-        ["unittests-only|u", "only run against unittests"]
+        ]
     );
 }
 

@@ -3,8 +3,24 @@ Changes from 2013-10-09 00:00:00 +0000 to present.
 ==================================================
 
 -----------------------------------------
-version 0.19 at 2014-10-09 00:57:22 +0000
+version 0.19 at 2014-10-09 02:16:50 +0000
 -----------------------------------------
+
+  Change: 73a1935c44a5d7e479e52a0b7172bc02b7d9e46c
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-08 21:56:15 +0000
+
+    add functional charm testing helpers
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: f5430cad496e17d86e7016b8a70284a327f86224
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-08 21:14:08 +0000
+
+    update test command
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: fdd6ea8f32dbbede533f57dc522f29fc6f7b73f5
   Author: Adam Stokes <adam.stokes@ubuntu.com>

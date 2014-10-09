@@ -202,7 +202,8 @@ ensure_ck:
 		libhttp-tiny-perl \
 		libapp-cmd-perl \
 		libdata-dumper-perl
-		libdata-faker-perl
+		libdata-faker-perl \
+		libanyevent-perl
 	@cpanm App::CharmKit --notest
 
 pack:
