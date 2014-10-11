@@ -34,6 +34,8 @@ use warnings;
 use App::CharmKit::Helper;
 use IO::Socket::PortState qw(check_ports);
 use Juju;
+use Path::Tiny qw(path);
+use YAML::Tiny;
 use Class::Tiny qw(endpoint password), {
     juju => sub {
         my $self = shift;
@@ -42,6 +44,37 @@ use Class::Tiny qw(endpoint password), {
         return $juju;
     }
 };
+
+sub BUILD {
+    my ($self, $args) = @_;
+    $self->get_creds unless $self->endpoint || $self->password;
+}
+
+=method get_creds
+
+Attempts to pull creds from a running juju environment
+
+=cut
+
+sub get_creds {
+    my ($self)    = @_;
+    my $juju_env  = $ENV{JUJU_ENV};
+    my $juju_home = $ENV{JUJU_HOME};
+
+    die "Unable to determine the running Juju environment"
+      unless defined($juju_env);
+    my $env_file = path($juju_home)->child('environments/$juju_env.jenv');
+    my $env_yaml = YAML::Tiny->read($env_file->abspath);
+    if (defined($env_yaml->{password})) {
+        $self->password($env_yaml->{password});
+    }
+    if (defined($env_yaml->{state_servers})) {
+        $self->endpoint($env_yaml->{state_servers}->[0]);
+    }
+    else {
+        die "Unable to determine api state server";
+    }
+}
 
 =method deploy
 

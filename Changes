@@ -1,10 +1,21 @@
 ==================================================
-Changes from 2013-10-09 00:00:00 +0000 to present.
+Changes from 2013-10-11 00:00:00 +0000 to present.
 ==================================================
 
 -----------------------------------------
-version 0.20 at 2014-10-09 13:49:09 +0000
+version 0.20 at 2014-10-11 00:41:13 +0000
 -----------------------------------------
+
+  Change: 98ea12feb031592de50c2fb97ffbb2ff6b9de254
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-09 10:02:04 +0000
+
+    fix caster test
+
+    when using import::into for the aliased module we were seeing some
+    weird behavior when doing instance of tests.
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 409dd928888aa57569bde045804b5543bd82c97c
   Author: Adam Stokes <adam.stokes@ubuntu.com>
