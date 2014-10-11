@@ -3,8 +3,16 @@ Changes from 2013-10-11 00:00:00 +0000 to present.
 ==================================================
 
 -----------------------------------------
-version 0.20 at 2014-10-11 00:41:13 +0000
+version 0.20 at 2014-10-11 00:42:05 +0000
 -----------------------------------------
+
+  Change: 03add87eacc295fab3aacdbd508341fc738a2990
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-10 20:41:35 +0000
+
+    attempt to query credentials to juju api server if none given
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 98ea12feb031592de50c2fb97ffbb2ff6b9de254
   Author: Adam Stokes <adam.stokes@ubuntu.com>
