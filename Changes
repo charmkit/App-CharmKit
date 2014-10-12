@@ -1,10 +1,36 @@
 ==================================================
-Changes from 2013-10-11 00:00:00 +0000 to present.
+Changes from 2013-10-12 00:00:00 +0000 to present.
 ==================================================
 
+------------------------------------------
+version 1.0.1 at 2014-10-12 20:25:06 +0000
+------------------------------------------
+
+  Change: 7347f40d29f04e943a2014c52e1c34f1052f5605
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-12 16:24:51 +0000
+
+    add Test::Exception to tester plugin
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: c2941f58c157009fb8f675bd6e9d1b7f9ee4a838
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-12 15:50:35 +0000
+
+    update tests
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
 -----------------------------------------
-version 0.20 at 2014-10-11 00:42:05 +0000
+version 0.20 at 2014-10-11 00:42:16 +0000
 -----------------------------------------
+
+  Change: be946cb9fc227b2d08df6fa684c3f1f4c9e54aef
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-10 20:42:16 +0000
+
+    v0.20 
 
   Change: 03add87eacc295fab3aacdbd508341fc738a2990
   Author: Adam Stokes <adam.stokes@ubuntu.com>

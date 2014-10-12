@@ -29,6 +29,7 @@ use Import::Into;
 use feature ();
 use Path::Tiny;
 use Test::More;
+use Test::Exception;
 
 if ($INC{"App/FatPacker/Trace.pm"}) {
     require JSON::PP;
@@ -60,6 +61,7 @@ sub import {
 
     if ($flags{tester}) {
         Test::More->import::into($target);
+        Test::Exception->import::into($target);
     }
 
     # expose system utilities by default

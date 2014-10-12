@@ -54,6 +54,7 @@ requires:
   Path::Tiny: '0'
   Set::Tiny: '0'
   Software::License: '0'
+  Test::Exception: '0'
   Test::More: '0'
   Text::MicroTemplate: '0'
   YAML::Tiny: '0'
@@ -66,4 +67,4 @@ requires:
   warnings: '0'
 resources:
   repository: git://github.com/charmkit/App-CharmKit.git
-version: '0.20'
+version: 1.0.1

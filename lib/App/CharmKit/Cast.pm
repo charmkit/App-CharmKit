@@ -80,10 +80,16 @@ sub get_creds {
 
 Deploys a charm with default constraints
 
+B<Params>
+
+=for :list
+* C<charm>
+Name of charm to deploy
+
 =cut
 sub deploy {
-    my ($self, $charm) = @_;
-    $self->juju->deploy($charm);
+    my $self = shift;
+    $self->juju->deploy(@_);
 }
 
 =method add_relation
@@ -92,8 +98,8 @@ Add relations between services
 
 =cut
 sub add_relation {
-    my ($self, $endpointa, $endpointb) = @_;
-    $self->juju->add_relation($endpointa, $endpointb);
+    my $self = shift;
+    $self->juju->add_relation(@_);
 }
 
 =method is_listening

@@ -30,7 +30,6 @@ sub usage_desc {'%c test [-r]'}
 
 sub execute {
     my ($self, $opt, $args) = @_;
-    p $opt;
     if ($opt->{rebuild}) {
         $self->build;
     }
