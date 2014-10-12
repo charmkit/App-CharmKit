@@ -67,4 +67,4 @@ requires:
   warnings: '0'
 resources:
   repository: git://github.com/charmkit/App-CharmKit.git
-version: 1.0.1
+version: 1.0.2

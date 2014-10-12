@@ -119,6 +119,7 @@ done_testing;
             description => $project->{description},
             maintainer  => $project->{maintainer},
             categories  => $project->{categories},
+            provides    => {FIXME => {interface => "## FIXME ##"}}
         }
     );
     $yaml->write($path->child('metadata.yaml'));
