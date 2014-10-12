@@ -92,6 +92,9 @@ sub parse {
     } else {
       $self->validate_tests;
     }
+
+    # Check for icon.svg
+    $self->lint_warn('icon.svg', 'No icon.svg') unless path('icon.svg')->exists;
 }
 
 
