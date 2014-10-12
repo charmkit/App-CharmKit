@@ -3,8 +3,32 @@ Changes from 2013-10-12 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.2 at 2014-10-12 21:02:30 +0000
+version 1.0.2 at 2014-10-12 21:26:48 +0000
 ------------------------------------------
+
+  Change: 743d75ad0615609f2b5c40c29945466de36f1b06
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-12 17:10:53 +0000
+
+    change FATAL to ERROR to better match existing charm proof
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 200a91c17cbd5d31d67ba025044e23b6bdbaa19f
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-12 17:05:23 +0000
+
+    update init to add a provides section in metadata
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: c621d2f65ae43f98e7a22f60dcfdd22205bc0c80
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-12 17:05:13 +0000
+
+    update lint to check for icon.svg
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 020ccff41c9f572450dab8fc757668b1928ff31c
   Author: Adam Stokes <adam.stokes@ubuntu.com>
