@@ -303,6 +303,12 @@ Helper for bringing in additional utilities. A lot of utilities are
 exported automatically however, this is useful if more control is
 required over the helpers.
 
+B<Params>
+
+=for :list
+* C<opts>
+Options to pass into helper class
+
 =cut
 
 sub load_helper {

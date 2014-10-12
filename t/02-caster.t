@@ -18,7 +18,7 @@ my $cast = load_helper(
 );
 
 ok($cast->isa('App::CharmKit::Cast'), 'is cast instance');
-ok($cast->juju, 'is juju instance');
+ok($cast->juju->isa('Juju'), 'is juju instance');
 ok($cast->password eq 'secret');
 
 done_testing();

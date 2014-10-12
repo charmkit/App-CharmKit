@@ -40,7 +40,6 @@ if ($INC{"App/FatPacker/Trace.pm"}) {
     require IPC::Run;
     require Text::MicroTemplate;
     require Set::Tiny;
-    require Juju;
 }
 
 sub import {
