@@ -3,8 +3,16 @@ Changes from 2013-10-13 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.2 at 2014-10-13 01:51:47 +0000
+version 1.0.2 at 2014-10-13 01:52:34 +0000
 ------------------------------------------
+
+  Change: 60c20e36f04ca4a2549434d82c8d51ff03ef2941
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-12 21:52:24 +0000
+
+    add support for reading ini files
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 105eb6d7a235bdbc447b458d0744a145d051bee9
   Author: Adam Stokes <adam.stokes@ubuntu.com>
