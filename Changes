@@ -3,12 +3,12 @@ Changes from 2013-10-12 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.2 at 2014-10-12 21:26:48 +0000
+version 1.0.2 at 2014-10-12 23:22:31 +0000
 ------------------------------------------
 
-  Change: 743d75ad0615609f2b5c40c29945466de36f1b06
+  Change: 625e3b29ff75056d2dc51af8212b55144ce49152
   Author: Adam Stokes <adam.stokes@ubuntu.com>
-  Date : 2014-10-12 17:10:53 +0000
+  Date : 2014-10-12 17:56:34 +0000
 
     change FATAL to ERROR to better match existing charm proof
 

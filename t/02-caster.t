@@ -6,6 +6,10 @@ use Test::More;
 use FindBin;
 use lib "$FindBin::Bin../lib";
 
+plan skip_all =>
+  'must export JUJU_PASS and JUJU_ENDPOINT to enable these tests'
+  unless $ENV{JUJU_PASS} && $ENV{JUJU_ENDPOINT};
+
 diag('Testing caster');
 
 use charm;
