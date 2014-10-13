@@ -1,10 +1,18 @@
 ==================================================
-Changes from 2013-10-12 00:00:00 +0000 to present.
+Changes from 2013-10-13 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.2 at 2014-10-12 23:22:31 +0000
+version 1.0.2 at 2014-10-13 01:51:47 +0000
 ------------------------------------------
+
+  Change: 105eb6d7a235bdbc447b458d0744a145d051bee9
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-12 21:10:34 +0000
+
+    caster tests updated to only run if juju env available
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 625e3b29ff75056d2dc51af8212b55144ce49152
   Author: Adam Stokes <adam.stokes@ubuntu.com>

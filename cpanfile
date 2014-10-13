@@ -1,5 +1,6 @@
 requires "App::Cmd::Setup" => "0";
 requires "Class::Tiny" => "0";
+requires "Config::Tiny" => "0";
 requires "Data::Dumper" => "0";
 requires "Data::Faker" => "0";
 requires "Email::Address" => "0";

@@ -27,6 +27,7 @@ use IPC::Run qw(run timeout);
 use English;
 use Module::Runtime qw(use_package_optimistically);
 use Params::Util qw(_HASHLIKE);
+use Config::Tiny;
 use base "Exporter::Tiny";
 
 our @EXPORT = qw/execute
@@ -44,7 +45,8 @@ our @EXPORT = qw/execute
   slurp
   service_control
   service_status
-  load_helper/;
+  load_helper
+  read_ini/;
 
 
 =func spew
@@ -317,6 +319,27 @@ sub load_helper {
     my $klass = "App::CharmKit::$name";
     return use_package_optimistically($klass)->new(%{$opts});
 }
+
+
+=func read_ini
+
+Basic config parsing for ini like files like whats found in most of B</etc/default>.
+This will also automatically return its root property.
+
+B<Params>
+
+=for :list
+* C<path>
+Path of config file to read
+
+=cut
+
+sub read_ini {
+    my $path = path(shift);
+    my $cfg  = Config::Tiny->new;
+    return $cfg->read($path)->{_};
+}
+
 
 
 1;
