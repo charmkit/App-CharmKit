@@ -3,8 +3,26 @@ Changes from 2014-10-29 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.4 at 2014-11-13 02:58:49 +0000
+version 1.0.5 at 2014-11-13 03:06:32 +0000
 ------------------------------------------
+
+  Change: d521696d2cf5f2aa30ba80db83481f037654e256
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-12 22:06:02 +0000
+
+    Update travis.yml, update build
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 1.0.4 at 2014-11-13 02:59:13 +0000
+------------------------------------------
+
+  Change: 76ee5f4f96e7ca9854f6ce34bb554ca464bdd38a
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-12 21:59:13 +0000
+
+    v1.0.4 
 
   Change: 087f9afe9fb38307e3580c18fbb96324ca83bbed
   Author: Adam Stokes <adam.stokes@ubuntu.com>

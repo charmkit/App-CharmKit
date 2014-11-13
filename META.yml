@@ -70,7 +70,7 @@ requires:
   utf8::all: '0'
   warnings: '0'
 resources:
-  repository: git://github.com/charmkit/App-CharmKit.git
-version: 1.0.4
+  repository: git://github.com/charmkit/App-CharmKit
+version: 1.0.5
 x_author_pledge:
   version: 1
