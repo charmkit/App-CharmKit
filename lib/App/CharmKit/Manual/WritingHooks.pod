@@ -5,7 +5,7 @@
 
   $ charmkit generate config-changed
 
-This places a templated hook in B<src/hooks/> where all hook development resides.
+This places a templated hook in B<hooks/> where all hook development resides.
 
 =head1 Writing a hook
 
