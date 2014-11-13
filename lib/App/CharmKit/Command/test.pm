@@ -15,7 +15,6 @@ against local juju deployments.
 
 use strict;
 use warnings;
-use parent 'App::CharmKit::Role::Pack';
 use App::CharmKit -command;
 
 sub opt_spec {
@@ -30,9 +29,6 @@ sub usage_desc {'%c test [-r]'}
 
 sub execute {
     my ($self, $opt, $args) = @_;
-    if ($opt->{rebuild}) {
-        $self->build;
-    }
     my $cmd = "prove -lv tests/*.test";
     system($cmd);
 }
