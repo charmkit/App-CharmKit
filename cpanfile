@@ -1,3 +1,4 @@
+requires "App::CharmKit::Role::Pack" => "0";
 requires "App::Cmd::Setup" => "0";
 requires "Class::Tiny" => "0";
 requires "Config::Tiny" => "0";

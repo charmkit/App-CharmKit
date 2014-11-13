@@ -8,16 +8,11 @@ __END__
 
 =head2 Creating a project
 
-All development happens within B<src/> and the builtin C<pack> command
-is used for generating the proper hooks/tests and dependencies within that
-directory so Juju is able to act upon them. Hooks within B<hooks/> directory
-are always overwritten, think of this similar to a B<dist> or B<release> directory.
-
 To start a project:
 
   $ charmkit init [--with-hooks] <charm-name>
 
-If used C<--with-hooks> then B<src/hooks/> will be populated with all the default
+If used C<--with-hooks> then B<hooks/> will be populated with all the default
 hooks. A few questions will be prompted and then the project is generated with
 F<charmkit.json>, F<config.yaml>, F<metadata.yaml>, F<LICENSE>, F<README.md>,
 and F<Makefile>.
@@ -32,14 +27,6 @@ Once a project is created the structure of your project should look similar to:
       config-changed
       start
       stop
-    src/
-      hooks/
-        install
-        config-changed
-        start
-        stop
-      tests/
-        00-basic.test
     tests/
       00-basic.test
     config.yaml
@@ -67,7 +54,7 @@ A special relation hook can be created with the C<-r> option:
 =head2 Writing charm hooks
 
 Hooks are written using perl with automatically imported helpers for convenience.
-When developing hooks they should reside in B<src/hooks>.
+When developing hooks they should reside in B<hooks>.
 
 A typical hook starts with
 
@@ -86,7 +73,7 @@ A typical hook starts with
 
 =head2 Writing charm tests
 
-Tests are written in the same way and should live in B<src/tests/*.test>.
+Tests are written in the same way and should live in B<tests/*.test>.
 
 A typical test starts with
 
@@ -112,14 +99,6 @@ able to run and validate your charm. The tests can be executed calling them dire
 or
 
    $ prove -lv tests/*.test
-
-=head2 Packaging a charm for release
-
-Once development is complete and you have your hooks defined and tests written.
-Packaging a charm for release to either Git or the Charm Store is a matter of
-running:
-
-  $ charmkit pack
 
 =head2 Getting external charms
 

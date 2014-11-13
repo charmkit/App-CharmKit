@@ -34,9 +34,6 @@ sub init {
     my ($self, $path, $project) = @_;
     $path->child('hooks')->mkpath     or die $!;
     $path->child('tests')->mkpath     or die $!;
-    $path->child('src/hooks')->mkpath or die $!;
-    $path->child('src/tests')->mkpath or die $!;
-    $path->child('src/unittests')->mkpath or die $!;
 
     # .gitignore
     (   my $gitignore = qq{
@@ -99,7 +96,7 @@ perltidy.LOG
 done_testing;
 }
     );
-    $path->child('src/tests/01-deploy.test')->spew_utf8($basic_test);
+    $path->child('tests/01-deploy.test')->spew_utf8($basic_test);
 
     # charmkit.json
     my $json          = JSON::PP->new->utf8->pretty;

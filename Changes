@@ -1,10 +1,38 @@
 ==================================================
-Changes from 2013-10-13 00:00:00 +0000 to present.
+Changes from 2013-11-13 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.2 at 2014-10-13 01:52:34 +0000
+version 1.0.3 at 2014-11-13 02:36:33 +0000
 ------------------------------------------
+
+  Change: 44e9534ba8d48f882ada61f2e4a9db6958611a75
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-12 21:33:05 +0000
+
+    remove pack/clean roles
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: a3dab658696c25bf84bf994ec99ab29037b9f8d5
+  Author: adam.stokes <battlemidget@users.noreply.github.com>
+  Date : 2014-10-22 09:10:17 +0000
+
+    Merge pull request #3 from sergeyromanov/patch-1
+
+    drop PWP::Encoding dependency 
+
+  Change: 0c14d5a560c566f409b2c7d0557e39f44c644a67
+  Author: Ð¡ÐµÑÐ³ÐµÐ¹ Ð Ð¾Ð¼Ð°Ð½Ð¾Ð² <sromanov-dev@yandex.ru>
+  Date : 2014-10-22 15:38:32 +0000
+
+    drop PWP::Encoding dependency 
+
+  Change: d8754d09d2a7ad5827b03c46ce26d5aaab8834be
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-10-12 21:52:45 +0000
+
+    v1.0.2 
 
   Change: 60c20e36f04ca4a2549434d82c8d51ff03ef2941
   Author: Adam Stokes <adam.stokes@ubuntu.com>

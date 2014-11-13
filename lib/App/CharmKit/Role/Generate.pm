@@ -19,7 +19,7 @@ of all hooks.
 =cut
 
 use Class::Tiny {
-    src => path('.')->child('src/hooks'),
+    src => path('.')->child('hooks'),
     default_hooks =>
       ['install', 'config-changed', 'upgrade-charm', 'start', 'stop']
 };
@@ -58,7 +58,7 @@ Iterates `default_hooks` and creates the necessary hook files.
 sub create_all_hooks {
     my ($self) = @_;
     foreach (@{$self->default_hooks}) {
-        $self->create_hook($_);
+        $self->create_hook($_) unless $self->src->child($_)->exists;
     }
 }
 
