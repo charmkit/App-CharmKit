@@ -3,14 +3,14 @@ Changes from 2013-11-13 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.3 at 2014-11-13 02:36:33 +0000
+version 1.0.3 at 2014-11-13 02:39:03 +0000
 ------------------------------------------
 
-  Change: 44e9534ba8d48f882ada61f2e4a9db6958611a75
+  Change: cab607c5c01fbe22903da0f880544f7fdd1ed66e
   Author: Adam Stokes <adam.stokes@ubuntu.com>
-  Date : 2014-11-12 21:33:05 +0000
+  Date : 2014-11-12 21:38:48 +0000
 
-    remove pack/clean roles
+    remove pack/clean roles since we aren't taking the fatpack route
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
