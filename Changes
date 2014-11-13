@@ -1,10 +1,28 @@
 ==================================================
-Changes from 2013-11-13 00:00:00 +0000 to present.
+Changes from 2014-10-29 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.3 at 2014-11-13 02:39:03 +0000
+version 1.0.4 at 2014-11-13 02:58:01 +0000
 ------------------------------------------
+
+  Change: 43f8e5461ff42673dc5c4e06c2a112d9f09d250d
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-12 21:54:41 +0000
+
+    cleanup pod
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 1.0.3 at 2014-11-13 02:39:15 +0000
+------------------------------------------
+
+  Change: 7c4dd203b691ca8788dd31c9ae9e19ba45543ae9
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-12 21:39:15 +0000
+
+    v1.0.3 
 
   Change: cab607c5c01fbe22903da0f880544f7fdd1ed66e
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -96,10 +114,6 @@ version 1.0.3 at 2014-11-13 02:39:03 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
------------------------------------------
-version 0.20 at 2014-10-11 00:42:16 +0000
------------------------------------------
-
   Change: be946cb9fc227b2d08df6fa684c3f1f4c9e54aef
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-10-10 20:42:16 +0000
@@ -132,10 +146,6 @@ version 0.20 at 2014-10-11 00:42:16 +0000
     add caster unittest
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
------------------------------------------
-version 0.19 at 2014-10-09 02:17:27 +0000
------------------------------------------
 
   Change: b8fc2257e4e35f6ea01b3eeead09addf5e533bb4
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -174,10 +184,6 @@ version 0.19 at 2014-10-09 02:17:27 +0000
     Update dist.ini
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
------------------------------------------
-version 0.18 at 2014-10-08 02:29:57 +0000
------------------------------------------
 
   Change: e6cd57c890dda2d7eb3a5219f9741dade3c88a6f
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -221,10 +227,6 @@ version 0.18 at 2014-10-08 02:29:57 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
-------------------------------------------
-version 0.017 at 2014-10-06 17:22:08 +0000
-------------------------------------------
-
   Change: 0f3d171af50336725083e26716f61d1ba33f55ab
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-10-06 13:22:08 +0000
@@ -238,10 +240,6 @@ version 0.017 at 2014-10-06 17:22:08 +0000
     win32 fix for getent
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
-------------------------------------------
-version 0.016 at 2014-10-03 21:00:34 +0000
-------------------------------------------
 
   Change: 50e551b0937fb86e82ba12ec03afc5f6f51178be
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -264,10 +262,6 @@ version 0.016 at 2014-10-03 21:00:34 +0000
     use strict;warnings
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
-------------------------------------------
-version 0.015 at 2014-10-03 20:27:32 +0000
-------------------------------------------
 
   Change: 7bd647c3ed13dc5461daf1b4cf30e5df18996c26
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -310,10 +304,6 @@ version 0.015 at 2014-10-03 20:27:32 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
-------------------------------------------
-version 0.014 at 2014-10-02 20:49:04 +0000
-------------------------------------------
-
   Change: 6a6277c7170e1248e4207e02ee0456c1e2a25493
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-10-02 16:49:04 +0000
@@ -336,10 +326,6 @@ version 0.014 at 2014-10-02 20:49:04 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
-------------------------------------------
-version 0.013 at 2014-10-02 03:04:40 +0000
-------------------------------------------
-
   Change: 26ff198cf67a3862485b7e591183158a308f814c
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-10-01 23:04:40 +0000
@@ -361,10 +347,6 @@ version 0.013 at 2014-10-02 03:04:40 +0000
     Start dev
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
-------------------------------------------
-version 0.012 at 2014-10-01 15:38:52 +0000
-------------------------------------------
 
   Change: cd0590981cf3aeb60b763dcdc666c4d8b189ea4e
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -482,10 +464,6 @@ version 0.012 at 2014-10-01 15:38:52 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
-------------------------------------------
-version 0.011 at 2014-09-27 00:59:19 +0000
-------------------------------------------
-
   Change: 48ec025ba521c82c6111163fc1b15362bac17c98
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-09-26 20:59:19 +0000
@@ -516,10 +494,6 @@ version 0.011 at 2014-09-27 00:59:19 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
-------------------------------------------
-version 0.010 at 2014-09-26 19:42:00 +0000
-------------------------------------------
-
   Change: e5d0fa8d84f55249153770955f492300773d1a66
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-09-26 15:42:00 +0000
@@ -533,10 +507,6 @@ version 0.010 at 2014-09-26 19:42:00 +0000
     update more documentation
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
-------------------------------------------
-version 0.009 at 2014-09-26 18:33:54 +0000
-------------------------------------------
 
   Change: 27bd6ecf7029ead70196652b0b03bd6c51a599d7
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -584,10 +554,6 @@ version 0.009 at 2014-09-26 18:33:54 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
-------------------------------------------
-version 0.008 at 2014-09-25 04:11:19 +0000
-------------------------------------------
-
   Change: d3fcad000e9e73bc78635c39219dd8e6a9ca8112
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-09-25 00:11:19 +0000
@@ -626,10 +592,6 @@ version 0.008 at 2014-09-25 04:11:19 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
-------------------------------------------
-version 0.007 at 2014-09-25 01:15:46 +0000
-------------------------------------------
-
   Change: cb31eb8d3ec17d12d6d837ce9a5514a07d81de3a
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-09-24 21:15:46 +0000
@@ -652,10 +614,6 @@ version 0.007 at 2014-09-25 01:15:46 +0000
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
-------------------------------------------
-version 0.006 at 2014-09-25 00:29:22 +0000
-------------------------------------------
-
   Change: 47fee7238bcee9f99898566ebd476a31e1be5505
   Author: Adam Stokes <adam.stokes@ubuntu.com>
   Date : 2014-09-24 20:29:22 +0000
@@ -669,10 +627,6 @@ version 0.006 at 2014-09-25 00:29:22 +0000
     add linter
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
-------------------------------------------
-version 0.005 at 2014-09-24 16:44:51 +0000
-------------------------------------------
 
   Change: 5aa8e8b06af86c0ea9d8590338b4287094d994ae
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -703,10 +657,6 @@ version 0.005 at 2014-09-24 16:44:51 +0000
     update synopsis
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
-------------------------------------------
-version 0.004 at 2014-09-24 03:29:58 +0000
-------------------------------------------
 
   Change: 04891430a361a2de8531b27531a4ab679ab9fc91
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -874,10 +824,6 @@ version 0.004 at 2014-09-24 03:29:58 +0000
     for proper rendering on metacpan.org
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
-------------------------------------------
-version 0.002 at 2014-09-23 02:39:10 +0000
-------------------------------------------
 
   Change: a3025b2928faf89310f3344eb101436f6f63385e
   Author: Adam Stokes <adam.stokes@ubuntu.com>
@@ -1108,10 +1054,6 @@ version 0.002 at 2014-09-23 02:39:10 +0000
     add synopsis
 
     Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
-
-------------------------------------------
-version 0.001 at 2014-09-20 01:44:56 +0000
-------------------------------------------
 
   Change: 553b7b36c28b3bb3437649e8a8b2ad4342163418
   Author: Adam Stokes <adam.stokes@ubuntu.com>

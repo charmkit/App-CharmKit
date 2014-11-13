@@ -21,8 +21,7 @@ build_requires:
   lib: '0'
   perl: '5.006'
 configure_requires:
-  ExtUtils::MakeMaker: '0'
-  File::ShareDir::Install: '0.06'
+  Module::Build::Tiny: '0.039'
 dynamic_config: 0
 generated_by: 'Dist::Zilla version 5.021, CPAN::Meta::Converter version 2.142690'
 license: perl
@@ -30,6 +29,9 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
 name: App-CharmKit
+no_index:
+  directory:
+    - 't xt eg share'
 requires:
   App::CharmKit::Role::Pack: '0'
   App::Cmd::Setup: '0'
@@ -69,4 +71,6 @@ requires:
   warnings: '0'
 resources:
   repository: git://github.com/charmkit/App-CharmKit.git
-version: 1.0.3
+version: 1.0.4
+x_author_pledge:
+  version: 1
