@@ -1,10 +1,58 @@
 ==================================================
-Changes from 2014-10-29 00:00:00 +0000 to present.
+Changes from 2014-11-06 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.5 at 2014-11-13 03:06:46 +0000
+version 1.0.6 at 2014-11-21 14:07:37 +0000
 ------------------------------------------
+
+  Change: 7293540e78c5f86684683de33fc410fbac4f833f
+  Author: adam.stokes <battlemidget@users.noreply.github.com>
+  Date : 2014-11-21 08:05:07 +0000
+
+    Update .travis.yml
+
+    Add required build step 
+
+  Change: 665bd1795e1e340a81c5f28ffeee43f0146d0a16
+  Author: adam.stokes <battlemidget@users.noreply.github.com>
+  Date : 2014-11-21 08:04:38 +0000
+
+    Merge pull request #4 from sergeyromanov/patch-2
+
+    remove PWP::Encoding prereq from dist.ini 
+
+  Change: fb6e6dacb48c3762109d67ec9e59e8b838a893c5
+  Author: Ð¡ÐµÑÐ³ÐµÐ¹ Ð Ð¾Ð¼Ð°Ð½Ð¾Ð² <sromanov-dev@yandex.ru>
+  Date : 2014-11-21 14:00:20 +0000
+
+    remove PWP::Encoding prereq from dist.ini 
+
+  Change: 4850220c04d0b31d7fe61e3557f20d302c104958
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-12 22:16:29 +0000
+
+    fix directory location in documentation
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+  Change: 36c4210ea3327ce75faf75f6391d4d101f1e423e
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-12 22:15:49 +0000
+
+    remove prereq on Pack
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
+
+------------------------------------------
+version 1.0.5 at 2014-11-13 03:07:11 +0000
+------------------------------------------
+
+  Change: ac930e23286482d0348a3b596456c7cd01aad4ea
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-12 22:07:11 +0000
+
+    v1.0.5 
 
   Change: e35af7137db169f279314de01761a730a108e19c
   Author: Adam Stokes <adam.stokes@ubuntu.com>
