@@ -3,8 +3,18 @@ Changes from 2014-11-06 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 1.0.6 at 2014-11-21 14:07:37 +0000
+version 1.0.6 at 2014-11-21 14:09:01 +0000
 ------------------------------------------
+
+  Change: 8dc45b3a79350710111502de7b85934399b086db
+  Author: Adam Stokes <adam.stokes@ubuntu.com>
+  Date : 2014-11-21 08:07:49 +0000
+
+    Update build instructions
+
+    - Remove PWP Encoding GH#4 (sergeyromanov)
+
+    Signed-off-by: Adam Stokes <adam.stokes@ubuntu.com> 
 
   Change: 7293540e78c5f86684683de33fc410fbac4f833f
   Author: adam.stokes <battlemidget@users.noreply.github.com>
