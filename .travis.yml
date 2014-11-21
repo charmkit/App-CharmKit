@@ -9,6 +9,7 @@ notifications:
 install:
   - cpanm --notest -q --mirror-only --installdeps .
   - perl Build.PL
+  - ./Build build
   - ./Build install
 script:
   - ./Build test
