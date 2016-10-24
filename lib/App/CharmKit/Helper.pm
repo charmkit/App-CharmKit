@@ -29,7 +29,8 @@ use JSON::PP;
 use Text::MicroTemplate;
 use base "Exporter::Tiny";
 
-our @EXPORT = qw/config_get
+our @EXPORT = qw/
+  config_get
   relation_ids
   relation_get
   relation_set
@@ -55,6 +56,7 @@ our @EXPORT = qw/config_get
 Wrapper for L<JSON::PP>
 
 =cut
+
 sub json { JSON::PP->new->utf8; }
 
 =func yaml
@@ -62,6 +64,7 @@ sub json { JSON::PP->new->utf8; }
 Wrapper for L<YAML::Tiny>
 
 =cut
+
 sub yaml { YAML::Tiny->new(@_); }
 
 =func tmpl
@@ -69,6 +72,7 @@ sub yaml { YAML::Tiny->new(@_); }
 Wrapper for L<Text::MicroTemplate>
 
 =cut
+
 sub tmpl { Text::MicroTemplate->new(@_); }
 
 =func http
@@ -76,14 +80,15 @@ sub tmpl { Text::MicroTemplate->new(@_); }
 Wrapper for L<HTTP::Tiny>
 
 =cut
-sub http { HTTP::Tiny->new; }
 
+sub http { HTTP::Tiny->new; }
 
 =func config_get
 
 Queries a config option
 
 =cut
+
 sub config_get {
     my ($key) = @_;
     my $cmd = ['config-get', $key];
@@ -96,6 +101,7 @@ sub config_get {
 Gets relation
 
 =cut
+
 sub relation_get {
     my $attribute = shift || undef;
     my $unit      = shift || undef;
@@ -121,6 +127,7 @@ sub relation_get {
 Relation set
 
 =cut
+
 sub relation_set {
     my $opts = shift;
     my $cmd  = ['relation-set'];
@@ -138,11 +145,12 @@ sub relation_set {
 Get relation ids
 
 =cut
+
 sub relation_ids {
-  my ($relation_name) = @_;
-  my $cmd = ['relation-ids', $relation_name];
-  my $ret = execute($cmd);
-  return $ret->{stdout};
+    my ($relation_name) = @_;
+    my $cmd = ['relation-ids', $relation_name];
+    my $ret = execute($cmd);
+    return $ret->{stdout};
 }
 
 =func relation_list
@@ -150,6 +158,7 @@ sub relation_ids {
 Relation list
 
 =cut
+
 sub relation_list {
     my $rid = shift || undef;
     my $cmd = ['relation-list'];
@@ -166,13 +175,13 @@ sub relation_list {
 Get unit information
 
 =cut
-sub unit_get {
-  my ($key) = @_;
-  my $cmd = ['unit-get', $key];
-  my $ret = execute($cmd);
-  return $ret->{stdout};
-}
 
+sub unit_get {
+    my ($key) = @_;
+    my $cmd = ['unit-get', $key];
+    my $ret = execute($cmd);
+    return $ret->{stdout};
+}
 
 =func unit_private_ip
 
@@ -189,6 +198,7 @@ sub unit_private_ip {
 Open port on service
 
 =cut
+
 sub open_port {
     my $port     = shift;
     my $protocol = shift || 'TCP';
@@ -202,6 +212,7 @@ sub open_port {
 Close port on service
 
 =cut
+
 sub close_port {
     my $port     = shift;
     my $protocol = shift || 'TCP';
