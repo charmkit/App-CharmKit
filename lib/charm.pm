@@ -32,7 +32,7 @@ use Import::Into;
 use feature ();
 use Path::Tiny;
 
-our $VERSION = '1.0.8';
+our $VERSION = '1.0.9';
 
 sub import {
     my $target = caller;
