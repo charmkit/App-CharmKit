@@ -49,7 +49,6 @@ use Path::Tiny;
 use File::ShareDir qw(dist_file);
 use Set::Tiny;
 use Email::Address;
-use App::CharmKit::Logging qw/prettyLog/;
 
 use Class::Tiny {
     rules => YAML::Tiny->read(dist_file('App-CharmKit', 'lint_rules.yaml')),
