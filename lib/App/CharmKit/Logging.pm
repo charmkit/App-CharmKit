@@ -21,11 +21,10 @@ Reporting utilities
 =cut
 use strict;
 use warnings;
-use Data::Dumper;
 use App::CharmKit::Sys qw/execute/;
 use base "Exporter::Tiny";
 
-our @EXPORT = qw/log prettyLog/;
+our @EXPORT = qw/log/;
 
 =func log
 
@@ -42,16 +41,6 @@ sub log {
     }
     push @{$cmd}, $message;
     execute($cmd);
-}
-
-=func prettyLog
-
-Dumps the perl data structure into something readable
-
-=cut
-sub prettyLog {
-    my $obj = shift;
-    print Dumper($obj);
 }
 
 1;

@@ -23,13 +23,14 @@ etc ..
 use strict;
 use utf8::all;
 use warnings;
-use boolean;
+no warnings "experimental::signatures";
+
 use Import::Into;
 
 use feature ();
 use Path::Tiny;
-use Test::More;
-use Test::Exception;
+
+our $VERSION = '1.0.7';
 
 sub import {
     my $target = caller;
@@ -42,23 +43,13 @@ sub import {
     'warnings'->import::into($target);
     'utf8::all'->import::into($target);
     'autodie'->import::into($target, ':all');
-    'feature'->import::into($target, ':5.14');
+    'feature'->import::into($target, ':5.20');
     'English'->import::into($target, '-no_match_vars');
-    'boolean'->import::into($target, ':all');
     Path::Tiny->import::into($target, qw(path));
-
-    if ($flags{tester}) {
-        Test::More->import::into($target);
-        Test::Exception->import::into($target);
-    }
 
     # expose system utilities by default
     require 'App/CharmKit/Sys.pm';
     'App::CharmKit::Sys'->import::into($target);
-
-    # data faker utilities
-    require 'App/CharmKit/Faker.pm';
-    'App::CharmKit::Faker'->import::into($target);
 
     # expose charm helpers by default
     require 'App/CharmKit/Helper.pm';

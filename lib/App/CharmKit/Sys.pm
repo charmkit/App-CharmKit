@@ -54,6 +54,7 @@ our @EXPORT = qw/execute
 writes to a file, defaults to utf8
 
 =cut
+
 sub spew {
     my $path     = path(shift);
     my $contents = shift;
@@ -65,6 +66,7 @@ sub spew {
 reads a file, defaults to utf8
 
 =cut
+
 sub slurp {
     my $path = path(shift);
     return $path->slurp_utf8;
@@ -75,6 +77,7 @@ sub slurp {
 mkdir helper for creating directories
 
 =cut
+
 sub make_dir {
     my $dirs = shift;
     foreach my $dir (@{$dirs}) {
@@ -87,6 +90,7 @@ sub make_dir {
 removes directories
 
 =cut
+
 sub remove_dir {
     my $dirs = shift;
     foreach my $dir (@{$dirs}) {
@@ -101,6 +105,7 @@ sets owner of directories
   set_owner('ubuntu', ['/var/lib/mydb', '/etc/mydb/conf'])
 
 =cut
+
 sub set_owner {
     my ($user, $dirs) = @_;
     foreach my $dir (@{$dirs}) {
@@ -146,6 +151,7 @@ B<Params>
 * returns: result from C<execute>
 
 =cut
+
 sub add_user {
     my $user    = shift;
     my $homedir = shift || undef;
@@ -162,10 +168,11 @@ sub add_user {
 removes a user, does attempt to remove home directory
 
 =cut
+
 sub del_user {
-  my $user = shift;
-  my $ret = execute(['deluser', '--remove-home', $user]);
-  return $ret;
+    my $user = shift;
+    my $ret = execute(['deluser', '--remove-home', $user]);
+    return $ret;
 }
 
 =func execute
@@ -183,6 +190,7 @@ B<Params>
 * returns: hash of { stdout =>, stderr =>, has_error =>, error => }
 
 =cut
+
 sub execute {
     my ($command) = @_;
     my $result = run $command, \my $stdin, \my $stdout, \my $stderr;
@@ -237,6 +245,7 @@ Installs packages via apt-get
    apt_install(['nginx']);
 
 =cut
+
 sub apt_install {
     my $pkgs = shift;
     my $cmd = ['apt-get', '-qyf', 'install'];
@@ -252,6 +261,7 @@ Upgrades system
    apt_upgrade();
 
 =cut
+
 sub apt_upgrade {
     my $cmd = ['apt-get', '-qyf', 'dist-upgrade'];
     my $ret = execute($cmd);
@@ -265,6 +275,7 @@ Update repository sources
    apt_update();
 
 =cut
+
 sub apt_update {
     my $cmd = ['apt-get', 'update'];
     my $ret = execute($cmd);
@@ -281,7 +292,7 @@ Controls a upstart service
 sub service_control {
     my $service_name = shift;
     my $action       = shift;
-    my $cmd          = ['service', $service_name, $action];
+    my $cmd          = ['systemctl', $action, $service_name];
     my $ret          = execute($cmd);
     return $ret;
 }
@@ -339,7 +350,6 @@ sub read_ini {
     my $cfg  = Config::Tiny->new;
     return $cfg->read($path)->{_};
 }
-
 
 
 1;
