@@ -32,9 +32,9 @@ ok( $json_string->{option} eq 'A json option',
 my $getent = getent('passwd', 'root');
 ok($getent->{error} eq 0, 'genent works');
 
-my $dirtest = make_dir(['/tmp/test']);
+my $dirtest = make_dir('/tmp/test');
 ok(path('/tmp/test')->exists, 'directory created');
-remove_dir(['/tmp/test']);
+remove_dir('/tmp/test');
 ok(!path('/tmp/test')->exists, 'directory removed');
 
 my $contents = "this is a test";

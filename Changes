@@ -1,5 +1,10 @@
 Revision history for perl module App::CharmKit
 
+1.0.10 2016-10-25
+  - Fix license (GH: #5 FROM: Mohammad S Anwa)
+  - Rename call to execute to shorter 'sh'
+  - Enable experimental signatures
+
 1.0.9 2016-10-25
   - Slim down build tools
   - Remove useless calls

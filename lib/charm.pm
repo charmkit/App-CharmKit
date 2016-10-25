@@ -9,7 +9,7 @@ charm - sugary charm entrypoint
   use charm;
 
   log "Starting install";
-  my $ret = execute(['ls', '/tmp']);
+  my $ret = sh ['ls', '/tmp'];
   print($ret->{stdout});
 
 =cut
@@ -32,7 +32,7 @@ use Import::Into;
 use feature ();
 use Path::Tiny;
 
-our $VERSION = '1.0.9';
+our $VERSION = '1.0.10';
 
 sub import {
     my $target = caller;

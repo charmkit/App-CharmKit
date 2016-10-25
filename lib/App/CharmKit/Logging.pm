@@ -24,29 +24,29 @@ Reporting utilities
 
 use strict;
 use warnings;
-use App::CharmKit::Sys qw/execute/;
+no warnings 'experimental::signatures';
+use feature 'signatures';
+use App::CharmKit::Sys qw/sh/;
 use base "Exporter::Tiny";
 
 our @EXPORT = qw/log/;
 
 =over 8
 
-=item log($level, $msg)
+=item log($message, $level)
 
 Utilizies juju-log for any additional logging
 
 =cut
 
-sub log {
-    my $message = shift;
-    my $level = shift || undef;
+sub log($message, $level=undef) {
     my $cmd = ['juju-log'];
     if ($level) {
       push @{$cmd}, '-l';
       push @{$cmd}, $level;
     }
     push @{$cmd}, $message;
-    execute($cmd);
+    sh($cmd);
 }
 
 =back
