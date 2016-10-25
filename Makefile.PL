@@ -11,7 +11,7 @@ WriteMakefile(
     VERSION_FROM => 'lib/charm.pm',
     ABSTRACT     => 'Juju charm authoring',
     AUTHOR       => 'Adam Stokes <adamjs@cpan.org>',
-    LICENSE      => 'artisitc_2',
+    LICENSE      => 'artistic_2',
     META_MERGE   => {
         dynamic_config => 0,
         'meta-spec'    => {version => 2},
