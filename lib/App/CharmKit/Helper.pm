@@ -1,6 +1,8 @@
 package App::CharmKit::Helper;
 
-# ABSTRACT: charm helpers
+=head1 NAME
+
+App::CharmKit::Helper - helper routines
 
 =head1 SYNOPSIS
 
@@ -34,7 +36,9 @@ our @EXPORT = qw/
   tmpl
   http/;
 
-=func json
+=over 8
+
+=item json
 
 Wrapper for L<JSON::PP>
 
@@ -42,7 +46,7 @@ Wrapper for L<JSON::PP>
 
 sub json { JSON::PP->new->utf8; }
 
-=func yaml
+=item yaml
 
 Wrapper for L<YAML::Tiny>
 
@@ -50,7 +54,7 @@ Wrapper for L<YAML::Tiny>
 
 sub yaml { YAML::Tiny->new(@_); }
 
-=func tmpl
+=item tmpl
 
 Wrapper for L<Text::MicroTemplate>
 
@@ -58,7 +62,7 @@ Wrapper for L<Text::MicroTemplate>
 
 sub tmpl { Text::MicroTemplate->new(@_); }
 
-=func http
+=item http
 
 Wrapper for L<HTTP::Tiny>
 
@@ -66,5 +70,6 @@ Wrapper for L<HTTP::Tiny>
 
 sub http { HTTP::Tiny->new; }
 
+=back
 
 1;

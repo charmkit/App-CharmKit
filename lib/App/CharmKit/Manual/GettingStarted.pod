@@ -1,25 +1,10 @@
-# PODNAME: App::CharmKit::Manual::GettingStarted
-# ABSTRACT: Getting started with CharmKit
-
-__END__
-
-
 =head1 Getting Started
 
-=head2 Creating a project
-
-To start a project:
-
-  $ charmkit init [--with-hooks] <charm-name>
-
-If used C<--with-hooks> then B<hooks/> will be populated with all the default
-hooks. A few questions will be prompted and then the project is generated with
-F<charmkit.json>, F<config.yaml>, F<metadata.yaml>, F<LICENSE>, F<README.md>,
-and F<Makefile>.
+Follow the same guidelines as normal for creating a Juju charm.
 
 =head2 Directory Layout
 
-Once a project is created the structure of your project should look similar to:
+Structure your project should look similar to:
 
   charm-project/
     hooks/
@@ -33,23 +18,7 @@ Once a project is created the structure of your project should look similar to:
     metadata.yaml
     LICENSE
     README.md
-    charmkit.json
     Makefile
-
-=head2 Creating hooks
-
-By default CharmKit allows the creation of a set of default unit hooks.
-Those hooks are B<install>, B<config-changed>, B<start>, B<upgrade-charm>, B<stop>.
-
-  $ charmkit generate upgrade-charm
-
-Or you can generate all known default unit hooks:
-
-  $ charmkit generate -a
-
-A special relation hook can be created with the C<-r> option:
-
-  $ charmkit generate -r database-relation-joined
 
 =head2 Writing charm hooks
 
@@ -71,47 +40,5 @@ A typical hook starts with
 
    service_control('nginx', 'restart');
 
-=head2 Writing charm tests
-
-Tests are written in the same way and should live in B<tests/*.test>.
-
-A typical test starts with
-
-   #!/usr/bin/env perl
-
-   use charm -tester;
-
-   # See if an nginx config file exists
-   ok (-e '/etc/nginx/sites-enabled/mysite.com', 'found nginx site config');
-
-   my $ret = service_status('nginx');
-   ok ($ret->{error} eq 0, 'nginx is running);
-
-   # finish tests
-   done_testing;
-
-Tests are built in a way that the test runner from the charm reviewers will be
-able to run and validate your charm. The tests can be executed calling them directly
-(how the test runner does it) or running with:
-
-   $ charmkit test
-
-or
-
-   $ prove -lv tests/*.test
-
-=head2 Getting external charms
-
-CharmKit currently supports git endpoints and GitHub syntax B<username>/B<repo>
-
-  $ charmkit clone battlemidget/test-charm -o ~/charms/trusty/test-charm
-
-=head2 Deploying a charm
-
-  $ charmkit deploy test-charm -c ~/charms
-
-The syntax above will allow Juju to find the local charm and which series it belongs too.
-A requirement of Juju is to have a proper directory structure in the format of B<charms/<series>/<charmname>,
-where series could be any Distribution release your charm supports, (eg. trusty, precise).
 
 =cut

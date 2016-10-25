@@ -1,6 +1,8 @@
 package charm;
 
-# ABSTRACT: charm helpers for App::CharmKit
+=head1 NAME
+
+charm - sugary charm entrypoint
 
 =head1 SYNOPSIS
 
@@ -61,23 +63,3 @@ sub import {
 }
 
 1;
-
-=head1 MODULES
-
-List of modules exported by helper:
-
-=for :list
-* L<Path::Tiny>
-Exposes B<path> routine
-* L<YAML::Tiny>
-Exposes object as B<yaml>
-* L<JSON::PP>
-Exposes object as B<json>
-* L<Text::MicroTemplate>
-Exposes object as B<tmpl>
-* L<Test::More>
-* L<autodie>
-* L<utf8::all>
-* L<boolean>
-
-=cut

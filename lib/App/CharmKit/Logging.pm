@@ -1,6 +1,8 @@
 package App::CharmKit::Logging;
 
-# ABSTRACT: reporting utilities
+=head1 NAME
+
+App::CharmKit::Logging - logging method
 
 =head1 SYNOPSIS
 
@@ -19,6 +21,7 @@ Or sugar,
 Reporting utilities
 
 =cut
+
 use strict;
 use warnings;
 use App::CharmKit::Sys qw/execute/;
@@ -26,11 +29,14 @@ use base "Exporter::Tiny";
 
 our @EXPORT = qw/log/;
 
-=func log
+=over 8
+
+=item log($level, $msg)
 
 Utilizies juju-log for any additional logging
 
 =cut
+
 sub log {
     my $message = shift;
     my $level = shift || undef;
@@ -42,5 +48,7 @@ sub log {
     push @{$cmd}, $message;
     execute($cmd);
 }
+
+=back
 
 1;

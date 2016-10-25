@@ -1,46 +1,5 @@
 package App::CharmKit::Role::Lint;
 
-# ABSTRACT: charm linter
-
-=head1 SYNOPSIS
-
-  $ charmkit lint
-
-=head1 DESCRIPTION
-
-Performs various lint checks to make sure the charm is in accordance with
-Charm Store policies.
-
-=head1 Format of lint rules
-
-Lint rules are loaded from B<lint_rules.yaml> in the distributions share directory.
-The format for rules is as follows:
-
-  ---
-  files:
-    file:
-      name: 'config.yaml'
-      attributes:
-        - NOT_EMPTY
-        - EXISTS
-    file:
-      name: 'copyright'
-      attributes:
-        - NOT_EMPTY
-        - EXISTS
-      parse:
-        - pattern: '^options:\s*\n'
-          error: 'ERR_INVALID_COPYRIGHT'
-
-=attr rules
-
-Lint rules file
-
-=attr has_error
-
-Stores whether or not a fatal error was found
-
-=cut
 use strict;
 use warnings;
 use boolean;
@@ -55,11 +14,6 @@ use Class::Tiny {
     has_error => 0
 };
 
-=method parse
-
-Parses charm
-
-=cut
 sub parse {
     my ($self) = @_;
 
@@ -88,20 +42,16 @@ sub parse {
     # Check for a tests path
     if (!path('tests')->exists) {
         $self->lint_fatal('tests/', 'No tests directory.');
-    } else {
-      $self->validate_tests;
+    }
+    else {
+        $self->validate_tests;
     }
 
     # Check for icon.svg
-    $self->lint_warn('icon.svg', 'No icon.svg') unless path('icon.svg')->exists;
+    $self->lint_warn('icon.svg', 'No icon.svg')
+      unless path('icon.svg')->exists;
 }
 
-
-=method validate_tests
-
-Does basic sanity checking on tests directory
-
-=cut
 
 sub validate_tests {
     my ($self) = @_;
@@ -111,11 +61,6 @@ sub validate_tests {
       if ($tests_path->child('00-autogen')->exists);
 }
 
-=method validate_configdata
-
-Validates B<config.yaml>
-
-=cut
 sub validate_configdata {
     my ($self, $configdata) = @_;
     my $config_on_disk = YAML::Tiny->read($configdata->{name})->[0];
@@ -165,11 +110,6 @@ sub validate_configdata {
 }
 
 
-=method validate_metadata
-
-Validates B<metadata.yaml>
-
-=cut
 sub validate_metadata {
     my ($self, $metadata) = @_;
     my $meta_on_disk = YAML::Tiny->read($metadata->{name})->[0];
@@ -237,8 +177,8 @@ sub validate_metadata {
     }
 
     # no matainer and maintainers isn't defined
-    if (!$meta_keys_on_disk_set->contains(qw/maintainer/)) {g
-        $self->lint_fatal($metadata->{name},
+    if (!$meta_keys_on_disk_set->contains(qw/maintainer/)) {
+        g $self->lint_fatal($metadata->{name},
             "Need at least a Maintainer or Maintainers Field defined.");
     }
 
@@ -315,11 +255,6 @@ sub validate_metadata {
 }
 
 
-=method validate_hook
-
-Validates charm hooks
-
-=cut
 sub validate_hook {
     my ($self, $hookmeta) = @_;
     my $filepath = path('hooks')->child($hookmeta->{name});
@@ -337,19 +272,6 @@ sub validate_hook {
         $self->lint_fatal($name, 'Hook is not executable');
     }
 }
-
-=method validate_attributes
-
-Performs validation of file based on available attribute
-
-=head2 Available Attributes
-
-=for :list
-* NOT_EMPTY
-* NOT_EXISTS
-* EXISTS
-
-=cut
 
 sub validate_attributes {
     my ($self, $filemeta) = @_;
@@ -379,11 +301,6 @@ sub validate_attributes {
     }
 }
 
-=method lint_fatal
-
-Prints a FATAL lint message
-
-=cut
 sub lint_fatal {
     my ($self, $item, $message) = @_;
     $self->has_error(1);
@@ -395,11 +312,6 @@ sub lint_fatal {
     );
 }
 
-=method lint_warn
-
-Prints a WARNING lint message
-
-=cut
 sub lint_warn {
     my ($self, $item, $message) = @_;
     $self->lint_print(
@@ -410,11 +322,6 @@ sub lint_warn {
     );
 }
 
-=method lint_info
-
-Prints a INFO lint message
-
-=cut
 sub lint_info {
     my ($self, $item, $message) = @_;
     $self->lint_print(
@@ -425,11 +332,6 @@ sub lint_info {
     );
 }
 
-=method lint_print
-
-Prints out lint errors
-
-=cut
 sub lint_print {
     my ($self, $item, $error) = @_;
     printf("%s: (%s) %s\n",
@@ -438,3 +340,43 @@ sub lint_print {
 }
 
 1;
+
+
+__END__
+
+=head1 NAME
+
+App::CharmKit::Role::Lint - linter methods
+
+=head1 SYNOPSIS
+
+  $ charmkit lint
+
+=head1 DESCRIPTION
+
+Performs various lint checks to make sure the charm is in accordance with
+Charm Store policies.
+
+=head1 Format of lint rules
+
+Lint rules are loaded from B<lint_rules.yaml> in the distributions share directory.
+The format for rules is as follows:
+
+  ---
+  files:
+    file:
+      name: 'config.yaml'
+      attributes:
+        - NOT_EMPTY
+        - EXISTS
+    file:
+      name: 'copyright'
+      attributes:
+        - NOT_EMPTY
+        - EXISTS
+      parse:
+        - pattern: '^options:\s*\n'
+          error: 'ERR_INVALID_COPYRIGHT'
+
+=cut
+

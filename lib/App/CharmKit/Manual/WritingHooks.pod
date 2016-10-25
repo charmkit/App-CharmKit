@@ -1,12 +1,3 @@
-# PODNAME: App::CharmKit::Manual::WritingHooks
-# ABSTRACT: How to write hooks using CharmKit
-
-=head1 Creating a hook
-
-  $ charmkit generate config-changed
-
-This places a templated hook in B<hooks/> where all hook development resides.
-
 =head1 Writing a hook
 
 We'll start with an example of a F<config-changed> hook and break down the
@@ -24,9 +15,9 @@ getting relation information, and configuring service level options.
 The C<log> facility uses C<juju-log> as the utility for logging what's happening
 in your charm.
 
-  my $port = config_get('port');
+  my $port = execute(['config-get', 'port']);
 
-C<config_get> routine will pull config options defined in F<config.yaml>.
+C<config-get> routine will pull config options defined in F<config.yaml>.
 
   # close existing bitlbee port
 
@@ -48,22 +39,9 @@ the same here.
 C<service_control> is another helper for start/stopping services on the system
 where the charm is placed.
 
-  open_port($port);
+  execute(['open-port', $port]);
 
 C<open_port> exposes a port accessible publicly, and its opposite C<close_port> will
 remove that accessibility.
-
-=head1 Further reading
-
-There are several helpers exposed automatically in order to simply the writing of
-hooks. To see what helpers are available look at the module documentation:
-
-=for :list
-* L<App::CharmKit::Sys>
-System utilities
-* L<App::CharmKit::Logging>
-Logging utilities
-* L<App::CharmKit::Helper>
-Charm specific utilities
 
 =cut

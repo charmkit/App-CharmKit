@@ -1,15 +1,10 @@
-# PODNAME: App::CharmKit::Manual
-# ABSTRACT: CharmKit Resources
-
 =head1 CharmKit Resources
 
-=for :list
 * L<https://juju.ubuntu.com/docs/>
 Juju documentation to learn more about Juju and Charms.
 
 =head1 Manual
 
-=for :list
 * L<App::CharmKit::Manual::GettingStarted>
 Brief walkthrough on getting started with L<App::CharmKit>
 * L<App::CharmKit::Manual::WritingHooks>

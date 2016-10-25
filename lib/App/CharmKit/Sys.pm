@@ -1,6 +1,8 @@
 package App::CharmKit::Sys;
 
-# ABSTRACT: system utilities
+=head1 NAME
+
+App::CharmKit::Sys
 
 =head1 SYNOPSIS
 
@@ -48,8 +50,9 @@ our @EXPORT = qw/execute
   load_helper
   read_ini/;
 
+=over 8
 
-=func spew
+=item spew
 
 writes to a file, defaults to utf8
 
@@ -61,7 +64,7 @@ sub spew {
     $path->spew_utf8($contents);
 }
 
-=func slurp
+=item slurp
 
 reads a file, defaults to utf8
 
@@ -72,7 +75,7 @@ sub slurp {
     return $path->slurp_utf8;
 }
 
-=func make_dir
+=item make_dir
 
 mkdir helper for creating directories
 
@@ -85,7 +88,7 @@ sub make_dir {
     }
 }
 
-=func remove_dir
+=item remove_dir
 
 removes directories
 
@@ -98,7 +101,7 @@ sub remove_dir {
     }
 }
 
-=func set_owner
+=item set_owner
 
 sets owner of directories
 
@@ -114,7 +117,7 @@ sub set_owner {
 }
 
 
-=func getent
+=item getent
 
 accesses user info from nss
 
@@ -139,7 +142,7 @@ sub getent {
     }
 }
 
-=func add_user
+=item add_user
 
 adds user to system
 
@@ -163,7 +166,7 @@ sub add_user {
     return $ret;
 }
 
-=func del_user
+=item del_user
 
 removes a user, does attempt to remove home directory
 
@@ -175,7 +178,7 @@ sub del_user {
     return $ret;
 }
 
-=func execute
+=item execute
 
 Executes a local command:
 
@@ -204,7 +207,7 @@ sub execute {
 }
 
 
-=func apt_add_repo
+=item apt_add_repo
 
 Adds a archive repository or ppa. B<key> is required if adding http source.
 
@@ -238,7 +241,7 @@ sub apt_add_repo {
     }
 }
 
-=func apt_install
+=item apt_install
 
 Installs packages via apt-get
 
@@ -254,7 +257,7 @@ sub apt_install {
     return $ret->{stdout};
 }
 
-=func apt_upgrade
+=item apt_upgrade
 
 Upgrades system
 
@@ -268,7 +271,7 @@ sub apt_upgrade {
     return $ret->{stdout};
 }
 
-=func apt_update
+=item apt_update
 
 Update repository sources
 
@@ -283,7 +286,7 @@ sub apt_update {
 }
 
 
-=func service_control
+=item service_control
 
 Controls a upstart service
 
@@ -297,7 +300,7 @@ sub service_control {
     return $ret;
 }
 
-=func service_status
+=item service_status
 
 Get running status of service
 
@@ -310,7 +313,7 @@ sub service_status {
 }
 
 
-=func load_helper
+=item load_helper($opts)
 
 Helper for bringing in additional utilities. A lot of utilities are
 exported automatically however, this is useful if more control is
@@ -318,9 +321,7 @@ required over the helpers.
 
 B<Params>
 
-=for :list
-* C<opts>
-Options to pass into helper class
+* C<opts> Options to pass into helper class
 
 =cut
 
@@ -332,7 +333,7 @@ sub load_helper {
 }
 
 
-=func read_ini
+=item read_ini
 
 Basic config parsing for ini like files like whats found in most of B</etc/default>.
 This will also automatically return its root property.
@@ -351,5 +352,6 @@ sub read_ini {
     return $cfg->read($path)->{_};
 }
 
+=back
 
 1;
