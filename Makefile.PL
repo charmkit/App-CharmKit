@@ -31,6 +31,9 @@ WriteMakefile(
             x_IRC => 'irc://freenode.net/#ubuntu-solutions'
         },
     },
+    BUILD_REQUIRES => {
+        'File::ShareDir::Install' => '0',
+    },
     PREREQ_PM => {
         'Import::Into'            => '1.002005',
         'boolean'                 => '0.46',
@@ -43,7 +46,6 @@ WriteMakefile(
         'Module::Runtime'         => '0.014',
         'Class::Tiny'             => '1.006',
         'File::ShareDir'          => '1.102',
-        'File::ShareDir::Install' => '0',
         'Set::Tiny'               => '0.04',
         'Email::Address'          => '1.908'
     },
