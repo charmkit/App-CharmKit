@@ -143,7 +143,7 @@ Installs packages via apt-get
 =cut
 
 sub apt_install($pkgs) {
-    my $cmd = sprintf('apt-get -qyf install %s', join(' ', $pkgs));
+    my $cmd = "apt-get -qyf install ". join(' ', @{$pkgs});
     my $ret = sh($cmd);
     return $ret;
 }
