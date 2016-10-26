@@ -2,6 +2,7 @@ Revision history for perl module App::CharmKit
 
 1.0.12 2016-10-26
   - Enable Smart comments
+  - Add CONFIGURES_REQUIRES on File::ShareDir::Install
 
 1.0.11 2016-10-26
   - Make sh take a string, die on error
