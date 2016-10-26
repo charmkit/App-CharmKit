@@ -35,10 +35,10 @@ A typical hook starts with
 
    apt_install(['mysql-server', 'nginx', 'php5-fpm'])
 
-   my $dbhost = relation_get 'dbhost';
-   my $dbuser = relation_get 'dbuser';
+   my $dbhost = sh 'relation-get dbhost';
+   my $dbuser = sh 'relation-get dbuser';
 
-   service_control('nginx', 'restart');
+   service_control 'nginx', 'restart';
 
 
 =cut

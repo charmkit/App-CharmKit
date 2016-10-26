@@ -15,7 +15,7 @@ getting relation information, and configuring service level options.
 The C<log> facility uses C<juju-log> as the utility for logging what's happening
 in your charm.
 
-  my $port = execute(['config-get', 'port']);
+  my $port = sh 'config-get port';
 
 C<config-get> routine will pull config options defined in F<config.yaml>.
 
@@ -34,12 +34,12 @@ C<config-get> routine will pull config options defined in F<config.yaml>.
 C<path> is exposed from L<Path::Tiny> so anything that applies to that module works
 the same here.
 
-  service_control('bitlbee', 'restart');
+  service_control 'bitlbee', 'restart';
 
 C<service_control> is another helper for start/stopping services on the system
 where the charm is placed.
 
-  execute(['open-port', $port]);
+  sh "open-port $port";
 
 C<open_port> exposes a port accessible publicly, and its opposite C<close_port> will
 remove that accessibility.

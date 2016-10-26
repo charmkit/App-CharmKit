@@ -25,14 +25,13 @@ etc ..
 use strict;
 use utf8::all;
 use warnings;
-no warnings "experimental::signatures";
-
 use Import::Into;
-
 use feature ();
 use Path::Tiny;
+use Cwd;
+use App::CharmKit::Sys;
 
-our $VERSION = '1.0.10';
+our $VERSION = '1.0.11';
 
 sub import {
     my $target = caller;
@@ -44,22 +43,15 @@ sub import {
     'strict'->import::into($target);
     'warnings'->import::into($target);
     'utf8::all'->import::into($target);
-    'autodie'->import::into($target, ':all');
     'feature'->import::into($target, ':5.20');
     'English'->import::into($target, '-no_match_vars');
+    Cwd->import::into($target);
     Path::Tiny->import::into($target, qw(path));
-
-    # expose system utilities by default
-    require 'App/CharmKit/Sys.pm';
-    'App::CharmKit::Sys'->import::into($target);
-
-    # expose charm helpers by default
-    require 'App/CharmKit/Helper.pm';
-    'App::CharmKit::Helper'->import::into($target);
-
-    require 'App/CharmKit/Logging.pm';
-    'App::CharmKit::Logging'->import::into($target);
-
+    Text::MicroTemplate->import::into($target, ':all');
+    App::CharmKit::Sys->import::into($target,
+        qw(sh apt_install apt_upgrade apt_update apt_add_repo spew slurp log tpl)
+    );
 }
+
 
 1;

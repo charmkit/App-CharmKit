@@ -1,6 +1,6 @@
 =head1 CharmKit Resources
 
-* L<https://juju.ubuntu.com/docs/>
+* L<https://jujucharms.com/docs/>
 Juju documentation to learn more about Juju and Charms.
 
 =head1 Manual
