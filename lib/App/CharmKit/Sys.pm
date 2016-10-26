@@ -143,8 +143,8 @@ Installs packages via apt-get
 =cut
 
 sub apt_install($pkgs) {
-    my $cmd = ['apt-get', '-qyf', 'install'];
-    map { push @{$cmd}, $_ } @{$pkgs};
+    my $cmd = 'apt-get -qyf install';
+    map { $cmd += " $_ " } @{$pkgs};
     my $ret = sh($cmd);
     return $ret;
 }
@@ -158,8 +158,7 @@ Upgrades system
 =cut
 
 sub apt_upgrade {
-    my $cmd = ['apt-get', '-qyf', 'dist-upgrade'];
-    my $ret = sh($cmd);
+    my $ret = sh('apt-get -qyf dist-upgrade');
     return $ret;
 }
 
@@ -172,8 +171,7 @@ Update repository sources
 =cut
 
 sub apt_update {
-    my $cmd = ['apt-get', 'update'];
-    my $ret = sh($cmd);
+    my $ret = sh('apt-get update');
     return $ret;
 }
 
