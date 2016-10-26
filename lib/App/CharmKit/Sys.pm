@@ -35,6 +35,7 @@ use Mojo::Template;
 use base "Exporter::Tiny";
 
 our @EXPORT = qw/sh
+  sh2
   apt_install
   apt_upgrade
   apt_update
@@ -106,6 +107,27 @@ sub sh($command) {
     return $stdout;
 }
 
+=item sh2(SCALAR $command)
+
+Runs a local command but returning L<Capture::Tiny>
+
+   my ($stdout, $stderr, $exit) = sh2 'juju-log a message';
+   chomp($stdout);
+   print $stdout;
+
+B<Arguments>
+  command: command to run
+
+B<Returns>
+  ($stdout, $stderr, $exitcode)
+
+=cut
+
+sub sh2($command) {
+    return capture {
+        system($command);
+    };
+}
 
 =item apt_add_repo(SCALAR $repo, SCALAR $key, BOOL $update)
 
@@ -143,7 +165,7 @@ Installs packages via apt-get
 =cut
 
 sub apt_install($pkgs) {
-    my $cmd = "apt-get -qyf install ". join(' ', @{$pkgs});
+    my $cmd = "apt-get -qyf install " . join(' ', @{$pkgs});
     my $ret = sh($cmd);
     return $ret;
 }

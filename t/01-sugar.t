@@ -28,6 +28,9 @@ ok($write_path->remove,              'test.txt removed');
 
 sh('mkdir -p /tmp/test');
 ok(path('/tmp/test')->exists, 'directory created');
+
+my ($stdout, $stderr, $exit) = sh2('stat '.path('/tmp/test'));
+ok($exit eq 0, 'sh2 stat success');
 sh('rm -rf /tmp/test');
 ok(!path('/tmp/test')->exists, 'directory removed');
 

@@ -46,7 +46,7 @@ sub import {
     'English'->import::into($target, '-no_match_vars');
     Path::Tiny->import::into($target, qw(path cwd));
     App::CharmKit::Sys->import::into($target,
-        qw(sh apt_install apt_upgrade apt_update apt_add_repo spew slurp log tpl)
+        qw(sh sh2 apt_install apt_upgrade apt_update apt_add_repo spew slurp log tpl)
     );
 }
 
