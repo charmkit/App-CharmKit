@@ -28,7 +28,6 @@ use warnings;
 use Import::Into;
 use feature ();
 use Path::Tiny;
-use boolean;
 use Cwd;
 use App::CharmKit::Sys;
 
@@ -46,7 +45,6 @@ sub import {
     'utf8::all'->import::into($target);
     'feature'->import::into($target, ':5.20');
     'English'->import::into($target, '-no_match_vars');
-    'boolean'->import::into($target, ':all');
     Cwd->import::into($target);
     Path::Tiny->import::into($target, qw(path));
     App::CharmKit::Sys->import::into($target,
