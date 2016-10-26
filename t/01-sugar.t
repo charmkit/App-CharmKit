@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-#use strict;
+use strict;
 use warnings;
 use Test::More;
 use FindBin;
@@ -10,7 +10,6 @@ use lib "$FindBin::Bin../lib";
 diag('Testing import::into syntax sugar');
 
 use_ok('charm');
-
 my $contents   = "this is a test";
 my $write_path = path('/tmp/test.txt');
 ok(spew($write_path, $contents), 'contents written to test.txt');
