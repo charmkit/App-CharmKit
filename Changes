@@ -1,5 +1,8 @@
 Revision history for perl module App::CharmKit
 
+1.0.12 2016-10-26
+  - Enable Smart comments
+
 1.0.11 2016-10-26
   - Make sh take a string, die on error
   - Condense library, remove unimportant commands

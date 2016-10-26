@@ -32,7 +32,7 @@ use boolean;
 use Cwd;
 use App::CharmKit::Sys;
 
-our $VERSION = '1.0.11';
+our $VERSION = '1.0.12';
 
 sub import {
     my $target = caller;
@@ -49,7 +49,6 @@ sub import {
     'boolean'->import::into($target, ':all');
     Cwd->import::into($target);
     Path::Tiny->import::into($target, qw(path));
-    Text::MicroTemplate->import::into($target, ':all');
     App::CharmKit::Sys->import::into($target,
         qw(sh apt_install apt_upgrade apt_update apt_add_repo spew slurp log tpl)
     );
