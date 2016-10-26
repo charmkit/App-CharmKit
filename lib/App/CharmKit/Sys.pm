@@ -12,8 +12,8 @@ or
 
   use App::CharmKit::Sys;
 
-  apt_update();
-  apt_upgrade();
+  apt_update;
+  apt_upgrade;
   apt_install ['nginx-common', 'redis-server'];
 
 =head1 DESCRIPTION

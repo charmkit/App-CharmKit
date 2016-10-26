@@ -9,8 +9,8 @@ charm - sugary charm entrypoint
   use charm;
 
   log "Starting install";
-  my $ret = sh ['ls', '/tmp'];
-  print($ret->{stdout});
+  my $ret = sh 'ls /tmp';
+  print($ret);
 
 =cut
 
