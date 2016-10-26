@@ -1,7 +1,9 @@
 Revision history for perl module App::CharmKit
 
-1.0.11 2016-10-25
+1.0.11 2016-10-26
   - Make sh take a string, die on error
+  - Condense library, remove unimportant commands
+  - Reduce dependencies more
 
 1.0.10 2016-10-25
   - Fix license (GH: #5 FROM: Mohammad S Anwa)
