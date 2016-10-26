@@ -31,23 +31,25 @@ WriteMakefile(
             x_IRC => 'irc://freenode.net/#ubuntu-solutions'
         },
     },
-    BUILD_REQUIRES => {
+    CONFIGURE_REQUIRES => {
+        'ExtUtils::MakeMaker'     => '0',
         'File::ShareDir::Install' => '0',
     },
     PREREQ_PM => {
-        'Import::Into'            => '1.002005',
-        'boolean'                 => '0.46',
-        'utf8::all'               => '0.021',
-        'Path::Tiny'              => '0.098',
-        'App::Cmd'                => '0.331',
-        'Mojo::Template'          => '0',
-        'Capture::Tiny'           => '0',
-        'Exporter::Tiny'          => '0.042',
-        'Module::Runtime'         => '0.014',
-        'Class::Tiny'             => '1.006',
-        'File::ShareDir'          => '1.102',
-        'Set::Tiny'               => '0.04',
-        'Email::Address'          => '1.908'
+        'Import::Into'    => '1.002005',
+        'Smart::Comments' => '0',
+        'boolean'         => '0.46',
+        'utf8::all'       => '0.021',
+        'Path::Tiny'      => '0.098',
+        'App::Cmd'        => '0.331',
+        'Mojo::Template'  => '0',
+        'Capture::Tiny'   => '0',
+        'Exporter::Tiny'  => '0.042',
+        'Module::Runtime' => '0.014',
+        'Class::Tiny'     => '1.006',
+        'File::ShareDir'  => '1.102',
+        'Set::Tiny'       => '0.04',
+        'Email::Address'  => '1.908'
     },
     EXE_FILES => ['bin/charmkit'],
     test      => {TESTS => 't/*.t t/*/*.t'}
