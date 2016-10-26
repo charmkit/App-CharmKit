@@ -1,5 +1,8 @@
 Revision history for perl module App::CharmKit
 
+1.13 2016-10-26
+  - Update version to resemble whats in perlmodestyle
+
 1.0.12 2016-10-26
   - Enable Smart comments
   - Add CONFIGURES_REQUIRES on File::ShareDir::Install
