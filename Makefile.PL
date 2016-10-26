@@ -36,11 +36,6 @@ WriteMakefile(
         'File::ShareDir' => 0,
         'File::ShareDir::Install' => '0.11',
     },
-    BUILD_REQUIRES => {
-        'ExtUtils::MakeMaker'     => '7',
-        'File::ShareDir' => 0,
-        'File::ShareDir::Install' => '0.11'
-    },
     PREREQ_PM => {
         'Import::Into'    => '1.002005',
         'Smart::Comments' => 0,
