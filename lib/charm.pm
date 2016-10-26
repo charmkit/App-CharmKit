@@ -28,7 +28,6 @@ use warnings;
 use Import::Into;
 use feature ();
 use Path::Tiny;
-use Cwd;
 use App::CharmKit::Sys;
 
 our $VERSION = '1.0.12';
@@ -45,8 +44,7 @@ sub import {
     'utf8::all'->import::into($target);
     'feature'->import::into($target, ':5.20');
     'English'->import::into($target, '-no_match_vars');
-    Cwd->import::into($target);
-    Path::Tiny->import::into($target, qw(path));
+    Path::Tiny->import::into($target, qw(path cwd));
     App::CharmKit::Sys->import::into($target,
         qw(sh apt_install apt_upgrade apt_update apt_add_repo spew slurp log tpl)
     );
