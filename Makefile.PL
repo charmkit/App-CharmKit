@@ -18,11 +18,9 @@ WriteMakefile(
         no_index       => {directory => ['examples', 't']},
         prereqs        => {runtime => {requires => {perl => '5.020'}}},
         resources      => {
-            bugtracker =>
-              {web => 'https://github.com/battlemidget/App-Charmkit/issues'},
-            homepage => 'https://github.com/battlemidget/App-Charmkit',
-            license =>
-              ['http://www.opensource.org/licenses/artistic-license-2.0'],
+            bugtracker => {web => 'https://github.com/battlemidget/App-Charmkit/issues'},
+            homepage   => 'https://github.com/battlemidget/App-Charmkit',
+            license    => ['http://www.opensource.org/licenses/artistic-license-2.0'],
             repository => {
                 type => 'git',
                 url  => 'https://github.com/battlemidget/App-Charmkit.git',
@@ -52,7 +50,8 @@ WriteMakefile(
         'Set::Tiny'       => '0.04',
         'Email::Address'  => '1.908',
         'YAML::Tiny'      => 0,
-        "IO::Socket::SSL" => '1.94'
+        "IO::Socket::SSL" => '1.94',
+        'Rex'             => '1.4.1'
     },
     EXE_FILES => ['bin/charmkit'],
     test      => {TESTS => 't/*.t t/*/*.t'}

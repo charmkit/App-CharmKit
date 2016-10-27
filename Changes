@@ -1,5 +1,8 @@
 Revision history for perl module App::CharmKit
 
+1.14 2016-10-27
+  - Import Rex for cleaner charm commands
+
 1.13 2016-10-26
   - Update version to resemble whats in perlmodestyle
   - Add sh2 routine to return Capture::Tiny
