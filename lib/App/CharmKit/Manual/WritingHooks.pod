@@ -44,4 +44,42 @@ where the charm is placed.
 C<open_port> exposes a port accessible publicly, and its opposite C<close_port> will
 remove that accessibility.
 
+=head1 Adding custom libraries
+
+There are cases where you want to write reusable subroutines to be used
+throughout your charm hooks. charmkit will automatically search in your toplevel
+project searching for a B<lib> directory. Similar to how you write Perl modules.
+
+For example, your directory structure
+
+The structure your project should look similar to:
+
+  charm-project/
+    hooks/
+      install
+      config-changed
+      start
+      stop
+      upgrade-charm
+    tests/
+      00-basic.test
+    lib/                # Add lib to toplevel charm directory
+      dokuwiki.pm
+    t/
+      01-test-dokuwiki.t
+    config.yaml
+    metadata.yaml
+    LICENSE
+    README.md
+
+
+Now in your hook file you can just call:
+
+  #!/usr/bin/env perl
+  use charm;
+  use dokuwiki;
+
+  my $dw = dokuwiki->new;
+  $dw->check_for_latest_version;
+
 =cut

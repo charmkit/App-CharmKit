@@ -29,6 +29,8 @@ use Import::Into;
 use feature ();
 use Path::Tiny;
 use App::CharmKit::Sys;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 
 our $VERSION = '1.14_01';
 
