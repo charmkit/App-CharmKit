@@ -33,7 +33,7 @@ WriteMakefile(
     },
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker'     => '7',
-        'File::ShareDir' => 0,
+        'File::ShareDir'          => 0,
         'File::ShareDir::Install' => '0.11',
     },
     PREREQ_PM => {
@@ -50,7 +50,8 @@ WriteMakefile(
         'Class::Tiny'     => '1.006',
         'File::ShareDir'  => '1.102',
         'Set::Tiny'       => '0.04',
-        'Email::Address'  => '1.908'
+        'Email::Address'  => '1.908',
+        'YAML::Tiny'      => 0
     },
     EXE_FILES => ['bin/charmkit'],
     test      => {TESTS => 't/*.t t/*/*.t'}
