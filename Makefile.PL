@@ -43,7 +43,7 @@ WriteMakefile(
         'utf8::all'       => '0.021',
         'Path::Tiny'      => '0.098',
         'App::Cmd'        => '0.331',
-        'Mojo::Template'  => 0,
+        'Mojolicious'     => 0,
         'Capture::Tiny'   => 0,
         'Exporter::Tiny'  => '0.042',
         'Module::Runtime' => '0.014',
