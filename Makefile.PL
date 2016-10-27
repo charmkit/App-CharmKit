@@ -51,7 +51,8 @@ WriteMakefile(
         'File::ShareDir'  => '1.102',
         'Set::Tiny'       => '0.04',
         'Email::Address'  => '1.908',
-        'YAML::Tiny'      => 0
+        'YAML::Tiny'      => 0,
+        "IO::Socket::SSL" => '1.94'
     },
     EXE_FILES => ['bin/charmkit'],
     test      => {TESTS => 't/*.t t/*/*.t'}
