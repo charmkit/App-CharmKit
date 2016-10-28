@@ -8,6 +8,11 @@ App::CharmKit::Command::lint - charm linter
 
   $ charmkit lint
 
+=head1 DESCRIPTION
+
+This will try to perform an indepth charm proof check so that uploaded charms
+may receive quicker turnaround times during review process.
+
 =cut
 
 use strict;

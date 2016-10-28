@@ -43,10 +43,11 @@ use Rex::Commands::SCM;
 use Rex::Commands::Service;
 use Rex::Commands::User;
 use Rex::Commands::Virtualization;
+use POSIX;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
-our $VERSION = '2.001000';
+our $VERSION = '2.02';
 
 sub import {
     my $target = caller;
@@ -59,6 +60,7 @@ sub import {
     'warnings'->import::into($target);
     'feature'->import::into($target, ':5.20');
     'English'->import::into($target, '-no_match_vars');
+    POSIX->import::into($target, qw(strftime));
     Rex->import::into($target, '-feature' => [qw(no_path_cleanup)]);
     Rex::Commands->import::into($target);
     Rex::Commands::Box->import::into($target);
