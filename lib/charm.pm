@@ -32,12 +32,14 @@ use Rex;
 use Rex::Commands;
 use Rex::Commands::Run;
 use Rex::Commands::File;
+use Rex::Commands::Fs;
 use Rex::Commands::Download;
 use Rex::Commands::Pkg;
+use Rex::Commands::Service;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
-our $VERSION = '1.14_02';
+our $VERSION = '2.00';
 
 sub import {
     my $target = caller;
@@ -50,12 +52,14 @@ sub import {
     'warnings'->import::into($target);
     'feature'->import::into($target, ':5.20');
     'English'->import::into($target, '-no_match_vars');
-    Rex->import::into($target, '-feature '.[qw(no_path_cleanup)]);
+    Rex->import::into($target, '-feature' => [qw(no_path_cleanup)]);
     Rex::Commands->import::into($target);
     Rex::Commands::Run->import::into($target);
     Rex::Commands::Pkg->import::into($target);
     Rex::Commands::Download->import::into($target);
     Rex::Commands::File->import::into($target);
+    Rex::Commands::Fs->import::into($target);
+    Rex::Commands::Service->import::into($target);
     Path::Tiny->import::into($target, qw(path cwd));
     App::CharmKit::Sys->import::into($target, qw(spew slurp log tpl));
 }
