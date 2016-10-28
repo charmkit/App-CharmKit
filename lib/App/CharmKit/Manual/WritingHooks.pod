@@ -29,17 +29,17 @@ C<config-get> routine will pull config options defined in F<config.yaml>.
   BITLBEE_UPGRADE_DONT_RESTART=0
   } );
 
-  path('/etc/default/bitlbee')->spew_utf8($output);
+  file "/etc/default/bitlebee", content => $output;
 
 C<path> is exposed from L<Path::Tiny> so anything that applies to that module works
 the same here.
 
-  service_control 'bitlbee', 'restart';
+  service 'bitlbee' => 'restart';
 
 C<service_control> is another helper for start/stopping services on the system
 where the charm is placed.
 
-  sh "open-port $port";
+  run "open-port $port";
 
 C<open_port> exposes a port accessible publicly, and its opposite C<close_port> will
 remove that accessibility.
@@ -64,9 +64,9 @@ The structure your project should look similar to:
     tests/
       00-basic.test
     lib/                # Add lib to toplevel charm directory
-      dokuwiki.pm
+      bitlbee.pm
     t/
-      01-test-dokuwiki.t
+      01-test-bitlbee.t
     config.yaml
     metadata.yaml
     LICENSE
@@ -77,9 +77,9 @@ Now in your hook file you can just call:
 
   #!/usr/bin/env perl
   use charm;
-  use dokuwiki;
+  use bitlbee;
 
-  my $dw = dokuwiki->new;
-  $dw->check_for_latest_version;
+  my $bb = bitlbee->new;
+  $bb->syntax_check_config;
 
 =cut

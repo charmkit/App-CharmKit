@@ -27,14 +27,13 @@ use warnings;
 use Import::Into;
 use feature ();
 use Path::Tiny;
-use App::CharmKit::Sys;
 use Rex;
 use Rex::Commands;
-use Rex::Commands::Run;
+use Rex::Commands::Download;
 use Rex::Commands::File;
 use Rex::Commands::Fs;
-use Rex::Commands::Download;
 use Rex::Commands::Pkg;
+use Rex::Commands::Run;
 use Rex::Commands::Service;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
@@ -61,7 +60,6 @@ sub import {
     Rex::Commands::Fs->import::into($target);
     Rex::Commands::Service->import::into($target);
     Path::Tiny->import::into($target, qw(path cwd));
-    App::CharmKit::Sys->import::into($target, qw(spew slurp log tpl));
 }
 
 

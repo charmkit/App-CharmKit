@@ -1,5 +1,10 @@
 Revision history for perl module App::CharmKit
 
+2.00 2016-10-27
+  - Reduce deps that were not in use
+  - Reworked all commands to use Rex's support
+  - New release to account for breaking changes
+
 1.14 2016-10-27
   - Import Rex for cleaner charm commands
 

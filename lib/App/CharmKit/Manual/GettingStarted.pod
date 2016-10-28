@@ -29,21 +29,22 @@ B<install> hook. For example, edit B<hooks/install>
 
    #!/usr/bin/env perl
    BEGIN {
-    system 'sudo apt-get install -qyf cpanminus build-essential';
-    system 'cpanm -n App::CharmKit~">= 1.13"';
+    system 'sudo apt-get install -qyf cpanminus build-essential libssl-dev libxml2-dev libexpat1-dev';
+    system 'cpanm -n App::CharmKit~">= 2.00"';
    }
 
    use charm;
 
    log 'Installing dokuwiki dependenices';
-   apt_update;
-   apt_install [
-    'nginx-full',   'php-fpm',  'php-cgi',    'php-curl',
-    'php-gd',       'php-json', 'php-mcrypt', 'php-readline',
-    'php-mbstring', 'php-xml'
-   ];
 
-   my $hook_path = path($ENV{JUJU_CHARM_DIR});
+   pkg [
+    'nginx-full', 'php-fpm',      'php-cgi',      'php-curl', 'php-gd', 'php-json',
+    'php-mcrypt', 'php-readline', 'php-mbstring', 'php-xml'
+   ],
+   ensure    => "present",
+   on_change => sub { log "All latest packages installed."; };
+
+   my $hook_path = $ENV{JUJU_CHARM_DIR};
 
 The B<BEGIN> block is the important bit here where we make sure that
 L<App::CharmKit> is installed prior to use.
@@ -58,12 +59,11 @@ A typical hook starts with
 
    log 'Starting install hook for database';
 
-   apt_install(['mysql-server', 'nginx', 'php5-fpm'])
+   pkg ['mysql-server', 'nginx', 'php5-fpm'];
 
-   my $dbhost = sh 'relation-get dbhost';
-   my $dbuser = sh 'relation-get dbuser';
+   my $dbhost = run 'relation-get dbhost';
+   my $dbuser = run 'relation-get dbuser';
 
-   service_control 'nginx', 'restart';
-
+   service 'nginx' => 'restart';
 
 =cut
