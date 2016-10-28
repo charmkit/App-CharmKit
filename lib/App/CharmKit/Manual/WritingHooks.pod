@@ -15,7 +15,7 @@ getting relation information, and configuring service level options.
 The C<log> facility uses C<juju-log> as the utility for logging what's happening
 in your charm.
 
-  my $port = sh 'config-get port';
+  my $port = run 'config-get port';
 
 C<config-get> routine will pull config options defined in F<config.yaml>.
 
