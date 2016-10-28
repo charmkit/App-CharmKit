@@ -8,7 +8,7 @@ charm - sugary charm entrypoint
 
   use charm;
 
-  log "Starting install";
+  run "juju-log Starting install";
   my $output = run 'ls /tmp';
   print($output);
 
