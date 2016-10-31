@@ -49,7 +49,8 @@ WriteMakefile(
         'Smart::Comments' => '1.06',
         'YAML::Tiny'      => '1.69',
         'boolean'         => '0.45',
-        'Expect'          => '1.21'
+        'Expect'          => '1.21',
+        'Test::More'      => 0,
     },
     EXE_FILES => ['bin/charmkit'],
     test      => {TESTS => 't/*.t t/*/*.t'}

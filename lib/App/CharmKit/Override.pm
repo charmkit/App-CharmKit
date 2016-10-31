@@ -49,7 +49,7 @@ running charm
 
 =cut
 
-sub unit($key){
+sub unit($key) {
     return run "unit-get $key";
 }
 
@@ -57,11 +57,12 @@ sub unit($key){
 
 Sets the charm's current status of execution
 
-=cut
-
 =back
 
-sub status($level="active", $msg="Ready") {
+=cut
+
+
+sub status ($level = "active", $msg = "Ready") {
     return run "status-set $level $msg";
 }
 

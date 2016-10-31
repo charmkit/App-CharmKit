@@ -2,12 +2,12 @@
 
 use strict;
 use warnings;
-use Test::More;
 use FindBin;
+use Test::More;
 use lib "$FindBin::Bin../lib";
 
-diag('Testing import::into syntax sugar');
 
+diag('Testing import::into syntax sugar');
 use_ok('charm');
 ok(run("uname -a"));
 file("/tmp/test", ensure => "directory");
