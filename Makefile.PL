@@ -11,7 +11,7 @@ WriteMakefile(
     VERSION_FROM => 'lib/charm.pm',
     ABSTRACT     => 'Juju charm authoring',
     AUTHOR       => 'Adam Stokes <adamjs@cpan.org>',
-    LICENSE      => 'artistic_2',
+    LICENSE      => 'perl',
     META_MERGE   => {
         dynamic_config => 0,
         'meta-spec'    => {version => 2},
@@ -20,7 +20,6 @@ WriteMakefile(
         resources      => {
             bugtracker => {web => 'https://github.com/battlemidget/App-Charmkit/issues'},
             homepage   => 'https://github.com/battlemidget/App-Charmkit',
-            license    => ['http://www.opensource.org/licenses/artistic-license-2.0'],
             repository => {
                 type => 'git',
                 url  => 'https://github.com/battlemidget/App-Charmkit.git',
