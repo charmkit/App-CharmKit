@@ -27,6 +27,7 @@ use warnings;
 use Import::Into;
 use feature ();
 use Path::Tiny;
+use Test::More;
 use Rex;
 use Rex::Commands;
 use Rex::Commands::Box;
@@ -47,7 +48,7 @@ use POSIX;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
-our $VERSION = '2.02';
+our $VERSION = '2.03';
 
 sub import {
     my $target = caller;
@@ -78,6 +79,14 @@ sub import {
     Rex::Commands::User->import::into($target);
     Rex::Commands::Virtualization->import::into($target);
     Path::Tiny->import::into($target, qw(path cwd));
+
+    if ($flags{tester}) {
+        Test::More->import::into($target);
+    }
+
+    # overrides
+    require 'App/CharmKit/Override.pm';
+    'App::CharmKit::Override'->import::into($target);
 }
 
 

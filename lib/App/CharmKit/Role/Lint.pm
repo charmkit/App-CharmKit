@@ -2,7 +2,6 @@ package App::CharmKit::Role::Lint;
 
 use strict;
 use warnings;
-use boolean;
 use YAML::Tiny;
 use Path::Tiny;
 use File::ShareDir qw(dist_file);
@@ -14,9 +13,7 @@ use Class::Tiny {
     has_error => 0
 };
 
-sub parse {
-    my ($self) = @_;
-
+sub parse($self) {
     # Check attributes
     my $rules = $self->rules->[0];
     foreach my $meta (@{$rules->{files}}) {
@@ -53,16 +50,14 @@ sub parse {
 }
 
 
-sub validate_tests {
-    my ($self) = @_;
+sub validate_tests($self) {
     my $tests_path = path('tests');
     $self->lint_fatal('00-autogen',
         'Includes template test file, tests/00-autogen')
       if ($tests_path->child('00-autogen')->exists);
 }
 
-sub validate_configdata {
-    my ($self, $configdata) = @_;
+sub validate_configdata($self, $configdata) {
     my $config_on_disk = YAML::Tiny->read($configdata->{name})->[0];
     my $filepath       = path($configdata->{name});
 
@@ -110,8 +105,7 @@ sub validate_configdata {
 }
 
 
-sub validate_metadata {
-    my ($self, $metadata) = @_;
+sub validate_metadata($self, $metadata) {
     my $meta_on_disk = YAML::Tiny->read($metadata->{name})->[0];
     my $filepath     = path($metadata->{name});
 
@@ -255,8 +249,7 @@ sub validate_metadata {
 }
 
 
-sub validate_hook {
-    my ($self, $hookmeta) = @_;
+sub validate_hook($self, $hookmeta) {
     my $filepath = path('hooks')->child($hookmeta->{name});
     my $name     = $filepath->stringify;
     foreach my $attr (@{$hookmeta->{attributes}}) {
@@ -273,8 +266,7 @@ sub validate_hook {
     }
 }
 
-sub validate_attributes {
-    my ($self, $filemeta) = @_;
+sub validate_attributes($self, $filemeta) {
     my $filepath = path($filemeta->{name});
     my $name     = $filemeta->{name};
     foreach my $attr (@{$filemeta->{attributes}}) {
@@ -301,8 +293,7 @@ sub validate_attributes {
     }
 }
 
-sub lint_fatal {
-    my ($self, $item, $message) = @_;
+sub lint_fatal($self, $item, $message) {
     $self->has_error(1);
     $self->lint_print(
         $item,
@@ -312,8 +303,7 @@ sub lint_fatal {
     );
 }
 
-sub lint_warn {
-    my ($self, $item, $message) = @_;
+sub lint_warn($self, $item, $message) {
     $self->lint_print(
         $item,
         {   level   => 'WARN',
@@ -322,8 +312,7 @@ sub lint_warn {
     );
 }
 
-sub lint_info {
-    my ($self, $item, $message) = @_;
+sub lint_info($self, $item, $message) {
     $self->lint_print(
         $item,
         {   level   => 'INFO',
@@ -332,7 +321,7 @@ sub lint_info {
     );
 }
 
-sub lint_print {
+sub lint_print($self, $item, $error) {
     my ($self, $item, $error) = @_;
     printf("%s: (%s) %s\n",
         substr($error->{level}, 0, 1),

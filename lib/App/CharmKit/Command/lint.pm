@@ -26,8 +26,7 @@ sub opt_spec {
 
 sub usage_desc {'%c lint'}
 
-sub execute {
-    my ($self, $opt, $args) = @_;
+sub execute($self, $opt, $args) {
     $self->parse();
     exit($self->has_error);
 }
