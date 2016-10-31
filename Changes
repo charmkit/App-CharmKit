@@ -1,5 +1,9 @@
 Revision history for perl module App::CharmKit
 
+2.03 2016-10-31
+  - Add additional routines for getting juju resources,
+    status, and unit information.
+
 2.02 2016-10-28
   - Import strftime
 
