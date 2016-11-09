@@ -1,5 +1,7 @@
 package App::CharmKit::Override;
 
+# ABSTRACT: Additional helper hook routines
+
 use strict;
 use warnings;
 no warnings 'experimental::signatures';

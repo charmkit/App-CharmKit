@@ -1,6 +1,6 @@
 package charm;
 
-# ABSTRACT: charm DSL entrypoint
+# ABSTRACT: DSL entrypoint
 
 =head1 SYNOPSIS
 
