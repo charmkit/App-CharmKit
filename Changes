@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.04      2016-11-09 09:53:22-05:00 America/New_York
   - Switch to dzil
 
 2.03 2016-10-31
