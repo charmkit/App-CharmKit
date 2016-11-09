@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# PODNAME: charmkit
+
 =head1 SYNOPSIS
 
   Available commands:

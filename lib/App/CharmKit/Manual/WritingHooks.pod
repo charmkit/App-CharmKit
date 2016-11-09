@@ -1,3 +1,5 @@
+# PODNAME: WritingHooks.pod
+
 =head1 Writing a hook
 
 We'll start with an example of a F<config-changed> hook and break down the

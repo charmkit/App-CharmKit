@@ -1,11 +1,5 @@
 package App::CharmKit::Override;
 
-=head1 NAME
-
-App::CharmKit::Override
-
-=cut
-
 use strict;
 use warnings;
 no warnings 'experimental::signatures';

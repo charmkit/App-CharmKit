@@ -1,9 +1,5 @@
 package App::CharmKit::Command::lint;
 
-=head1 NAME
-
-App::CharmKit::Command::lint - charm linter
-
 =head1 SYNOPSIS
 
   $ charmkit lint
