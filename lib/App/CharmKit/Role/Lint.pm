@@ -9,11 +9,12 @@ use Set::Tiny;
 use Email::Address;
 
 use Class::Tiny {
-    rules => YAML::Tiny->read(dist_file('App-CharmKit', 'lint_rules.yaml')),
+    rules     => YAML::Tiny->read(dist_file('App-CharmKit', 'lint_rules.yaml')),
     has_error => 0
 };
 
 sub parse($self) {
+
     # Check attributes
     my $rules = $self->rules->[0];
     foreach my $meta (@{$rules->{files}}) {
@@ -52,24 +53,21 @@ sub parse($self) {
 
 sub validate_tests($self) {
     my $tests_path = path('tests');
-    $self->lint_fatal('00-autogen',
-        'Includes template test file, tests/00-autogen')
+    $self->lint_fatal('00-autogen', 'Includes template test file, tests/00-autogen')
       if ($tests_path->child('00-autogen')->exists);
 }
 
-sub validate_configdata($self, $configdata) {
+sub validate_configdata ($self, $configdata) {
     my $config_on_disk = YAML::Tiny->read($configdata->{name})->[0];
     my $filepath       = path($configdata->{name});
 
     # This needs to be a hash
     if (ref($config_on_disk) ne 'HASH') {
-        $self->lint_fatal($filepath,
-            'config.yaml is not properly formatted.');
+        $self->lint_fatal($filepath, 'config.yaml is not properly formatted.');
     }
 
     # No root options key
-    $self->lint_fatal($configdata->{name},
-        'options is not the toplevel root key.')
+    $self->lint_fatal($configdata->{name}, 'options is not the toplevel root key.')
       unless defined($config_on_disk->{options});
 
     my $known_option_keys = Set::Tiny->new(qw/type description default/);
@@ -78,51 +76,33 @@ sub validate_configdata($self, $configdata) {
         my $existing_option_keys = Set::Tiny->new(keys %{$check_opt});
 
         # Missing required keys for an option
-        my $missing_keys =
-          $known_option_keys->difference($existing_option_keys);
-        $self->lint_fatal(
-            $filepath,
-            sprintf(
-                "Missing required keys for %s: %s",
-                $option, $missing_keys->as_string
-            )
-          )
+        my $missing_keys = $known_option_keys->difference($existing_option_keys);
+        $self->lint_fatal($filepath, sprintf("Missing required keys for %s: %s", $option, $missing_keys->as_string))
           unless $missing_keys->is_empty
           || $check_opt->{type} =~ /^(int|float|string)/;
 
         # Invalid keys in config option
-        my $invalid_keys =
-          $existing_option_keys->difference($known_option_keys);
-        $self->lint_fatal(
-            $filepath,
-            sprintf(
-                "Unknown keys for %s: %s",
-                $option, $invalid_keys->as_string
-            )
-        ) unless $invalid_keys->is_empty;
+        my $invalid_keys = $existing_option_keys->difference($known_option_keys);
+        $self->lint_fatal($filepath, sprintf("Unknown keys for %s: %s", $option, $invalid_keys->as_string))
+          unless $invalid_keys->is_empty;
     }
 
 }
 
 
-sub validate_metadata($self, $metadata) {
+sub validate_metadata ($self, $metadata) {
     my $meta_on_disk = YAML::Tiny->read($metadata->{name})->[0];
     my $filepath     = path($metadata->{name});
 
     # sets
-    my $meta_keys_set = Set::Tiny->new(@{$metadata->{known_meta_keys}});
+    my $meta_keys_set         = Set::Tiny->new(@{$metadata->{known_meta_keys}});
     my $meta_keys_on_disk_set = Set::Tiny->new(keys %{$meta_on_disk});
 
     # Check directory name against metadata name
     my $base_dirname = path('.')->absolute->basename;
     if ($base_dirname ne $meta_on_disk->{name}) {
-        $self->lint_fatal(
-            $metadata->{name},
-            sprintf(
-                'metadata name(%s) doesnt match directory name(%s)',
-                $meta_on_disk->{name}, $base_dirname
-            )
-        );
+        $self->lint_fatal($metadata->{name},
+            sprintf('metadata name(%s) doesnt match directory name(%s)', $meta_on_disk->{name}, $base_dirname));
     }
 
     # Verify required meta keys
@@ -138,49 +118,35 @@ sub validate_metadata($self, $metadata) {
 
             # Charm must provide at least one thing
             if ($metakey eq 'provides') {
-                $self->lint_fatal(
-                    $metadata->{name},
-                    sprintf('Charm must provide at least one thing: %s',
-                        $metakey)
-                );
+                $self->lint_fatal($metadata->{name}, sprintf('Charm must provide at least one thing: %s', $metakey));
             }
             else {
                 $meta_key_optional_set->insert($metakey);
             }
         }
     }
-    $self->lint_fatal(
-        $metadata->{name},
-        sprintf('Missing required item(s): %s',
-            $meta_key_required_set->as_string)
-    ) unless $meta_key_required_set->is_empty;
+    $self->lint_fatal($metadata->{name}, sprintf('Missing required item(s): %s', $meta_key_required_set->as_string))
+      unless $meta_key_required_set->is_empty;
 
-    $self->lint_info(
-        $metadata->{name},
-        sprintf('Missing optional item(s): %s',
-            $meta_key_optional_set->as_string)
-    ) unless $meta_key_optional_set->is_empty;
+    $self->lint_info($metadata->{name}, sprintf('Missing optional item(s): %s', $meta_key_optional_set->as_string))
+      unless $meta_key_optional_set->is_empty;
 
 
     # MAINTAINER
     # Make sure there isn't maintainer and maintainers listed
     if ($meta_keys_on_disk_set->contains(qw/maintainer maintainers/)) {
-        $self->lint_fatal($metadata->{name},
-                "Can not have maintainer and maintainer(s) listed. "
-              . "Only pick one.");
+        $self->lint_fatal($metadata->{name}, "Can not have maintainer and maintainer(s) listed. " . "Only pick one.");
     }
 
-    # no matainer and maintainers isn't defined
+    # no maintainer and maintainers isn't defined
     if (!$meta_keys_on_disk_set->contains(qw/maintainer/)) {
-        g $self->lint_fatal($metadata->{name},
-            "Need at least a Maintainer or Maintainers Field defined.");
+        g $self->lint_fatal($metadata->{name}, "Need at least a Maintainer or Maintainers Field defined.");
     }
 
     my $maintainers = [];
     if (defined($meta_on_disk->{maintainer})) {
         if (ref $meta_on_disk->{maintainer} eq 'ARRAY') {
-            $self->lint_fatal($metadata->{name},
-                'Maintainer field must not be a list');
+            $self->lint_fatal($metadata->{name}, 'Maintainer field must not be a list');
         }
         else {
             push @{$maintainers}, $meta_on_disk->{maintainer};
@@ -189,8 +155,7 @@ sub validate_metadata($self, $metadata) {
 
     if (defined($meta_on_disk->{maintainers})) {
         if (ref $meta_on_disk->{maintainers} ne 'ARRAY') {
-            $self->lint_fatal($metadata->{name},
-                'Maintainers field must be a list');
+            $self->lint_fatal($metadata->{name}, 'Maintainers field must be a list');
         }
         else {
             push @{$maintainers}, @{$meta_on_disk->{maintainers}};
@@ -205,15 +170,13 @@ sub validate_metadata($self, $metadata) {
           unless (ref $addresses[0] eq 'Email::Address');
     }
     if ($email_invalid) {
-        $self->lint_fatal($metadata->{name},
-            sprintf("Maintainer format should be 'Name <email>'"));
+        $self->lint_fatal($metadata->{name}, sprintf("Maintainer format should be 'Name <email>'"));
     }
 
 
     # check for keys not known to charm
     my $invalid_keys = $meta_keys_on_disk_set->difference($meta_keys_set);
-    $self->lint_fatal($metadata->{name},
-        sprintf("Unknown key: %s", $invalid_keys->as_string))
+    $self->lint_fatal($metadata->{name}, sprintf("Unknown key: %s", $invalid_keys->as_string))
       unless $invalid_keys->is_empty;
 
     # check if relations defined
@@ -222,15 +185,13 @@ sub validate_metadata($self, $metadata) {
         $missing_relation->insert($relation)
           unless $meta_keys_on_disk_set->contains([$relation]);
     }
-    $self->lint_warn($metadata->{name},
-        sprintf("Missing relation item(s): %s", $missing_relation->as_string))
+    $self->lint_warn($metadata->{name}, sprintf("Missing relation item(s): %s", $missing_relation->as_string))
       unless $missing_relation->is_empty;
 
     # no revision key should exist
     if (defined($meta_on_disk->{revision})) {
         $self->lint_fatal($metadata->{name},
-                'Revision should not be stored in metadata.yaml. '
-              . 'Move to a revision file.');
+            'Revision should not be stored in metadata.yaml. ' . 'Move to a revision file.');
     }
 
     # TODO lint subordinate
@@ -249,7 +210,7 @@ sub validate_metadata($self, $metadata) {
 }
 
 
-sub validate_hook($self, $hookmeta) {
+sub validate_hook ($self, $hookmeta) {
     my $filepath = path('hooks')->child($hookmeta->{name});
     my $name     = $filepath->stringify;
     foreach my $attr (@{$hookmeta->{attributes}}) {
@@ -266,7 +227,7 @@ sub validate_hook($self, $hookmeta) {
     }
 }
 
-sub validate_attributes($self, $filemeta) {
+sub validate_attributes ($self, $filemeta) {
     my $filepath = path($filemeta->{name});
     my $name     = $filemeta->{name};
     foreach my $attr (@{$filemeta->{attributes}}) {
@@ -293,7 +254,7 @@ sub validate_attributes($self, $filemeta) {
     }
 }
 
-sub lint_fatal($self, $item, $message) {
+sub lint_fatal ($self, $item, $message) {
     $self->has_error(1);
     $self->lint_print(
         $item,
@@ -303,7 +264,7 @@ sub lint_fatal($self, $item, $message) {
     );
 }
 
-sub lint_warn($self, $item, $message) {
+sub lint_warn ($self, $item, $message) {
     $self->lint_print(
         $item,
         {   level   => 'WARN',
@@ -312,7 +273,7 @@ sub lint_warn($self, $item, $message) {
     );
 }
 
-sub lint_info($self, $item, $message) {
+sub lint_info ($self, $item, $message) {
     $self->lint_print(
         $item,
         {   level   => 'INFO',
@@ -321,11 +282,9 @@ sub lint_info($self, $item, $message) {
     );
 }
 
-sub lint_print($self, $item, $error) {
+sub lint_print ($self, $item, $error) {
     my ($self, $item, $error) = @_;
-    printf("%s: (%s) %s\n",
-        substr($error->{level}, 0, 1),
-        $item, $error->{message});
+    printf("%s: (%s) %s\n", substr($error->{level}, 0, 1), $item, $error->{message});
 }
 
 1;
