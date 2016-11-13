@@ -1,8 +1,6 @@
 package charm;
 
-=head1 NAME
-
-charm - sugary charm entrypoint
+# ABSTRACT: DSL entrypoint
 
 =head1 SYNOPSIS
 
@@ -47,8 +45,6 @@ use Rex::Commands::Virtualization;
 use POSIX;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
-
-our $VERSION = '2.03';
 
 sub import {
     my $target = caller;

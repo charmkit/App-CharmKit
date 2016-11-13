@@ -292,10 +292,6 @@ sub lint_print ($self, $item, $error) {
 
 __END__
 
-=head1 NAME
-
-App::CharmKit::Role::Lint - linter methods
-
 =head1 SYNOPSIS
 
   $ charmkit lint

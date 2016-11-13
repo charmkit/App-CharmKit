@@ -1,10 +1,6 @@
 package App::CharmKit::Override;
 
-=head1 NAME
-
-App::CharmKit::Override
-
-=cut
+# ABSTRACT: Additional helper hook routines
 
 use strict;
 use warnings;

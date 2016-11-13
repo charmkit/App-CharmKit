@@ -1,3 +1,5 @@
+# PODNAME: GettingStarted.pod
+
 =head1 Getting Started
 
 Follow the same guidelines as normal for creating a Juju charm.
