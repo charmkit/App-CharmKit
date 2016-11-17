@@ -68,10 +68,11 @@ Load a plugin, optionally passing options
 
 =cut
 
-sub plugin($name, $opts={}) {
+sub plugin {
+    my ($name, $_options) = @_;
     my $name_path = "$FindBin::Bin/../lib/$name.pm";
     require $name_path;
-    return "$name"->new($opts);
+    return "$name"->new($_options);
 }
 
 
