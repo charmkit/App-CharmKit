@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 # PODNAME: charmkit
-# ABSTRACT: cli
+# ABSTRACT: script for running the linter and other charm utilities.
 
 =head1 SYNOPSIS
 
