@@ -1,5 +1,7 @@
 package App::CharmKit::Command::lint;
 
+# ABSTRACT: CharmKit Lint command
+
 =head1 SYNOPSIS
 
   $ charmkit lint

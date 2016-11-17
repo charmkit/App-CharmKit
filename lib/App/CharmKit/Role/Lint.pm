@@ -1,5 +1,7 @@
 package App::CharmKit::Role::Lint;
 
+# ABSTRACT: CharmKit Lint Role
+
 use strict;
 use warnings;
 no warnings 'experimental::signatures';
