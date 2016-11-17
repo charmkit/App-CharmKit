@@ -1,4 +1,4 @@
-package App::CharmKit::Override;
+package App::CharmKit::HookUtil;
 
 # ABSTRACT: Additional helper hook routines
 

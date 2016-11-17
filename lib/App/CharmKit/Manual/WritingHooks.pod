@@ -1,4 +1,5 @@
-# PODNAME: WritingHooks.pod
+# PODNAME: WritingHooks
+# ABSTRACT: How to write a Juju charm hook
 
 =head1 Writing a hook
 

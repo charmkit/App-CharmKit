@@ -20,6 +20,8 @@ projects for publishing to the Charm Store. In addition, there is built in
 charm linter, packaging of all hooks and their dependencies, testing framework,
 and helper routines to aide in the development of charms.
 
+This script provides additional tools such as charm linting.
+
 =cut
 
 use strict;

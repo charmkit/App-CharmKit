@@ -1,4 +1,5 @@
-# PODNAME: GettingStarted.pod
+# PODNAME: GettingStarted
+# ABSTRACT: Quickly get up and running with CharmKit
 
 =head1 Getting Started
 

@@ -1,48 +1,70 @@
 package charm;
 
-# ABSTRACT: DSL entrypoint
+# ABSTRACT: Sugary Juju charm authoring goodness
 
 =head1 SYNOPSIS
 
-  use charm;
-
-  run "juju-log Starting install";
-  my $output = run 'ls /tmp';
-  print($output);
+    #!/usr/bin/env perl
+    BEGIN {
+        # Install charmkit
+        system "curl -L http://charmkit.pl/setup.sh | sh";
+    }
+    
+    use charm;
+    
+    pkg ['znc', 'znc-perl', 'znc-tcl', 'znc-python'],
+        ensure => "present";
+    
+    my $hook_path = $ENV{JUJU_CHARM_DIR};
+    
+    file "/etc/systemd/system/znc.service", source => "$hook_path/templates/znc.service";
+    
+    my $content = template("$hook_path/templates/znc.conf", port => config 'port');
+    file "/home/ubuntu/.znc/configs", ensure => "directory", owner => "ubuntu", group => "ubuntu";
+    file "/home/ubuntu/.znc/configs/znc.conf",
+      owner     => "ubuntu",
+      group     => "ubuntu",
+      content   => $content,
+      on_change => sub { service znc => "restart" };
 
 =cut
 
 =head1 DESCRIPTION
 
-Exposing helper subs from various packages that would be useful in writing
-charm hooks. Including but not limited too strict, warnings, Path::Tiny, Rex, Mojolicious,
-etc ..
+Sugar package for making Juju charm authoring easier. We import several
+underlying packages such as L<Rex>, L<Path::Tiny>, L<Smart::Comments> and
+others.
 
 =cut
 
 use strict;
 use warnings;
+no bareword::filehandles;
+no indirect ':fatal';
+
+use feature                       ();
+use Path::Tiny                    ();
+use Test::More                    ();
+use Rex                           ();
+use Rex::Commands                 ();
+use Rex::Commands::Box            ();
+use Rex::Commands::Download       ();
+use Rex::Commands::File           ();
+use Rex::Commands::Fs             ();
+use Rex::Commands::MD5            ();
+use Rex::Commands::Network        ();
+use Rex::Commands::Notify         ();
+use Rex::Commands::Pkg            ();
+use Rex::Commands::Rsync          ();
+use Rex::Commands::Run            ();
+use Rex::Commands::SCM            ();
+use Rex::Commands::Service        ();
+use Rex::Commands::User           ();
+use Rex::Commands::Virtualization ();
+use POSIX                         ();
+
 use Import::Into;
-use feature ();
-use Path::Tiny;
-use Test::More;
-use Rex;
-use Rex::Commands;
-use Rex::Commands::Box;
-use Rex::Commands::Download;
-use Rex::Commands::File;
-use Rex::Commands::Fs;
-use Rex::Commands::MD5;
-use Rex::Commands::Network;
-use Rex::Commands::Notify;
-use Rex::Commands::Pkg;
-use Rex::Commands::Rsync;
-use Rex::Commands::Run;
-use Rex::Commands::SCM;
-use Rex::Commands::Service;
-use Rex::Commands::User;
-use Rex::Commands::Virtualization;
-use POSIX;
+
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
@@ -55,8 +77,18 @@ sub import {
 
     'strict'->import::into($target);
     'warnings'->import::into($target);
-    'feature'->import::into($target, ':5.20');
     'English'->import::into($target, '-no_match_vars');
+
+    warnings->unimport('once');
+    warnings->unimport('experimental');
+    warnings->unimport('experimental::signatures');
+
+    bareword::filehandles->unimport;
+    indirect->unimport(':fatal');
+
+    feature->import(':5.20');
+    feature->import('signatures');
+
     POSIX->import::into($target, qw(strftime));
     Rex->import::into($target, '-feature' => [qw(no_path_cleanup)]);
     Rex::Commands->import::into($target);
@@ -81,8 +113,8 @@ sub import {
     }
 
     # overrides
-    require 'App/CharmKit/Override.pm';
-    'App::CharmKit::Override'->import::into($target);
+    require 'App/CharmKit/HookUtil.pm';
+    'App::CharmKit::HookUtil'->import::into($target);
 }
 
 

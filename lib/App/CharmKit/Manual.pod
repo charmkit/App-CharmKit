@@ -1,4 +1,4 @@
-# PODNAME: Manual.pod
+# PODNAME: Manual
 
 =head1 CharmKit Resources
 
