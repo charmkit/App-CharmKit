@@ -1,7 +1,11 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.06      2016-11-17 09:28:29-05:00 America/New_York
   - fix charm linter
+  - add simple plugin support
+  - add true, autobox, and autobox::Core deps
 
 2.05      2016-11-16 22:32:29-05:00 America/New_York
   - Rename Override to HookUtil
