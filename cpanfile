@@ -11,6 +11,9 @@ requires 'Set::Tiny'       => '0.03';
 requires 'Smart::Comments' => '1.06';
 requires 'YAML::Tiny'      => '1.69';
 requires 'boolean'         => '0.45';
+requires 'true';
+requires 'autobox';
+requires 'autobox::Core';
 
 on 'test' => sub {
     requires "Test::More" => "0";

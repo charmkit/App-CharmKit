@@ -7,10 +7,10 @@ use warnings;
 no warnings 'experimental::signatures';
 use feature 'signatures';
 use Rex::Commands::Run;
-
+use FindBin;
 use base "Exporter::Tiny";
 
-our @EXPORT = qw(config resource unit status);
+our @EXPORT = qw(config resource unit status plugin);
 
 =over
 
@@ -53,13 +53,26 @@ sub unit($key) {
 
 Sets the charm's current status of execution
 
-=back
-
 =cut
 
 
 sub status ($level = "active", $msg = "Ready") {
     return run "status-set $level $msg";
 }
+
+=item plugin($name, %opts)
+
+Load a plugin, optionally passing options
+
+=back
+
+=cut
+
+sub plugin($name, $opts={}) {
+    my $name_path = "$FindBin::Bin/../lib/$name.pm";
+    require $name_path;
+    return "$name"->new($opts);
+}
+
 
 1;

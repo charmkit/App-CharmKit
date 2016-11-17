@@ -42,6 +42,9 @@ use warnings;
 no bareword::filehandles;
 no indirect ':fatal';
 
+use autobox                       ();
+use autobox::Core                 ();
+use true                          ();
 use feature                       ();
 use Path::Tiny                    ();
 use Test::More                    ();
@@ -78,16 +81,21 @@ sub import {
     'strict'->import::into($target);
     'warnings'->import::into($target);
     'English'->import::into($target, '-no_match_vars');
+    'autobox'->import::into($target);
+    'autobox::Core'->import::into($target);
 
     warnings->unimport('once');
     warnings->unimport('experimental');
     warnings->unimport('experimental::signatures');
+    warnings->unimport('reserved');
 
     bareword::filehandles->unimport;
     indirect->unimport(':fatal');
 
     feature->import(':5.20');
     feature->import('signatures');
+
+    true->import;
 
     POSIX->import::into($target, qw(strftime));
     Rex->import::into($target, '-feature' => [qw(no_path_cleanup)]);
