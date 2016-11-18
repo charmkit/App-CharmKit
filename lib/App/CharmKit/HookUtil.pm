@@ -6,8 +6,10 @@ use strict;
 use warnings;
 no warnings 'experimental::signatures';
 use feature 'signatures';
+use Import::Into;
 use Rex::Commands::Run;
 use FindBin;
+use Module::Runtime qw(use_module);
 use base "Exporter::Tiny";
 
 our @EXPORT = qw(config resource unit status plugin);
@@ -60,19 +62,16 @@ sub status ($level = "active", $msg = "Ready") {
     return run "status-set $level $msg";
 }
 
-=item plugin($name, %opts)
+=item plugin($name)
 
-Load a plugin, optionally passing options
+Load a plugin
 
 =back
 
 =cut
 
-sub plugin {
-    my ($name, $_options) = @_;
-    my $name_path = "$FindBin::Bin/../lib/$name.pm";
-    require $name_path;
-    return "$name"->new($_options);
+sub plugin($name) {
+    return use_module("$name");
 }
 
 

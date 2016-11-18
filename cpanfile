@@ -14,6 +14,7 @@ requires 'boolean'         => '0.45';
 requires 'true';
 requires 'autobox';
 requires 'autobox::Core';
+requires 'Module::Runtime';
 
 on 'test' => sub {
     requires "Test::More" => "0";

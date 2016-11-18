@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add Module::Runtime dep for loading plugins
 
 2.06      2016-11-17 09:28:29-05:00 America/New_York
   - fix charm linter
