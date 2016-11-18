@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.07      2016-11-17 23:07:57-05:00 America/New_York
   - add Module::Runtime dep for loading plugins
 
 2.06      2016-11-17 09:28:29-05:00 America/New_York
