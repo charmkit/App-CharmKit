@@ -6,7 +6,6 @@ use strict;
 use warnings;
 no warnings 'experimental::signatures';
 use feature 'signatures';
-use Import::Into;
 use Rex::Commands::Run;
 use FindBin;
 use Module::Runtime qw(use_module);
