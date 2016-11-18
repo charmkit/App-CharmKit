@@ -326,5 +326,9 @@ The format for rules is as follows:
         - pattern: '^options:\s*\n'
           error: 'ERR_INVALID_COPYRIGHT'
 
+=head1 TODO
+
+Switch to L<Module::Pluggable> for seperating out our checks.
+
 =cut
 
