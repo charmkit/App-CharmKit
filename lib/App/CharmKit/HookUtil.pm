@@ -8,7 +8,7 @@ no warnings 'experimental::signatures';
 use feature 'signatures';
 use Rex::Commands::Run;
 use FindBin;
-use Module::Runtime qw(use_module);
+use Module::Runtime qw(use_package_optimistically);
 use base "Exporter::Tiny";
 
 our @EXPORT = qw(config resource unit status plugin);
@@ -69,8 +69,8 @@ Load a plugin
 
 =cut
 
-sub plugin($name) {
-    return use_module("$name");
+sub plugin($name, $opts={}) {
+    return use_package_optimistically($name)->new($opts);
 }
 
 
