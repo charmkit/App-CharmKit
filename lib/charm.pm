@@ -41,10 +41,10 @@ use strict;
 use warnings;
 no bareword::filehandles;
 no indirect ':fatal';
-use true;
 
 use autobox                       ();
 use autobox::Core                 ();
+use true                          ();
 use feature                       ();
 use Path::Tiny                    ();
 use Test::More                    ();
@@ -124,3 +124,5 @@ sub import {
     require 'App/CharmKit/HookUtil.pm';
     'App::CharmKit::HookUtil'->import::into($target);
 }
+
+1;
