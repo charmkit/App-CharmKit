@@ -98,7 +98,7 @@ sub import {
     true->import;
 
     POSIX->import::into($target, qw(strftime));
-    Rex->import::into($target, '-feature' => [qw(no_path_cleanup)]);
+    Rex->import::into($target, '-feature' => [qw(no_path_cleanup disable_taskname_warning)]);
     Rex::Commands->import::into($target);
     Rex::Commands::Box->import::into($target);
     Rex::Commands::Download->import::into($target);
