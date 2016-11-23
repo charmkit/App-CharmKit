@@ -100,20 +100,16 @@ sub import {
     POSIX->import::into($target, qw(strftime));
     Rex->import::into($target, '-feature' => [qw(no_path_cleanup disable_taskname_warning)]);
     Rex::Commands->import::into($target);
-    Rex::Commands::Box->import::into($target);
-    Rex::Commands::Download->import::into($target);
     Rex::Commands::File->import::into($target);
     Rex::Commands::Fs->import::into($target);
     Rex::Commands::MD5->import::into($target);
     Rex::Commands::Network->import::into($target);
     Rex::Commands::Notify->import::into($target);
     Rex::Commands::Pkg->import::into($target);
-    Rex::Commands::Rsync->import::into($target);
     Rex::Commands::Run->import::into($target);
     Rex::Commands::SCM->import::into($target);
     Rex::Commands::Service->import::into($target);
     Rex::Commands::User->import::into($target);
-    Rex::Commands::Virtualization->import::into($target);
     Path::Tiny->import::into($target, qw(path cwd));
 
     if ($flags{tester}) {
