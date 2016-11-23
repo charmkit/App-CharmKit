@@ -8,7 +8,6 @@ no warnings 'experimental::signatures';
 use feature 'signatures';
 use Rex::Commands::Run;
 use FindBin;
-use Module::Runtime qw(use_package_optimistically);
 use base "Exporter::Tiny";
 
 our @EXPORT = qw(config resource unit status plugin);
@@ -60,18 +59,5 @@ Sets the charm's current status of execution
 sub status ($level = "active", $msg = "Ready") {
     return run "status-set $level $msg";
 }
-
-=item plugin($name)
-
-Load a plugin
-
-=back
-
-=cut
-
-sub plugin($name, $opts={}) {
-    return use_package_optimistically($name)->new($opts);
-}
-
 
 1;
