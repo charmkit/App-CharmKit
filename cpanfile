@@ -14,6 +14,7 @@ requires 'autobox';
 requires 'autobox::Core';
 requires 'boolean'         => '0.45';
 requires 'true';
+requires "Data::Printer";
 
 on 'test' => sub {
     requires "Test::More" => "0";

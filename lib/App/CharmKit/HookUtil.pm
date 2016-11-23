@@ -10,7 +10,7 @@ use Rex::Commands::Run;
 use FindBin;
 use base "Exporter::Tiny";
 
-our @EXPORT = qw(config resource unit status plugin);
+our @EXPORT = qw(config resource unit status);
 
 =over
 

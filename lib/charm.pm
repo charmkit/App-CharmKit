@@ -42,25 +42,26 @@ use warnings;
 no bareword::filehandles;
 no indirect ':fatal';
 
-use autobox                       ();
-use autobox::Core                 ();
-use true                          ();
-use feature                       ();
-use Path::Tiny                    ();
-use Test::More                    ();
-use Rex                           ();
-use Rex::Commands                 ();
-use Rex::Commands::File           ();
-use Rex::Commands::Fs             ();
-use Rex::Commands::MD5            ();
-use Rex::Commands::Network        ();
-use Rex::Commands::Notify         ();
-use Rex::Commands::Pkg            ();
-use Rex::Commands::Run            ();
-use Rex::Commands::SCM            ();
-use Rex::Commands::Service        ();
-use Rex::Commands::User           ();
-use POSIX                         ();
+use autobox                ();
+use autobox::Core          ();
+use true                   ();
+use feature                ();
+use Path::Tiny             ();
+use Test::More             ();
+use Rex                    ();
+use Rex::Commands          ();
+use Rex::Commands::File    ();
+use Rex::Commands::Fs      ();
+use Rex::Commands::MD5     ();
+use Rex::Commands::Network ();
+use Rex::Commands::Notify  ();
+use Rex::Commands::Pkg     ();
+use Rex::Commands::Run     ();
+use Rex::Commands::SCM     ();
+use Rex::Commands::Service ();
+use Rex::Commands::User    ();
+use POSIX                  ();
+use Data::Printer          ();
 
 use Import::Into;
 
@@ -107,9 +108,14 @@ sub import {
     Rex::Commands::Service->import::into($target);
     Rex::Commands::User->import::into($target);
     Path::Tiny->import::into($target, qw(path cwd));
+    Data::Printer->import::into($target);
 
     if ($flags{tester}) {
         Test::More->import::into($target);
+    }
+
+    if ($flags{task}) {
+        Rex->import::into($target, '-base');
     }
 
     # overrides
