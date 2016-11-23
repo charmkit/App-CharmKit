@@ -114,10 +114,6 @@ sub import {
         Test::More->import::into($target);
     }
 
-    if ($flags{task}) {
-        Rex->import::into($target, '-base');
-    }
-
     # overrides
     require 'App/CharmKit/HookUtil.pm';
     'App::CharmKit::HookUtil'->import::into($target);
