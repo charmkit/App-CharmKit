@@ -1,5 +1,7 @@
 package App::CharmKit::Command::lint;
 
+# ABSTRACT: CharmKit Lint command
+
 =head1 SYNOPSIS
 
   $ charmkit lint
@@ -13,9 +15,13 @@ may receive quicker turnaround times during review process.
 
 use strict;
 use warnings;
+no warnings 'experimental::signatures';
+use feature 'signatures';
 use App::CharmKit -command;
 use parent 'App::CharmKit::Role::Lint';
 
+sub abstract { "charm linter" }
+sub description { "Lints your charm and its hooks" }
 sub opt_spec {
     return ();
 }

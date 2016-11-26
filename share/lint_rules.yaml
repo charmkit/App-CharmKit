@@ -3,12 +3,6 @@ hooks:
   - name: 'install'
     attributes:
       - EXISTS
-  - name: 'start'
-    attributes:
-      - EXISTS
-  - name: 'stop'
-    attributes:
-      - EXISTS
   - name: 'config-changed'
     attributes:
     - NOT_EMPTY
@@ -52,6 +46,9 @@ files:
       - requires
       - format
       - peers
+      - series
+      - tags
+      - resources
     known_relation_keys:
       - interface
       - scope

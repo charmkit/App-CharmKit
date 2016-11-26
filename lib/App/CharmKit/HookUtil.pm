@@ -1,4 +1,4 @@
-package App::CharmKit::Override;
+package App::CharmKit::HookUtil;
 
 # ABSTRACT: Additional helper hook routines
 
@@ -7,7 +7,7 @@ use warnings;
 no warnings 'experimental::signatures';
 use feature 'signatures';
 use Rex::Commands::Run;
-
+use FindBin;
 use base "Exporter::Tiny";
 
 our @EXPORT = qw(config resource unit status);
@@ -52,8 +52,6 @@ sub unit($key) {
 =item status($level, $msg)
 
 Sets the charm's current status of execution
-
-=back
 
 =cut
 

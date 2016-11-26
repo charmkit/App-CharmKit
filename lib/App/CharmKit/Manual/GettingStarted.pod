@@ -1,4 +1,5 @@
-# PODNAME: GettingStarted.pod
+# PODNAME: GettingStarted
+# ABSTRACT: Quickly get up and running with CharmKit
 
 =head1 Getting Started
 
@@ -16,6 +17,10 @@ Structure your project should look similar to:
       stop
     tests/
       00-basic.test
+    lib/
+      myplugin.pm
+    t/
+      00_unittest1.t
     config.yaml
     metadata.yaml
     LICENSE
@@ -31,20 +36,18 @@ B<install> hook. For example, edit B<hooks/install>
 
    #!/usr/bin/env perl
    BEGIN {
-    system 'sudo apt-get install -qyf cpanminus build-essential libssl-dev libxml2-dev libexpat1-dev';
-    system 'cpanm -n App::CharmKit~">= 2.00"';
+       # Install charmkit
+       system "curl -L http://charmkit.pl/setup.sh | sh";
    }
 
    use charm;
-
-   log 'Installing dokuwiki dependenices';
 
    pkg [
     'nginx-full', 'php-fpm',      'php-cgi',      'php-curl', 'php-gd', 'php-json',
     'php-mcrypt', 'php-readline', 'php-mbstring', 'php-xml'
    ],
    ensure    => "present",
-   on_change => sub { log "All latest packages installed."; };
+   on_change => sub { say "All latest packages installed."; };
 
    my $hook_path = $ENV{JUJU_CHARM_DIR};
 
@@ -58,8 +61,6 @@ A typical hook starts with
    #!/usr/bin/env perl
 
    use charm;
-
-   log 'Starting install hook for database';
 
    pkg ['mysql-server', 'nginx', 'php5-fpm'];
 

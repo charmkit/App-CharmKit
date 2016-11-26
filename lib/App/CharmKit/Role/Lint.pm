@@ -1,7 +1,12 @@
 package App::CharmKit::Role::Lint;
 
+# ABSTRACT: CharmKit Lint Role
+
 use strict;
 use warnings;
+no warnings 'experimental::signatures';
+use feature 'signatures';
+
 use YAML::Tiny;
 use Path::Tiny;
 use File::ShareDir qw(dist_file);
@@ -140,7 +145,7 @@ sub validate_metadata ($self, $metadata) {
 
     # no maintainer and maintainers isn't defined
     if (!$meta_keys_on_disk_set->contains(qw/maintainer/)) {
-        g $self->lint_fatal($metadata->{name}, "Need at least a Maintainer or Maintainers Field defined.");
+        $self->lint_fatal($metadata->{name}, "Need at least a Maintainer or Maintainers Field defined.");
     }
 
     my $maintainers = [];
@@ -283,7 +288,6 @@ sub lint_info ($self, $item, $message) {
 }
 
 sub lint_print ($self, $item, $error) {
-    my ($self, $item, $error) = @_;
     printf("%s: (%s) %s\n", substr($error->{level}, 0, 1), $item, $error->{message});
 }
 
@@ -321,6 +325,10 @@ The format for rules is as follows:
       parse:
         - pattern: '^options:\s*\n'
           error: 'ERR_INVALID_COPYRIGHT'
+
+=head1 TODO
+
+Switch to L<Module::Pluggable> for seperating out our checks.
 
 =cut
 

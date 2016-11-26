@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 
 # PODNAME: charmkit
-# ABSTRACT: cli
+# ABSTRACT: script for running the linter and other charm utilities.
 
 =head1 SYNOPSIS
 
@@ -19,6 +19,8 @@ A perl way to charm authoring. CharmKit allows the creation of charm
 projects for publishing to the Charm Store. In addition, there is built in
 charm linter, packaging of all hooks and their dependencies, testing framework,
 and helper routines to aide in the development of charms.
+
+This script provides additional tools such as charm linting.
 
 =cut
 
