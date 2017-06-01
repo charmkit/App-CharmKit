@@ -38,20 +38,14 @@ sub import {
     'strict'->import::into($target);
     'warnings'->import::into($target);
     'English'->import::into($target, '-no_match_vars');
-    'autobox'->import::into($target);
-    'autobox::Core'->import::into($target);
 
     warnings->unimport('once');
     warnings->unimport('experimental');
     warnings->unimport('experimental::signatures');
     warnings->unimport('reserved');
 
-    bareword::filehandles->unimport;
-    indirect->unimport(':fatal');
-
     feature->import(':5.20');
     feature->import('signatures');
-
     true->import;
 
     POSIX->import::into($target, qw(strftime));
@@ -68,7 +62,6 @@ sub import {
     Rex::Commands::Service->import::into($target);
     Rex::Commands::User->import::into($target);
     Path::Tiny->import::into($target, qw(path cwd));
-    Data::Printer->import::into($target);
 
     if ($flags{tester}) {
         Test::More->import::into($target);

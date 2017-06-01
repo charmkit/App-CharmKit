@@ -28,8 +28,6 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30",
-            "File::ShareDir::Install" : "0.06",
             "Module::Build::Tiny" : "0.035"
          }
       },
@@ -44,19 +42,12 @@
       },
       "runtime" : {
          "requires" : {
-            "Data::Printer" : "0",
             "Import::Into" : "1.002005",
-            "Path::Tiny" : "0.076",
-            "Rex" : "v1.3.3",
-            "autobox" : "0",
-            "autobox::Core" : "0",
-            "boolean" : "0.45",
+            "Path::Tiny" : "0.104",
+            "Rex" : "v1.5.0",
+            "Test::More" : "0",
+            "boolean" : "0.46",
             "true" : "0"
-         }
-      },
-      "test" : {
-         "requires" : {
-            "Test::More" : "0"
          }
       }
    },
@@ -72,7 +63,7 @@
          "web" : "https://github.com/charmkit/App-CharmKit"
       }
    },
-   "version" : "2.08",
+   "version" : "2.09",
    "x_contributors" : [
       "The Gitter Badger <badger@gitter.im>",
       "Сергей Романов <sromanov-dev@yandex.ru>",
