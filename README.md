@@ -30,8 +30,7 @@ App::CharmKit - ez pz charm authoring
 # DESCRIPTION
 
 Sugar package for making Juju charm authoring easier. We import several
-underlying packages such as [Rex](https://metacpan.org/pod/Rex), [Path::Tiny](https://metacpan.org/pod/Path::Tiny), [Smart::Comments](https://metacpan.org/pod/Smart::Comments) and
-others.
+underlying packages such as [Rex](https://metacpan.org/pod/Rex) and [Path::Tiny](https://metacpan.org/pod/Path::Tiny).
 
 # AUTHOR
 

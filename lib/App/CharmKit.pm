@@ -1,5 +1,6 @@
 package App::CharmKit;
 
+our $VERSION = '2.08';
 
 use strict;
 use warnings;

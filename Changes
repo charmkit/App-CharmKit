@@ -1,6 +1,7 @@
-Revision history for {{$dist->name}}
+Revision history for App-CharmKit
 
 {{$NEXT}}
+  - Remove unused deps
 
 2.07      2016-11-17 23:07:57-05:00 America/New_York
   - add Module::Runtime dep for loading plugins
