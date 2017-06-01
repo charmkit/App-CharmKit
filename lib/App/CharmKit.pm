@@ -42,8 +42,7 @@ App::CharmKit - ez pz charm authoring
 =head1 DESCRIPTION
 
 Sugar package for making Juju charm authoring easier. We import several
-underlying packages such as L<Rex>, L<Path::Tiny>, L<Smart::Comments> and
-others.
+underlying packages such as L<Rex> and L<Path::Tiny>.
 
 =head1 AUTHOR
 
