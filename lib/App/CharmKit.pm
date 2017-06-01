@@ -18,10 +18,8 @@ App::CharmKit - ez pz charm authoring
 =head1 SYNOPSIS
 
     #!/usr/bin/env perl
-    BEGIN {
-        # Install charmkit
-        system "curl -L http://charmkit.pl/setup.sh | sh";
-    }
+    use FindBin;
+    use lib "$Bin/../lib";
 
     use charm;
 
