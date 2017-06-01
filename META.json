@@ -1,7 +1,7 @@
 {
    "abstract" : "ez pz charm authoring",
    "author" : [
-      "Adam Stokes <adamjs@cpan.org>>"
+      "Adam Stokes <adamjs@cpan.org>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Minilla/v3.0.11, CPAN::Meta::Converter version 2.150010",

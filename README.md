@@ -35,4 +35,4 @@ others.
 
 # AUTHOR
 
-Adam Stokes <adamjs@cpan.org>>
+Adam Stokes <adamjs@cpan.org>

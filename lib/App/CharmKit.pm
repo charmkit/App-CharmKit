@@ -3,7 +3,6 @@ package App::CharmKit;
 
 use strict;
 use warnings;
-use App::Cmd::Setup -app;
 
 1;
 
@@ -48,6 +47,6 @@ others.
 
 =head1 AUTHOR
 
-Adam Stokes E<lt>adamjs@cpan.org>E<gt>
+Adam Stokes E<lt>adamjs@cpan.orgE<gt>
 
 =cut

@@ -28,9 +28,6 @@ use Data::Printer          ();
 
 use Import::Into;
 
-use FindBin;
-use lib "$FindBin::Bin/../lib";
-
 sub import {
     my $target = caller;
     my $class  = shift;
@@ -76,10 +73,6 @@ sub import {
     if ($flags{tester}) {
         Test::More->import::into($target);
     }
-
-    # overrides
-    require 'App/CharmKit/HookUtil.pm';
-    'App::CharmKit::HookUtil'->import::into($target);
 }
 
 1;

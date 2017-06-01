@@ -35,10 +35,11 @@ A requirement for all charms using this library is to make sure to "bootstrap" t
 B<install> hook. For example, edit B<hooks/install>
 
    #!/usr/bin/env perl
-   BEGIN {
-       # Install charmkit
-       system "curl -L http://charmkit.pl/setup.sh | sh";
-   }
+
+   # Setup correct paths
+
+   use FindBin;
+   use lib "$Bin/../lib";
 
    use charm;
 
@@ -50,23 +51,5 @@ B<install> hook. For example, edit B<hooks/install>
    on_change => sub { say "All latest packages installed."; };
 
    my $hook_path = $ENV{JUJU_CHARM_DIR};
-
-The B<BEGIN> block is the important bit here where we make sure that
-L<App::CharmKit> is installed prior to use.
-
-Now all other charms can simply B<use charm> and continue the hook processing.
-
-A typical hook starts with
-
-   #!/usr/bin/env perl
-
-   use charm;
-
-   pkg ['mysql-server', 'nginx', 'php5-fpm'];
-
-   my $dbhost = run 'relation-get dbhost';
-   my $dbuser = run 'relation-get dbuser';
-
-   service 'nginx' => 'restart';
 
 =cut
