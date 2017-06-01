@@ -1,21 +1,8 @@
-package App::CharmKit;
-
-
-use strict;
-use warnings;
-use App::Cmd::Setup -app;
-
-1;
-
-__END__
-
-=encoding utf8
-
-=head1 NAME
+# NAME
 
 App::CharmKit - ez pz charm authoring
 
-=head1 SYNOPSIS
+# SYNOPSIS
 
     #!/usr/bin/env perl
     BEGIN {
@@ -40,14 +27,12 @@ App::CharmKit - ez pz charm authoring
       content   => $content,
       on_change => sub { service znc => "restart" };
 
-=head1 DESCRIPTION
+# DESCRIPTION
 
 Sugar package for making Juju charm authoring easier. We import several
-underlying packages such as L<Rex>, L<Path::Tiny>, L<Smart::Comments> and
+underlying packages such as [Rex](https://metacpan.org/pod/Rex), [Path::Tiny](https://metacpan.org/pod/Path::Tiny), [Smart::Comments](https://metacpan.org/pod/Smart::Comments) and
 others.
 
-=head1 AUTHOR
+# AUTHOR
 
-Adam Stokes E<lt>adamjs@cpan.org>E<gt>
-
-=cut
+Adam Stokes <adamjs@cpan.org>>

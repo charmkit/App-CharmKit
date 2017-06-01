@@ -1,0 +1,4 @@
+author = "Adam Stokes <adamjs@cpan.org>"
+license = "Perl_5"
+name = "App-CharmKit"
+version = "2.07"

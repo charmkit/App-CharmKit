@@ -1,0 +1,93 @@
+{
+   "abstract" : "ez pz charm authoring",
+   "author" : [
+      "Adam Stokes <adamjs@cpan.org>>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Minilla/v3.0.11, CPAN::Meta::Converter version 2.150010",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "App-CharmKit",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples",
+         "author",
+         "builder"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30",
+            "File::ShareDir::Install" : "0.06",
+            "Module::Build::Tiny" : "0.035"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion::Fast" : "0.04",
+            "Test::PAUSE::Permissions" : "0.04",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "App::Cmd" : "0.330",
+            "Data::Printer" : "0",
+            "Email::Address" : "1.908",
+            "Expect" : "1.21",
+            "Exporter::Tiny" : "0.042",
+            "File::ShareDir" : "1.102",
+            "Import::Into" : "1.002005",
+            "Moo" : "0",
+            "Path::Tiny" : "0.076",
+            "Rex" : "v1.3.3",
+            "Set::Tiny" : "0.03",
+            "Smart::Comments" : "1.06",
+            "YAML::Tiny" : "1.69",
+            "autobox" : "0",
+            "autobox::Core" : "0",
+            "boolean" : "0.45",
+            "true" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
+      }
+   },
+   "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/charmkit/App-CharmKit/issues"
+      },
+      "homepage" : "https://github.com/charmkit/App-CharmKit",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/charmkit/App-CharmKit.git",
+         "web" : "https://github.com/charmkit/App-CharmKit"
+      }
+   },
+   "version" : "2.07",
+   "x_contributors" : [
+      "The Gitter Badger <badger@gitter.im>",
+      "Сергей Романов <sromanov-dev@yandex.ru>",
+      "Adam Stokes <adam.stokes@ubuntu.com>",
+      "Mohammad S Anwar <Mohammad.Anwar@yahoo.com>",
+      "Adam Stokes <battlemidget@users.noreply.github.com>"
+   ],
+   "x_serialization_backend" : "JSON::PP version 2.27400_02"
+}
