@@ -66,6 +66,11 @@ sub import {
     if ($flags{tester}) {
         Test::More->import::into($target);
     }
+
+    # overrides
+    require 'App/CharmKit/HookUtil.pm';
+    'App::CharmKit::HookUtil'->import::into($target);
 }
+
 
 1;
