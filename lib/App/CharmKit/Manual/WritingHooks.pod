@@ -10,6 +10,8 @@ code piece by piece
   BEGIN {
       # Install charmkit
       system "curl -L http://charmkit.pl/setup.sh | sh";
+      # Or
+      system "cpanm -qn App::Charmkit";
   }
 
   use charm;
