@@ -9,8 +9,7 @@ code piece by piece
   #!/usr/bin/env perl
   BEGIN {
       # Install charmkit
-      system "curl -L http://charmkit.pl/setup.sh | sh";
-      # Or
+      system "qpt-get install -qyf cpanminus";
       system "cpanm -qn App::Charmkit";
   }
 
@@ -52,7 +51,7 @@ project searching for a B<lib> directory. Similar to how you write Perl modules.
 
 For example, your directory structure
 
-The structure your project should look similar to:
+The structure of your project should look similar to:
 
   charm-project/
     hooks/

@@ -5,8 +5,6 @@ use warnings;
 no bareword::filehandles;
 no indirect ':fatal';
 
-use autobox                ();
-use autobox::Core          ();
 use true                   ();
 use feature                ();
 use Path::Tiny             ();
@@ -23,8 +21,6 @@ use Rex::Commands::Run     ();
 use Rex::Commands::SCM     ();
 use Rex::Commands::Service ();
 use Rex::Commands::User    ();
-use POSIX                  ();
-use Data::Printer          ();
 
 use Import::Into;
 
@@ -48,7 +44,6 @@ sub import {
     feature->import('signatures');
     true->import;
 
-    POSIX->import::into($target, qw(strftime));
     Rex->import::into($target, '-feature' => [qw(no_path_cleanup disable_taskname_warning)]);
     Rex::Commands->import::into($target);
     Rex::Commands::File->import::into($target);
@@ -68,8 +63,8 @@ sub import {
     }
 
     # overrides
-    require 'App/CharmKit/HookUtil.pm';
-    'App::CharmKit::HookUtil'->import::into($target);
+    require 'App/CharmKit.pm';
+    'App::CharmKit'->import::into($target);
 }
 
 

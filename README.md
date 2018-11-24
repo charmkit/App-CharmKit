@@ -1,3 +1,24 @@
+- config($key)
+This queries the charms config
+- resource($key)
+
+    Pulls the resource bound to $key
+
+- unit($key)
+
+    Queries the Juju unit for a specific value
+    `unit 'public-address';`
+    This above code would pull the public-address of the unit in the context of the
+    running charm
+
+- status($level, $msg)
+
+    Sets the charm's current status of execution
+
+- plugin($name, %opts)
+
+    Load a plugin, optionally passing options
+
 # NAME
 
 App::CharmKit - ez pz charm authoring
@@ -5,8 +26,12 @@ App::CharmKit - ez pz charm authoring
 # SYNOPSIS
 
     #!/usr/bin/env perl
-    use FindBin;
-    use lib "$Bin/../lib";
+    #
+    # In hooks/install
+    BEGIN {
+      system "apt-get install cpanminus";
+      system "cpanm -n App::CharmKit";
+    }
 
     use charm;
 
