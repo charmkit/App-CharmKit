@@ -3,7 +3,6 @@ package charm;
 use strict;
 use warnings;
 no bareword::filehandles;
-no indirect ':fatal';
 
 use true                   ();
 use feature                ();
@@ -40,7 +39,7 @@ sub import {
     warnings->unimport('experimental::signatures');
     warnings->unimport('reserved');
 
-    feature->import(':5.20');
+    feature->import(':5.24');
     feature->import('signatures');
     true->import;
 
