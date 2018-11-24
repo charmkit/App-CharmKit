@@ -47,6 +47,7 @@
             "Rex" : "v1.6.0",
             "Smart::Comments" : "1.06",
             "Test::More" : "0",
+            "bareword::filehandles" : "0",
             "boolean" : "0.46",
             "true" : "0.18"
          }
@@ -64,7 +65,7 @@
          "web" : "https://github.com/charmkit/App-CharmKit"
       }
    },
-   "version" : "2.09",
+   "version" : "2.10",
    "x_contributors" : [
       "Adam Stokes <adam.stokes@ubuntu.com>",
       "Adam Stokes <battlemidget@users.noreply.github.com>",

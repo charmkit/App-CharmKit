@@ -2,6 +2,9 @@ Revision history for App-CharmKit
 
 {{$NEXT}}
 
+2.10 2018-11-24T23:29:11Z
+  - Fix tests
+
 2.09 2018-11-24T22:15:55Z
   - Update deps
   - Update documentation
