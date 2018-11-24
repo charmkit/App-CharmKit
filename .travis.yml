@@ -1,7 +1,6 @@
 ---
 language: perl
 perl:
-  - 'blead'
   - '5.28'
   - '5.26'
   - '5.24'
@@ -10,6 +9,6 @@ perl:
 notifications:
   email: false
 install:
-  - cpanm -n App::Minilla
+  - cpanm -n Minilla
 script:
   - minil test
