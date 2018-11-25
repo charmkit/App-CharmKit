@@ -46,6 +46,7 @@
             "Path::Tiny" : "0.108",
             "Rex" : "v1.6.0",
             "Smart::Comments" : "1.06",
+            "Sub::Install" : "0",
             "Test::More" : "0",
             "bareword::filehandles" : "0",
             "boolean" : "0.46",

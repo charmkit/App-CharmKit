@@ -21,6 +21,7 @@ use Rex::Commands::SCM     ();
 use Rex::Commands::Service ();
 use Rex::Commands::User    ();
 
+use Sub::Install;
 use Import::Into;
 
 sub import {
@@ -64,6 +65,14 @@ sub import {
     # overrides
     require 'App/CharmKit.pm';
     'App::CharmKit'->import::into($target);
+
+    Sub::Install::install_sub(
+        {   code => 'run',
+            from => 'Rex::Commands::Run',
+            into => $target,
+            as   => 'sh',
+        }
+    );
 }
 
 
