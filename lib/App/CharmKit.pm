@@ -7,7 +7,7 @@ use FindBin;
 use lib "$FindBin::Bin/..lib";
 use Module::Runtime qw(use_package_optimistically);
 
-our $VERSION = '2.10';
+our $VERSION = '2.11';
 our @EXPORT  = qw(plugin);
 
 sub plugin ($name, $opts = {}) {

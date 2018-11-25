@@ -43,13 +43,14 @@
       "runtime" : {
          "requires" : {
             "Import::Into" : "1.002005",
-            "Module::Runtime" : "0",
+            "Module::Runtime" : "0.016",
+            "Moo" : "2.003004",
             "Path::Tiny" : "0.108",
             "Rex" : "v1.6.0",
             "Smart::Comments" : "1.06",
-            "Sub::Install" : "0",
-            "Test::More" : "0",
-            "bareword::filehandles" : "0",
+            "Sub::Install" : "0.928",
+            "Test::More" : "1.302133",
+            "bareword::filehandles" : "0.006",
             "boolean" : "0.46",
             "true" : "0.18"
          }
@@ -67,7 +68,7 @@
          "web" : "https://github.com/charmkit/App-CharmKit"
       }
    },
-   "version" : "2.10",
+   "version" : "2.11",
    "x_contributors" : [
       "Adam Stokes <adam.stokes@ubuntu.com>",
       "Adam Stokes <battlemidget@users.noreply.github.com>",
