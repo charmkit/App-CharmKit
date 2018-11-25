@@ -1,6 +1,9 @@
 Revision history for App-CharmKit
 
 {{$NEXT}}
+  - Add example of plugin loading
+  - Module::Runtime for plugin loading
+  - Lock dep versions
 
 2.10 2018-11-24T23:29:11Z
   - Fix tests

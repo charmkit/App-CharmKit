@@ -43,6 +43,7 @@
       "runtime" : {
          "requires" : {
             "Import::Into" : "1.002005",
+            "Module::Runtime" : "0",
             "Path::Tiny" : "0.108",
             "Rex" : "v1.6.0",
             "Smart::Comments" : "1.06",

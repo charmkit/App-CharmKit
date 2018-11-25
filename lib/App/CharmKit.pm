@@ -4,23 +4,17 @@ package App::CharmKit;
 use charm;
 use base "Exporter::Tiny";
 use FindBin;
-use Data::Dumper;
+use lib "$FindBin::Bin/..lib";
+use Module::Runtime qw(use_package_optimistically);
 
 our $VERSION = '2.10';
 our @EXPORT  = qw(plugin);
 
 sub plugin ($name, $opts = {}) {
-    print("In $name\n");
-    require Module::Pluggable;
-    Module::Pluggable->import(
-        search_dirs => ["$FindBin::Bin/../lib"],
-        search_path => ['charm::plugin']
-    );
-
-    my @plugins = __PACKAGE__->plugins;
-    print Dumper(@plugins);
-    return @plugins;
+    return use_package_optimistically("$name")->new($opts);
 }
+
+1;
 
 __END__
 

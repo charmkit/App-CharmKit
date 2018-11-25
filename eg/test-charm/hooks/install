@@ -1,5 +1,10 @@
 #!/usr/bin/env perl
 
 use charm;
+use Data::Dumper;
 
-plugin 'docker';
+my $docker = plugin 'docker', { version => 7 };
+
+print Dumper($docker->version);
+
+print Dumper($docker->is_installed());
