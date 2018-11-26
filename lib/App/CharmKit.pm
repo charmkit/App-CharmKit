@@ -6,12 +6,31 @@ use base "Exporter::Tiny";
 use FindBin;
 use lib "$FindBin::Bin/..lib";
 use Module::Runtime qw(use_package_optimistically);
+use Data::Dumper;
 
 our $VERSION = '2.11';
-our @EXPORT  = qw(plugin);
+our @EXPORT  = qw(plugin config unit resource status);
 
 sub plugin ($name, $opts = {}) {
     return use_package_optimistically("$name")->new($opts);
+}
+
+sub config ($key) {
+    return sh("config-get $key");
+}
+
+sub resource ($key) {
+    return sh("resource-get $key");
+}
+
+sub unit ($key) {
+    return sh("unit-get $key");
+}
+
+sub status (%opts) {
+    die "Needs a 'level' and 'msg'"
+        unless (exists $opts{level} && exists $opts{msg});
+    sh "status-set", [$opts{level}, $opts{msg}], auto_die => TRUE;
 }
 
 1;

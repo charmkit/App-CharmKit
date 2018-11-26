@@ -9,6 +9,7 @@ use feature                ();
 use Path::Tiny             ();
 use Test::More             ();
 use Rex                    ();
+use Rex::Interface::Shell  ();
 use Rex::Commands          ();
 use Rex::Commands::File    ();
 use Rex::Commands::Fs      ();

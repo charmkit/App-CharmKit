@@ -43,6 +43,7 @@
       "runtime" : {
          "requires" : {
             "Import::Into" : "1.002005",
+            "Mock::Sub" : "1.09",
             "Module::Runtime" : "0.016",
             "Moo" : "2.003004",
             "Path::Tiny" : "0.108",

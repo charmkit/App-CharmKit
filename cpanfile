@@ -1,3 +1,4 @@
+requires 'Mock::Sub'             => '1.09';
 requires 'Import::Into'          => '1.002005';
 requires 'Path::Tiny'            => '0.108';
 requires 'Rex'                   => '1.6.0';
