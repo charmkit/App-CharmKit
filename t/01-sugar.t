@@ -1,13 +1,13 @@
 #!/usr/bin/env perl
 
-use strict;
-use warnings;
+use Mojo::Base -role, -signatures;
+use Test::More;
 use FindBin;
 use lib "$FindBin::Bin../lib";
-use charm -tester;
 use Mock::Sub;
 
 diag('Testing import::into syntax sugar');
+use_ok('charm');
 ok( sh( "uname", "-a" ), 'can run sh uname -a' );
 
 # file("/tmp/test", ensure => "directory");

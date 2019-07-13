@@ -1,46 +1,46 @@
 package charm;
 
-use strict;
-use warnings;
-no bareword::filehandles;
+use Mojo::Base -role, -signatures;
+use FindBin;
+use lib "$FindBin::Bin/..lib";
+use Module::Runtime qw(use_package_optimistically);
+use Capture::Tiny 'capture';
 
-use true       ();
-use feature    ();
-use Path::Tiny ();
-use Test::More ();
+sub sh ($cmd, $args) {
+    my ( $out, $err, $exit_code ) = capture {
+        system $cmd, $args;
+    };
+    return {
+        out       => $out,
+        err       => $err,
+        exit_code => $exit_code
+    };
+}
 
-use Sub::Install;
-use Import::Into;
+sub plugin ( $name, $opts = {} ) {
+    return use_package_optimistically("$name")->new($opts);
+}
 
-sub import {
-    my $target = caller;
-    my $class  = shift;
+sub config ($key) {
 
-    my @flags = grep /^-\w+/, @_;
-    my %flags = map +( $_, 1 ), map substr( $_, 1 ), @flags;
+    return sh "config-get", $key;
+}
 
-    'strict'->import::into($target);
-    'warnings'->import::into($target);
-    'English'->import::into( $target, '-no_match_vars' );
+sub resource ($key) {
 
-    warnings->unimport('once');
-    warnings->unimport('experimental');
-    warnings->unimport('experimental::signatures');
-    warnings->unimport('reserved');
+    return sh "resource-get", $key;
+}
 
-    feature->import(':5.24');
-    feature->import('signatures');
-    true->import;
+sub unit ($key) {
 
-    Path::Tiny->import::into( $target, qw(path cwd) );
+    return sh "unit-get", $key;
+}
 
-    if ( $flags{tester} ) {
-        Test::More->import::into($target);
-    }
-
-    # overrides
-    require 'App/CharmKit.pm';
-    'App::CharmKit'->import::into($target);
+sub status {
+    my $opts = shift;
+    die "Needs a 'level' and 'msg'"
+      unless ( exists $opts->{level} && exists $opts->{msg} );
+    sh "status-set", $opts->{level}, $opts->{msg};
 }
 
 1;
