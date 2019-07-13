@@ -21,7 +21,7 @@ App::CharmKit - ez pz charm authoring
 
     file "/etc/systemd/system/znc.service", source => "$hook_path/templates/znc.service";
 
-    my $content = template("$hook_path/templates/znc.conf", port => sh 'config-get port');
+    my $content = template("$hook_path/templates/znc.conf", port => config 'port');
     file "/home/ubuntu/.znc/configs", ensure => "directory", owner => "ubuntu", group => "ubuntu";
     file "/home/ubuntu/.znc/configs/znc.conf",
       owner     => "ubuntu",

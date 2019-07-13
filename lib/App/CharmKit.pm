@@ -1,36 +1,48 @@
 # ABSTRACT: Additional helper hook routines
 package App::CharmKit;
 
-use charm;
 use base "Exporter::Tiny";
 use FindBin;
 use lib "$FindBin::Bin/..lib";
 use Module::Runtime qw(use_package_optimistically);
-use Data::Dumper;
+use Capture::Tiny 'capture';
 
-our $VERSION = '2.11';
-our @EXPORT  = qw(plugin config unit resource status);
+our $VERSION = '2.12';
+our @EXPORT  = qw(sh plugin config unit resource status);
+
+sub sh {
+    my $cmd = shift;
+    my $args = shift;
+    my %results;
+    my ($out, $err, $exit_code) = capture {
+        system $cmd, $args;
+    };
+    return {out => $out,
+            err => $err,
+            exit_code => $exit_code};
+}
 
 sub plugin ($name, $opts = {}) {
     return use_package_optimistically("$name")->new($opts);
 }
 
 sub config ($key) {
-    return sh("config-get $key");
+    # return sh "config-get", [$key];
 }
 
 sub resource ($key) {
-    return sh("resource-get $key");
+    # return sh "resource-get", $key;
 }
 
 sub unit ($key) {
-    return sh("unit-get $key");
+    # return sh "unit-get", $key;
 }
 
-sub status (%opts) {
+sub status {
+    my $opts = shift;
     die "Needs a 'level' and 'msg'"
-        unless (exists $opts{level} && exists $opts{msg});
-    sh "status-set", [$opts{level}, $opts{msg}], auto_die => TRUE;
+        unless (exists $opts->{level} && exists $opts->{msg});
+    sh "status-set", $opts->{level}, $opts->{msg};
 }
 
 1;
@@ -62,7 +74,7 @@ App::CharmKit - ez pz charm authoring
 
     file "/etc/systemd/system/znc.service", source => "$hook_path/templates/znc.service";
 
-    my $content = template("$hook_path/templates/znc.conf", port => sh 'config-get port');
+    my $content = template("$hook_path/templates/znc.conf", port => config 'port');
     file "/home/ubuntu/.znc/configs", ensure => "directory", owner => "ubuntu", group => "ubuntu";
     file "/home/ubuntu/.znc/configs/znc.conf",
       owner     => "ubuntu",
