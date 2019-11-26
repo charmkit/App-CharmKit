@@ -1,6 +1,3 @@
-# PODNAME: GettingStarted
-# ABSTRACT: Quickly get up and running with CharmKit
-
 =head1 Getting Started
 
 Follow the same guidelines as normal for creating a Juju charm.
@@ -43,12 +40,14 @@ B<install> hook. For example, edit B<hooks/install>
 
    use charm;
 
-   pkg [
-    'nginx-full', 'php-fpm',      'php-cgi',      'php-curl', 'php-gd', 'php-json',
-    'php-mcrypt', 'php-readline', 'php-mbstring', 'php-xml'
-   ],
-   ensure    => "present",
-   on_change => sub { say "All latest packages installed."; };
+   pkg(
+       [
+           'nginx-full',   'php-fpm',  'php-cgi',    'php-curl',
+           'php-gd',       'php-json', 'php-mcrypt', 'php-readline',
+           'php-mbstring', 'php-xml'
+       ],
+       "present"
+   );
 
    my $hook_path = $ENV{JUJU_CHARM_DIR};
 
