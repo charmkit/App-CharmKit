@@ -10,3 +10,7 @@ requires 'Sub::Install'          => '0.928';
 requires 'Module::Runtime'       => '0.016';
 requires "Mojolicious"           => '8.20';
 requires "Role::Tiny"            => '2.000006';
+
+on 'test' => sub {
+  requires "Test::More" => "0";
+};

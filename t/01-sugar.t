@@ -1,19 +1,16 @@
-#!/usr/bin/env perl
+#!perl
+
+use FindBin;
+use lib "$FindBin::Bin../lib";
 
 use Mojo::Base -role, -signatures;
 use Test::More;
-use FindBin;
-use lib "$FindBin::Bin../lib";
 use Mock::Sub;
 
-diag('Testing import::into syntax sugar');
+diag('Testing charm');
 use_ok('charm');
-ok( sh( "uname", "-a" ), 'can run sh uname -a' );
+ok( sh( "uname", qw(-a) ), 'can run sh uname -a' );
 
-# file("/tmp/test", ensure => "directory");
-# ok(path('/tmp/test')->exists, 'directory created');
-# file("/tmp/test", ensure => "absent");
-# ok(!path('/tmp/test')->exists, 'directory removed');
 can_ok( __PACKAGE__, 'sh' );
 can_ok( __PACKAGE__, 'plugin' );
 can_ok( __PACKAGE__, 'status' );

@@ -21,3 +21,4 @@ App-CharmKit-*
 !Build/
 !META.json
 !LICENSE
+local/

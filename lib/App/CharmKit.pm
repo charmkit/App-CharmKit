@@ -1,7 +1,7 @@
 # ABSTRACT: Additional helper hook routines
 package App::CharmKit;
 
-our $VERSION = '2.12';
+our $VERSION = '2.13_01';
 
 1;
 
@@ -25,25 +25,13 @@ App::CharmKit - ez pz charm authoring
 
     use charm;
 
-    pkg ['znc', 'znc-perl', 'znc-tcl', 'znc-python'],
-        ensure => "present";
+    sh("apt", qw(-qyf install znc znc-perl znc-tcl znc-python));
 
     my $hook_path = $ENV{JUJU_CHARM_DIR};
 
-    file "/etc/systemd/system/znc.service", source => "$hook_path/templates/znc.service";
-
-    my $content = template("$hook_path/templates/znc.conf", port => config 'port');
-    file "/home/ubuntu/.znc/configs", ensure => "directory", owner => "ubuntu", group => "ubuntu";
-    file "/home/ubuntu/.znc/configs/znc.conf",
-      owner     => "ubuntu",
-      group     => "ubuntu",
-      content   => $content,
-      on_change => sub { service znc => "restart" };
-
 =head1 DESCRIPTION
 
-Sugar package for making Juju charm authoring easier. We import several
-underlying packages such as L<Rex> and L<Path::Tiny>.
+Sugar package for making Juju charm authoring easier.
 
 =head1 AUTHOR
 
