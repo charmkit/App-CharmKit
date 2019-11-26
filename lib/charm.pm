@@ -21,16 +21,10 @@ sub sh ( $cmd, $args ) {
 
 sub pkg ( $pkgs = [], $ensure = "present" ) {
     my $install_args = [ "apt", "-qyf" ];
-    if ( $ensure eq "present" ) {
-        push @{$install_args}, "install";
-        push @{$install_args}, $pkgs;
-    }
-    if ( $ensure eq "absent" ) {
-        push @{$install_args}, "remove";
-        push @{$install_args}, $pkgs;
-    }
+    push @{$install_args}, $ensure;
+    push @{$install_args}, $pkgs;
     sh(
-        "apt", $install_args;
+        "apt", $install_args
     );
 }
 
