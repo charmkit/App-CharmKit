@@ -19,7 +19,7 @@ sub sh ( $cmd, $args ) {
     };
 }
 
-sub pkg ( $pkgs = [], $ensure = "present" ) {
+sub pkg ( $pkgs = [], $ensure = "install" ) {
     my $install_args = [ "apt", "-qyf" ];
     push @{$install_args}, $ensure;
     push @{$install_args}, $pkgs;
